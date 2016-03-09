@@ -1,0 +1,21 @@
+﻿Bonjour, 
+      
+Je suis actuellement salarié chez Carrier Réfrigération depuis plus de quatre ans. Dans cette entreprise j’occupe plusieurs fonctions :
+	- Marketing: Leadership sur le développement d'un outil de design marketing avec Sketchup. Formation des commerciaux européens sur cet outil.
+	- Technique: bureau d’études pour nos clients d’Afrique du nord 
+	- Développement: Création d'une application web PHP/SQL pour collecter les rapports d'intervention des assistants technique.
+
+Cette dernière fonction au sein de mon entreprise est le résultat de ma passion et de mon initiative. Ma passion m’a poussée à apprendre le monde du développement de manière autonome sur mes soirs de semaines, mes week-ends et mes vacances. Mon initiative m'a permis d'appliquer mes connaissances sur un projet professionnel répondant aux attentes de Carrier.
+
+Mon parcours ce résumerai à une passion évidente pour le développement web et une volonté d'apprendre. Je suis donc passé du développement de petits scripts Bash au développement au développement web en passant par le développement d'application pour BlackBerry 10. Cette soif de connaissance m'a poussée à apprendre plusieurs langage et framework tel que Ruby et RubyOnRails ou bien PHP et CakePHP.
+
+Je n’ai pas suivi de cursus scolaire attestant mes connaissances en POO ou en SGBD. Cependant je sais que ma personnalité et ma motivation sauront satisfaire vos attentes sur ce poste de développeur web. Voici donc les raisons de ma candidature pour le poste que vous recherchez. 
+
+Dans l'attente de votre réponse.
+
+Cordialement.
+
+Rousseau Alexandre
+RousseauAlexandre.Lyon@gmail.com
+# +33 663 549 581
+2c rue de Margnolles 69300 Caluire-et-Cuire

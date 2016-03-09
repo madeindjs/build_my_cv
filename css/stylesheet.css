@@ -1,0 +1,97 @@
+a{
+	color: inherit;
+	text-decoration: 
+}
+
+html, body{
+	background-color: #ecf0f1;
+	margin: 0px;
+	color: #2c3e50;
+	font-family: 'Lato', sans-serif;
+}
+header{
+	background-color: #2c3e50;
+	height: 100vh;
+
+	display: flex ;
+	flex-direction: column;
+	justify-content: center;
+
+	text-align:center;
+	font-size: xx-large;
+
+	color: #bdc3c7 ;
+}
+header h1{
+	font-family: 'Neuton', serif;
+}
+header p {
+	font-size: large;
+	font-weight: 300 ;
+	text-align: center;
+}
+#contact {
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+}
+#contact img {
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+}
+
+section{
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+section > img {
+	width: 200px;
+}
+section > div{
+	width: 100%;
+	min-height: 100px; 
+	padding: 5px;
+	margin-bottom: 50px;
+}
+
+img.logo{
+	width: 100px;
+	float: left;
+	margin-right: 10px;
+	padding-right: 10px;
+	border-right: 10px solid white;
+}
+p{
+	text-align: justify;
+}
+
+header h1 {
+	color : #ecf0f1
+}
+h1 , h2 , h3 , h4{
+	font-weight: lighter;
+}
+h1{
+	color:#2980b9;
+}
+h2{
+	color:#c0392b;
+	font-size: xx-large;
+	text-align: center;
+}
+h3{
+	color: #2980b9;
+}
+h4{
+	color: #3498db;
+}
+
+footer{
+	background-color: #34495e;
+	color: #bdc3c7 ;
+	padding: 50px;
+	margin: 0px;
+}
