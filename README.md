@@ -1,10 +1,14 @@
-﻿#Hello#
+﻿Resume
+======
 
-This is my resume on Github. Simply written in HTML / CSS / Javascript with a very basic router in PHP.
+My resume automatiquelly build from a JSON file by my PHP script.
 
-In the future I want add:
-+ portfolio 
-+ a automatic deployement with Capistrano
-+ links on my Github projects
+You can visit it at [rousseau-alexandre.fr](http://rousseau-alexandre.fr)
+
+Purpose
+-------
+
+In the future I want to create a more complexe project to build the anybody resume!
+
 
 Copy, edit this repository on your need or help me to improve it. Enjoy!
