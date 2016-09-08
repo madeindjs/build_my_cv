@@ -1,7 +1,19 @@
+<?php
+$string = file_get_contents("data.json");
+$data = json_decode($string, true);
+
+function total_name()
+{
+	global $data ;
+	return $data["user"]["lastname"]." ".$data["user"]["firstname"] ;
+}
+
+?>
+
 <html>
 
 	<head>
-		<title>Rousseau Alexandre</title>
+		<title><?= total_name() ?></title>
 		<meta charset="utf-8">
 		<link href="css/stylesheet.css" rel="stylesheet" type="text/css" media="screen" >
 		<link href="css/print.css" rel="stylesheet" type="text/css"  media="print">
@@ -10,11 +22,11 @@
 
 	<body>
 
-		<header><h1>Rousseau Alexandre</h1></header>
+		<header><h1><?= total_name() ?></h1></header>
 
 
 		<div id="contact">
-			<a href="mailto:RousseauAlexandre.Lyon@gmail.com?subject=Votre%20CV"><img src="img/mai.png"></a>
+			<a href="mailto:<?= $data["user"]["email"] ?>?subject=Votre%20CV"><img src="img/mai.png"></a>
 			<a href="www.linkedin.fr"><img src="img/lkd.svg" alt="Linkedin"></a>
 		</div>
 
