@@ -2,7 +2,11 @@
 	"user" : {
 		"firstname" : "Alexandre",
 		"lastname": "Rousseau",
-		"email" : "RousseauAlexandre.Lyon@gmail.com"
+		"email" : "RousseauAlexandre.Lyon@gmail.com",
+		"phone" : "+336 663 549 581",
+		"adress" : "2c, rue de Margnolles, 69300 , Caluire-et-Cuire, France",
+		"birth date" : "28/12/1992",
+		"town birth" : "Toulouse"
 	},
 
 	"professional experience" : {
@@ -64,6 +68,43 @@
 			}
 
 		}
+	}, 
 
+
+	"studies" : {
+
+		"qualifications" : {
+			"BTS F.E.E." : {
+				"begin" : "31/08/2013",
+				"school" : "La Martinière Monplaisir"
+			},
+			"Baccalauréat STI" : {
+				"begin" : "31/08/2011",
+				"school" : "La Martinière Monplaisir"
+			}
+		}
+	},
+
+	"trainings" : {
+		"Permis de conduire type B" : {
+			"date" : "?"
+		},
+		"Attestation d’aptitude des fluides frigorigènes (Catégorie 1)" : {
+			"date" : "mai 2012"
+		}
+	},
+
+	"langages" : {
+
+		"anglais" : {
+			"picture" : "?",
+			"notes" : {
+				"parlé" : 3,
+				"écouté" : 4,
+				"écris" : 3,
+				"lu" : 3
+			}
+
+		}
 	}
 }

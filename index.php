@@ -75,44 +75,44 @@ function total_name()
 
 
 
-	<section>
-		<h2>Etudes et formations</h2>
+		<section>
+			<h2>Etudes et formations</h2>
 
-		<h3>Parcours scolaire</h3>
+			<h3>Parcours scolaire</h3>
+			<ul class="experience">
+				<?php foreach($data["studies"]["qualifications"] as $diplomas => $details): ?>
+					<li><?= $diplomas ?></li>
+				<?php endforeach ?>
+			</ul>
 
-		<ul class="experience">
-			<li><img src="http://www.maximeculea.fr/wp-content/themes/voice-child/img/graduation.png" ><a href="http://www.lamartinieremonplaisir.org/index.php/scolarite-top/sts/sts-fluides-energies-environnements/option-genie-frigorifique">BTS F.E.E. spécialisation froid</a> en 2013 à La Martinière Monplaisir</li>
-			<li><img src="http://www.maximeculea.fr/wp-content/themes/voice-child/img/graduation.png" ><a href="http://www.lamartinieremonplaisir.org/index.php/scolarite-top/sts/sts-fluides-energies-environnements/option-genie-frigorifique">Baccalauréat STI en 2011 à La Martinière Monplaisir</li>
-		</ul>
+			<h3>Formation et aptitudes</h3>
+			<ul class="experience">
+				<?php foreach($data["trainings"] as $training => $details): ?>
+					<li><?= $training ?></li>
+				<?php endforeach ?>
+			</ul>
 
+			<h3>Langues</h3>
+			<ul class="experience">
+				<?php foreach($data["langages"] as $langage => $details): ?>
+					<li><?= $langage ?><ul>
+						<?php foreach($details["notes"] as $media => $note): ?>
+							<li><?= $media ?>
+								<progress value="<?= $note?>" max="5"><?= $note?>/5</progress>
+							</li>
+						<?php endforeach ?>
+					</ul></li>
+				<?php endforeach ?>
+			</ul>
 
-		<h3>Formation et aptitudes</h3>
-
-		<ul class="experience">
-			<li><img src="http://www.plaformac.fr/images/logo-voiture-png.png">Permis de conduire type B</li>
-			<li><img src="img/frd.png" >Attestation d’aptitude des fluides frigorigènes (Catégorie 1) depuis mai 2012</li>
-		</ul>
-
-
-		<h3>Langues</h3>
-		<ul class="experience">
-			<li><img src="http://www.interlingo.fr/wp-content/uploads/2015/03/United-Kingdom-icon.png">
-				<ul>
-					<li>parlé: <progress value="3" max="5">3/5</progress></li>
-					<li>écouté: <progress value="4" max="5">4/5</progress></li>
-					<li>écris: <progress value="4" max="5">3/5</progress></li>
-					<li>lu: <progress value="5" max="5">3/5</progress></li>
-				</ul></li>
-		</ul>
-
-	</section>
+		</section>
 
 
 	<footer>
-		<p>28 décembre 1992 à Toulouse</p>
-		<p><adress>2c, rue de Margnolles, 69300 , Caluire-et-Cuire, France</adress></p>
-		<p><strong>+336 663 549 581</strong></p>
-		<p><a href="mailto:RousseauAlexandre.Lyon@gmail.com?subject=Votre%20CV">RousseauAlexandre.Lyon@gmail.com</a></p>
+		<p><?= $data["user"]["birth date"] ?> à <?= $data["user"]["town birth"] ?></p>
+		<p><adress><?= $data["user"]["adress"] ?></adress></p>
+		<p><strong><?= $data["user"]["phone"] ?></strong></p>
+		<p><a href="mailto:<?= $data["user"]["email"] ?>?subject=Votre%20CV"><?= $data["user"]["email"] ?></a></p>
 	</footer>
 
 
