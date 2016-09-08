@@ -1,19 +1,19 @@
 <?php
+
+require_once('User.php');
+
+
 $string = file_get_contents("data.json");
 $data = json_decode($string, true);
 
-function total_name()
-{
-	global $data ;
-	return $data["user"]["lastname"]." ".$data["user"]["firstname"] ;
-}
+$user = new User("data.json");
 
 ?>
 
 <html>
 
 	<head>
-		<title><?= total_name() ?></title>
+		<title><?= $user->complete_name() ?></title>
 		<meta charset="utf-8">
 		<link href="css/stylesheet.css" rel="stylesheet" type="text/css" media="screen" >
 		<link href="css/print.css" rel="stylesheet" type="text/css"  media="print">
@@ -22,7 +22,7 @@ function total_name()
 
 	<body>
 
-		<header><h1><?= total_name() ?></h1></header>
+		<header><h1><?= $user->complete_name() ?></h1></header>
 
 		<pre><?= var_dump($data) ?></pre>
 
