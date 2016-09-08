@@ -1,5 +1,5 @@
 <?php
-
+require_once('ProfessionalExperience.php');
 /**
 * 
 */
@@ -7,6 +7,7 @@ class User
 {
 	public $firstname;
 	public $lastname;
+	public $professionalExperiences = array();
 	
 	function __construct($json_file)
 	{
@@ -15,6 +16,10 @@ class User
 
 		$this->lastname = $data["user"]["lastname"] ;
 		$this->firstname = $data["user"]["firstname"] ;
+
+		foreach ($data["professional experience"] as $key => $value) {
+			array_push($this->professionalExperiences, new ProfessionalExperience($key, $value));
+		}
 
 	}
 

@@ -24,22 +24,19 @@ $user = new User("data.json");
 
 		<header><h1><?= $user->complete_name() ?></h1></header>
 
-		<pre><?= var_dump($data) ?></pre>
-
 
 		<div id="contact">
 			<a href="mailto:<?= $data["user"]["email"] ?>?subject=Votre%20CV"><img src="img/mai.png"></a>
 			<a href="www.linkedin.fr"><img src="img/lkd.svg" alt="Linkedin"></a>
 		</div>
 
-
-		<!--  professional experience -->
+		<!--  professional experience in POO-->
 		<section>
-			<?php foreach($data["professional experience"] as $entreprise => $details): ?>
+			<?php foreach( $user->professionalExperiences as $professionalExp): ?>
 
-				<h2><?= $entreprise ?> depuis <?= $details["begin"] ?></h2>
+				<h2><?= $professionalExp->title() ?></h2>
 
-				<?php foreach($details["functions"] as $name => $function): ?>
+				<?php foreach( $professionalExp->functions as $name => $function): ?>
 
 					<h3><?= $name ?></h3>
 
