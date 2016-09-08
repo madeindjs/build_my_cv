@@ -28,5 +28,42 @@
 
 			}
 		}
+	},
+
+	"personal experience" : {
+
+		"Webmaster" : {
+
+			"begin" : "?",
+
+			"activities" : {
+
+				"ror.png" : "Bonne connaissance et application du langage orienté objet Ruby et de son framework web Ruby On Rails.",
+				"php.png" : "Bonne connaissance et application du langage PHP et de son framework web CakePHP.",
+				"css.png" : "Bonne connaissance et application des standards du web : HTML, CSS, Javascript & JQuery"
+			}
+		},
+
+		"Développement applications" : {
+			"begin" : "?",
+
+			"activities" : {
+				"bry.svg" : "Création d'applications pour la plateforme Blackberry 10. Accéder à mon compte vendeur."
+			}
+		},
+
+
+		"Autres" : {
+
+			"begin" : "?",
+
+			"activities" : {
+				"lnx.svg" : "Connaissance et utilisation environnement Linux via SSH pour installer et utiliser un serveur Apache ou Nginx.",
+				"oth.png" : "Connaissance de la retouche photographique avec GIMP et du dessin vectoriel avec Inkscape",
+				"git.png" : "Utilisation du versionning avec Git"
+			}
+
+		}
+
 	}
 }

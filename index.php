@@ -53,38 +53,27 @@ function total_name()
 				<?php endforeach // next categories ?>
 			<?php endforeach // next entreprise?>
 		</section>
+		
+
+		<section style="background-color:#bdc3c7" >
+
+			<h2>Experience personnelle</h2>
+
+			<?php foreach($data["personal experience"] as $category => $details): ?>
+
+				<h3><?= $category ?> depuis <?= $details["begin"] ?></h3>
+
+				<ul class="experience" >
+					<?php foreach($details["activities"] as $picture => $activity): ?>
+						<li><img src="img/<?= $picture ?>"><?= $activity ?></li>
+					<?php endforeach // next categories ?>
+				</ul>
+
+			<?php endforeach // next entreprise?>
+
+		</section>
 
 
-
-	<section style="background-color:#bdc3c7">
-		<h2>Experience personnelle</h2>
-
-
-		<h3>Webmaster <small>(front &amp; back-end)</small></h3>
-
-		<ul class="experience">
-			<li><img src="img/ror.png" >Bonne connaissance et application du langage orienté objet Ruby et de son framework web Ruby On Rails.</li>
-			<li><img src="http://www.xttechnologies.com/wp-content/uploads/2014/10/c1.png" >Bonne connaissance et application du langage PHP et de son framework web CakePHP.</li>
-			<li><img src="img/css.png" >Bonne connaissance et application des standards du web : HTML, CSS, Javascript &amp; JQuery</li>
-		</ul>
-
-
-		<h3>Développement applications</h3>
-
-		<ul class="experience">
-			<li><img src="img/bry.svg">Création d'applications pour la plateforme Blackberry 10. <a href="https://appworld.blackberry.com/webstore/vendor/45412/?lang=en">Accéder à mon compte vendeur.</a></li>
-		</ul>
-
-
-		<h3>Autres</h3>
-
-		<ul class="experience">
-			<li><img src="img/lnx.svg">Connaissance et utilisation environnement Linux via SSH pour installer et utiliser un serveur Apache ou Nginx.</li>
-			<li><img src="img/oth.png" >Connaissance de la retouche photographique avec GIMP et du dessin vectoriel avec Inkscape</li>
-			<li><img src="img/git.png" >Utilisation du versionning avec Git</li>
-		</ul>
-
-	</section>
 
 	<section>
 		<h2>Etudes et formations</h2>
