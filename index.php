@@ -24,6 +24,8 @@ function total_name()
 
 		<header><h1><?= total_name() ?></h1></header>
 
+		<pre><?= var_dump($data) ?></pre>
+
 
 		<div id="contact">
 			<a href="mailto:<?= $data["user"]["email"] ?>?subject=Votre%20CV"><img src="img/mai.png"></a>
@@ -31,38 +33,27 @@ function total_name()
 		</div>
 
 
+		<!--  professional experience -->
 		<section>
+			<?php foreach($data["professional experience"] as $entreprise => $details): ?>
 
-			<h2><a href="http://www.carrier.com/commercial-refrigeration/en/fr/">Carrier Réfrigération</a> <small>depuis 2011</small></h2>
+				<h2><?= $entreprise ?> depuis <?= $details["begin"] ?></h2>
 
-			<h3>Chef de projet</h3>
+				<?php foreach($details["functions"] as $name => $function): ?>
 
-			<ul class="experience">
-				<li><img src="img/skp.svg">Leadership sur le développement d'un outil de design marketing avec Sketchup. Formation des commerciaux européens sur cet outil.</li>
-				<li><img src="img/php.png" >Création d'une application web pour collecter  les rapports d'intervention des assistants technique. Interprétation de ces données avec MySQL pour mesurer les coûts de qualité.</li>
-			</ul>
+					<h3><?= $name ?></h3>
 
+					<ul class="experience" >
+						<?php foreach($function as $picture => $activity): ?>
+							<li><img src="img/<?= $picture ?>"><?= $activity ?></li>
+						<?php endforeach // next activities ?>
+					</ul>
 
-			<h3>Scripting</h3>
-
-			<ul class="experience">
-				<li><img src="img/exc.png" >Automatisation de la construction de plusieurs types de devis via macro Excel Visual Basic.</li>
-				<li><img src="img/exc.png" >Automatisation de certaines tâches via quelques scripts Python.</li>
-			</ul>
-
-
-			<h3>Bureau d'études</h3>
-
-			<ul class="experience">
-				<li><img src="img/acd.png" ><ul>
-					<li>Dessin des plans d'exécution sur AutoCad.</li>
-					<li>Dimensionnement de l'installation frigorifique.</li>
-					<li>Configuration et mise en service de la régulation des vitrines.</li>
-					</ul></li>
-			</ul>
-
-
+					
+				<?php endforeach // next categories ?>
+			<?php endforeach // next entreprise?>
 		</section>
+
 
 
 	<section style="background-color:#bdc3c7">

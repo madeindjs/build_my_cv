@@ -1,7 +1,32 @@
-{ "user" : 
-	{
+{ 
+	"user" : {
 		"firstname" : "Alexandre",
 		"lastname": "Rousseau",
 		"email" : "RousseauAlexandre.Lyon@gmail.com"
+	},
+
+	"professional experience" : {
+		"Carrier Réfrigération" : {
+			"begin" : "01/09/2011",
+
+			"functions" : {
+
+				"Chef de projet" : {
+					"skp.svg" : "Leadership sur le développement d'un outil de design marketing avec Sketchup. Formation des commerciaux européens sur cet outil.",
+					"php.png" : "Création d'une application web pour collecter  les rapports d'intervention des assistants technique. Interprétation de ces données avec MySQL pour mesurer les coûts de qualité."
+				},
+
+				"Scripting" : {
+					"exc.png" : "Automatisation de la construction de plusieurs types de devis via macro Excel Visual Basic.",
+					"pyt.png" : "Automatisation de certaines tâches via quelques scripts Python."
+				},
+
+				"Bureau d'études" : {
+					"acd.png" : "Dessin des plans d'exécution sur AutoCad. Dimensionnement de l'installation frigorifique. Configuration et mise en service de la régulation des vitrines."
+				}
+
+
+			}
+		}
 	}
 }
