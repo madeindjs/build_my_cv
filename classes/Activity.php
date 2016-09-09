@@ -18,4 +18,9 @@ class Activity
 	function picture(){
 		return '<img src="img/'.$this->picture.'" alt="logo of this Activity" >';
 	}
+
+	// return Activty in list item with its picture & description
+	function to_html(){
+		return '<li>'.$this->picture().$this->description.'</li>';
+	}
 }

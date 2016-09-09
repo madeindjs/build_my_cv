@@ -1,5 +1,6 @@
 <?php
 require_once('ProfessionalExperience.php');
+require_once('PersonalExperience.php');
 /**
 * a classic User with classics properties (firstname, phone, etc..) and also many
 * professionalExperiences loaded from json file
@@ -9,6 +10,7 @@ class User
 	public $firstname;
 	public $lastname;
 	public $professionalExperiences = array();
+	public $personalExperiences = array();
 	
 	function __construct($json_file)
 	{
@@ -20,6 +22,9 @@ class User
 
 		foreach ($data["professional experience"] as $key => $value) {
 			array_push($this->professionalExperiences, new ProfessionalExperience($key, $value));
+		}
+		foreach ($data["personal experience"] as $key => $value) {
+			array_push($this->personalExperiences, new PersonalExperience($key, $value));
 		}
 
 	}

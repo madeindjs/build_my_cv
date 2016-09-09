@@ -37,31 +37,27 @@ $user = new User("data.json");
 				<?php foreach( $professionalExp->jobs as $job )://loop on all jobs into this professional Experience?>
 					<h3><?= $job->title ?></h3>
 					<ul class="experience" >
-						<?php foreach($job->activities as $activity)://loop on all activities into this activity ?>
-							<li><?= $activity->picture() ?><?= $activity->description ?></li>
-						<?php endforeach // next activity ?>
+						<?php foreach($job->activities as $activity){//loop on all activities into this activity
+							echo $activity->to_html() ;
+						} // next activity ?>
 					</ul>
 				<?php endforeach // next job ?>
 			<?php endforeach // next professional Experience?>
 		</section>
 		
 
+		<!--  personal experience in POO-->
 		<section style="background-color:#bdc3c7" >
-
 			<h2>Experience personnelle</h2>
 
-			<?php foreach($data["personal experience"] as $category => $details): ?>
-
-				<h3><?= $category ?> depuis <?= $details["begin"] ?></h3>
-
+			<?php foreach( $user->personalExperiences as $personalExp)://loop on all personalExperiences ?>
+				<h3><?= $personalExp->title() ?></h3>
 				<ul class="experience" >
-					<?php foreach($details["activities"] as $picture => $activity): ?>
-						<li><img src="img/<?= $picture ?>"><?= $activity ?></li>
-					<?php endforeach // next categories ?>
+					<?php foreach($personalExp->activities as $activity){//loop on all activities into this activity
+						echo $activity->to_html() ;
+					} // next activity ?>
 				</ul>
-
-			<?php endforeach // next entreprise?>
-
+			<?php endforeach // next activity?>
 		</section>
 
 
