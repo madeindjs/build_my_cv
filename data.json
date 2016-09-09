@@ -17,12 +17,13 @@
 
 				"Chef de projet" : {
 					"skp.svg" : "Leadership sur le développement d'un outil de design marketing avec Sketchup. Formation des commerciaux européens sur cet outil.",
-					"php.png" : "Création d'une application web pour collecter  les rapports d'intervention des assistants technique. Interprétation de ces données avec MySQL pour mesurer les coûts de qualité."
+					"rby.svg" : "Création d'un plugin Sketchup en Ruby pour faciliter le dessin 3D.",
+					"csh.svg" : "Création d'une application web pour collecter  les rapports d'intervention des assistants technique. Interprétation de ces données avec MySQL pour mesurer les coûts de qualité."
 				},
 
 				"Scripting" : {
-					"exc.png" : "Automatisation de la construction de plusieurs types de devis via macro Excel Visual Basic.",
-					"pyt.png" : "Automatisation de certaines tâches via quelques scripts Python."
+					"exc.svg" : "Automatisation de la construction de plusieurs types de devis via macro Excel Visual Basic.",
+					"pyt.svg" : "Automatisation de 'tâches ingrâtes' via quelques scripts Python."
 				},
 
 				"Bureau d'études" : {
@@ -63,8 +64,8 @@
 
 			"activities" : {
 				"lnx.svg" : "Connaissance et utilisation environnement Linux via SSH pour installer et utiliser un serveur Apache ou Nginx.",
-				"oth.png" : "Connaissance de la retouche photographique avec GIMP et du dessin vectoriel avec Inkscape",
-				"git.png" : "Utilisation du versionning avec Git"
+				"ink.svg" : "Connaissance de la retouche photographique avec GIMP et du dessin vectoriel avec Inkscape",
+				"git.svg" : "Utilisation du versionning avec Git"
 			}
 
 		}
