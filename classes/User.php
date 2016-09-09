@@ -1,7 +1,8 @@
 <?php
 require_once('ProfessionalExperience.php');
 /**
-* 
+* a classic User with classics properties (firstname, phone, etc..) and also many
+* professionalExperiences loaded from json file
 */
 class User
 {
@@ -23,6 +24,7 @@ class User
 
 	}
 
+	/* return the complete name as `Rousseau Alexandre` */
 	function complete_name(){
 		return $this->lastname." ".$this->firstname ;
 	}

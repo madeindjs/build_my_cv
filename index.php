@@ -36,13 +36,13 @@ $user = new User("data.json");
 
 				<h2><?= $professionalExp->title() ?></h2>
 
-				<?php foreach( $professionalExp->functions as $name => $function): ?>
+				<?php foreach( $professionalExp->jobs as $job ): ?>
 
-					<h3><?= $name ?></h3>
+					<h3><?= $job->title ?></h3>
 
 					<ul class="experience" >
-						<?php foreach($function as $picture => $activity): ?>
-							<li><img src="img/<?= $picture ?>"><?= $activity ?></li>
+						<?php foreach($job->activities as $activity): ?>
+							<li><?= $activity->picture() ?><?= $activity->description ?></li>
 						<?php endforeach // next activities ?>
 					</ul>
 
