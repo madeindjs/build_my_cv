@@ -32,23 +32,17 @@ $user = new User("data.json");
 
 		<!--  professional experience in POO-->
 		<section>
-			<?php foreach( $user->professionalExperiences as $professionalExp): ?>
-
+			<?php foreach( $user->professionalExperiences as $professionalExp)://loop on all professionalExperiences ?>
 				<h2><?= $professionalExp->title() ?></h2>
-
-				<?php foreach( $professionalExp->jobs as $job ): ?>
-
+				<?php foreach( $professionalExp->jobs as $job )://loop on all jobs into this professional Experience?>
 					<h3><?= $job->title ?></h3>
-
 					<ul class="experience" >
-						<?php foreach($job->activities as $activity): ?>
+						<?php foreach($job->activities as $activity)://loop on all activities into this activity ?>
 							<li><?= $activity->picture() ?><?= $activity->description ?></li>
-						<?php endforeach // next activities ?>
+						<?php endforeach // next activity ?>
 					</ul>
-
-					
-				<?php endforeach // next categories ?>
-			<?php endforeach // next entreprise?>
+				<?php endforeach // next job ?>
+			<?php endforeach // next professional Experience?>
 		</section>
 		
 
