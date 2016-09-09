@@ -20,7 +20,7 @@ $user = new User("data.json");
 
 
 		<div id="contact">
-			<a href="mailto:<?= $data["user"]["email"] ?>?subject=Votre%20CV"><img src="img/mai.png"></a>
+			<a href="mailto:<?= $user->email ?>?subject=Votre%20CV"><img src="img/mai.png"></a>
 			<a href="www.linkedin.fr"><img src="img/lkd.svg" alt="Linkedin"></a>
 		</div>
 
