@@ -32,14 +32,21 @@ header p {
 }
 #contact {
 	position: fixed;
-	bottom: 0px;
-	right: 0px;
-}
-#contact img {
+	background-color: rgba(100,100,100,.3);
 	width: 100px;
-	height: 100px;
-	margin: 10px;
+	height: 100% ;
+	top: 0px; bottom: 0px; left: 0px;
+
 }
+	#contact a {
+		vertical-align: center;
+	}
+	#contact img {
+		width: 80px;
+		height: 80px;
+		margin: 10px;
+		display: block
+	}
 
 section{
 	padding-left: 10%;
