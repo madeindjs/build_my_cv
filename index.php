@@ -20,8 +20,11 @@ $user = new User("data.json");
 
 
 		<div id="contact" style="display:none">
-			<a href="mailto:<?= $data["user"]["email"] ?>?subject=Votre%20CV"><img src="img/mai.png"></a>
-			<?= $user->print_links() ?>
+			<div id="contact_icons" style="display:none">
+				<a href="mailto:<?= $data["user"]["email"] ?>?subject=Votre%20CV"><img src="img/mai.png"></a>
+				<?= $user->print_links() ?>
+			</div>
+			
 		</div>
 
 		<!--  professional experience in POO-->
