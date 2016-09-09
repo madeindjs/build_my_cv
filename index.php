@@ -1,13 +1,7 @@
 <?php
-
 require_once('classes/User.php');
 
-
-$string = file_get_contents("data.json");
-$data = json_decode($string, true);
-
 $user = new User("data.json");
-
 ?>
 
 <html>
@@ -90,10 +84,10 @@ $user = new User("data.json");
 
 
 	<footer>
-		<p><?= $data["user"]["birth date"] ?> à <?= $data["user"]["town birth"] ?></p>
-		<p><adress><?= $data["user"]["adress"] ?></adress></p>
-		<p><strong><?= $data["user"]["phone"] ?></strong></p>
-		<p><a href="mailto:<?= $data["user"]["email"] ?>?subject=Votre%20CV"><?= $data["user"]["email"] ?></a></p>
+		<p><?= $user->birth_date ?> à <?= $user->town_birth ?></p>
+		<p><adress><?= $user->adress ?></adress></p>
+		<p><strong><?= $user->phone ?></strong></p>
+		<p><a href="mailto:<?= $user->email ?>?subject=Votre%20CV"><?= $user->email ?></a></p>
 	</footer>
 
 

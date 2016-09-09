@@ -11,6 +11,13 @@ class User
 {
 	public $firstname;
 	public $lastname;
+	public $email;
+	public $phone;
+	public $adress;
+	public $birth_date;
+	public $town_birth;
+
+
 	public $professionalExperiences = array();
 	public $personalExperiences = array();
 	public $diplomas = array();
@@ -25,6 +32,13 @@ class User
 
 		$this->lastname = $data["user"]["lastname"] ;
 		$this->firstname = $data["user"]["firstname"] ;
+
+		$this->email = $data["user"]["email"] ;
+		$this->phone = $data["user"]["phone"] ;
+		$this->adress = $data["user"]["adress"] ;
+		$this->birth_date = $data["user"]["birth date"] ;
+		$this->town_birth = $data["user"]["town birth"] ;
+
 
 		foreach ($data["professional experience"] as $key => $value) {
 			array_push($this->professionalExperiences, new ProfessionalExperience($key, $value));
