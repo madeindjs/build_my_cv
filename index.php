@@ -19,7 +19,7 @@ $user = new User("data.json");
 		<header><h1><?= $user->complete_name() ?></h1></header>
 
 
-		<div id="contact">
+		<div id="contact" style="display:none">
 			<a href="mailto:<?= $data["user"]["email"] ?>?subject=Votre%20CV"><img src="img/mai.png"></a>
 			<?= $user->print_links() ?>
 		</div>
@@ -89,6 +89,8 @@ $user = new User("data.json");
 		<p><strong><?= $user->phone ?></strong></p>
 		<p><a href="mailto:<?= $user->email ?>?subject=Votre%20CV"><?= $user->email ?></a></p>
 	</footer>
+
+	<script type="text/javascript" src="js/ribbon.js"></script>
 
 
 </body></html>
