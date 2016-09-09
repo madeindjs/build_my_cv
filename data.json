@@ -9,6 +9,12 @@
 		"town birth" : "Toulouse"
 	},
 
+	"links" : {
+		"stackoverflow" : {"img" : "stw.svg" , "link" : "http://stackoverflow.com/users/5935198/rousseaualexandre"},
+		"github" : {"img" : "gih.svg" , "link" : "http://github.com/madeindjs/"}
+
+	},
+
 	"professional experience" : {
 		"Carrier Réfrigération" : {
 			"begin" : "01/09/2011",

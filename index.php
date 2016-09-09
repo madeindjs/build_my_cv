@@ -19,9 +19,12 @@ $user = new User("data.json");
 		<header><h1><?= $user->complete_name() ?></h1></header>
 
 
-		<div id="contact">
-			<a href="mailto:<?= $user->email ?>?subject=Votre%20CV"><img src="img/mai.png"></a>
-			<a href="www.linkedin.fr"><img src="img/lkd.svg" alt="Linkedin"></a>
+		<div id="contact" style="display:none">
+			<div id="contact_icons" style="display:none">
+				<a href="mailto:<?= $data["user"]["email"] ?>?subject=Votre%20CV"><img src="img/mai.png"></a>
+				<?= $user->print_links() ?>
+			</div>
+			
 		</div>
 
 		<!--  professional experience in POO-->
@@ -89,6 +92,8 @@ $user = new User("data.json");
 		<p><strong><?= $user->phone ?></strong></p>
 		<p><a href="mailto:<?= $user->email ?>?subject=Votre%20CV"><?= $user->email ?></a></p>
 	</footer>
+
+	<script type="text/javascript" src="js/ribbon.js"></script>
 
 
 </body></html>

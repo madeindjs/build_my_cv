@@ -24,6 +24,8 @@ class User
 	public $trainings = array();
 	public $langages = array();
 
+	public $links = array();
+
 	
 	function __construct($json_file)
 	{
@@ -38,6 +40,8 @@ class User
 		$this->adress = $data["user"]["adress"] ;
 		$this->birth_date = $data["user"]["birth date"] ;
 		$this->town_birth = $data["user"]["town birth"] ;
+
+		$this->links = $data['links'] ;
 
 
 		foreach ($data["professional experience"] as $key => $value) {
@@ -61,5 +65,18 @@ class User
 	/* return the complete name as `Rousseau Alexandre` */
 	function complete_name(){
 		return $this->lastname." ".$this->firstname ;
+	}
+
+	function print_links(){
+		$html = '' ;
+
+		foreach ($this->links as $name => $details) {
+			$html = $html.$this->print_link($name, $details);
+		}
+		return $html;
+	}
+
+	private function print_link($name, $details){
+		return '<a href="'.$details['link'].'"><img src="img/'.$details['img'].'" alt="'.$name.'"></a>';
 	}
 }
