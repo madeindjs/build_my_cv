@@ -71,17 +71,15 @@
 	}, 
 
 
-	"studies" : {
+	"diplomas" : {
 
-		"qualifications" : {
-			"BTS F.E.E." : {
-				"begin" : "31/08/2013",
-				"school" : "La Martinière Monplaisir"
-			},
-			"Baccalauréat STI" : {
-				"begin" : "31/08/2011",
-				"school" : "La Martinière Monplaisir"
-			}
+		"BTS F.E.E." : {
+			"begin" : "31/08/2013",
+			"place" : "La Martinière Monplaisir"
+		},
+		"Baccalauréat STI" : {
+			"begin" : "31/08/2011",
+			"place" : "La Martinière Monplaisir"
 		}
 	},
 

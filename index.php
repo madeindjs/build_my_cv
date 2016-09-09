@@ -66,16 +66,16 @@ $user = new User("data.json");
 			<h2>Etudes et formations</h2>
 
 			<h3>Parcours scolaire</h3>
-			<ul class="experience">
-				<?php foreach($data["studies"]["qualifications"] as $diplomas => $details): ?>
-					<li><?= $diplomas ?></li>
+			<ul>
+				<?php foreach($user->diplomas as $diploma): ?>
+					<li><?= $diploma->title() ?></li>
 				<?php endforeach ?>
 			</ul>
 
 			<h3>Formation et aptitudes</h3>
-			<ul class="experience">
-				<?php foreach($data["trainings"] as $training => $details): ?>
-					<li><?= $training ?></li>
+			<ul>
+				<?php foreach($user->trainings as $training ): ?>
+					<li><?= $training->title() ?></li>
 				<?php endforeach ?>
 			</ul>
 

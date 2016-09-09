@@ -1,7 +1,7 @@
 <?php
 
 /**
-* and Experience is an abstract class for PersonalExperience & ProfessionalExperience
+* and Experience is an abstract class for PersonalExperience, ProfessionalExperience & Qualification
 */
 class Experience
 {
