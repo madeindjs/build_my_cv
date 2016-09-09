@@ -81,15 +81,9 @@ $user = new User("data.json");
 
 			<h3>Langues</h3>
 			<ul class="experience">
-				<?php foreach($data["langages"] as $langage => $details): ?>
-					<li><?= $langage ?><ul>
-						<?php foreach($details["notes"] as $media => $note): ?>
-							<li><?= $media ?>
-								<progress value="<?= $note?>" max="5"><?= $note?>/5</progress>
-							</li>
-						<?php endforeach ?>
-					</ul></li>
-				<?php endforeach ?>
+				<?php foreach( $user->langages as $langage){
+					echo $langage->to_html();
+				} ?>
 			</ul>
 
 		</section>

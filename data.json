@@ -85,10 +85,12 @@
 
 	"trainings" : {
 		"Permis de conduire type B" : {
-			"date" : "?"
+			"begin" : "?",
+			"place" : "Lyon"
 		},
 		"Attestation d’aptitude des fluides frigorigènes (Catégorie 1)" : {
-			"date" : "mai 2012"
+			"begin" : "mai 2012",
+			"place" : "?"
 		}
 	},
 
@@ -97,10 +99,10 @@
 		"anglais" : {
 			"picture" : "?",
 			"notes" : {
-				"parlé" : 3,
-				"écouté" : 4,
-				"écris" : 3,
-				"lu" : 3
+				"speaken" : 3,
+				"listen" : 4,
+				"writen" : 3,
+				"read" : 3
 			}
 
 		}
