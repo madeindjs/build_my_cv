@@ -91,14 +91,18 @@ ul.experience{
 
 	}
 		ul.experience > li:hover {
-			max-width: 400px;
+			max-width: 450px;
+			overflow: visible;
 			color: inherit;
 		}
 	ul.experience img {
 		max-width: 100px;
 		max-height: 100px;
 		float:left;
+		margin-right: 5px;
 	}
+	ul.experience p {margin: 0px}
+
 
 
 header h1 {
