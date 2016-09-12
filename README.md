@@ -13,7 +13,9 @@ Libraries
 Purpose
 -------
 
-In the future I want to create a more complexe project to build the anybody resume!
+* [ ] create a json file generator (Python or Ruby?)
+* [ ] add link generator (link to ruby, Python, ror, etc..)
+* [x] create Markdown support 
 
 
 Copy, edit this repository on your need or help me to improve it. Enjoy!
