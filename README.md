@@ -5,6 +5,11 @@ My resume automatiquelly build from a JSON file by my PHP script.
 
 You can visit it at [rousseau-alexandre.fr](http://rousseau-alexandre.fr)
 
+Libraries
+-------------
+
+* [Parsedown](https://github.com/erusev/parsedown)
+
 Purpose
 -------
 
