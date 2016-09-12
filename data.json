@@ -52,7 +52,7 @@
 
 				"ror.png" : "Création d'une [application web](http://raspberry-cook.fr) permettant de stocker & partager des recettes de cuisine. \r\n\r\n* création back et fron-end\r\n* promotion et réferecement",
 				"php.png" : "Utilisation antérieure du langage **PHP** et de son framework web **CakePHP** pour la création d'applications web.",
-				"js.png" : "Utilisation quotidienne de **Javascript** "
+				"js.svg" : "Utilisation quotidienne de **Javascript** "
 			}
 		},
 
@@ -105,7 +105,7 @@
 	"langages" : {
 
 		"anglais" : {
-			"picture" : "?",
+			"picture" : "eng.svg",
 			"notes" : {
 				"speaken" : 3,
 				"listen" : 4,

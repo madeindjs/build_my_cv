@@ -25,12 +25,13 @@ class Langage
 	}
 
 	public function to_html(){
-		return '<ul>'.
+		return '<div class="langage">'.
+			'<img src="img/'.$this->picture.'" alt="logo of '.$this->name.' langage"/><ul>'.
 			$this->note_to_html('parlé', $this->speaken).
 			$this->note_to_html('écris', $this->writen).
 			$this->note_to_html('écouté', $this->listen).
 			$this->note_to_html('lu', $this->read).
-		'</ul>';
+		'</ul></div>';
 	}
 
 	private function note_to_html($text, $note){

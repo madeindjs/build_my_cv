@@ -10,7 +10,9 @@ html, body{
 	font-family: 'Lato', sans-serif;
 }
 header{
-	background-color: #2c3e50;
+	/*background-color: #2c3e50;*/
+	background-image: url(../img/background.svg);
+	background-size: cover;
 	height: 100vh;
 
 	display: flex ;
@@ -103,6 +105,12 @@ ul.experience{
 	}
 	ul.experience p {margin: 0px}
 
+div.langage{height: 100px}
+div.langage img{height: 100px;margin-right: 20px}
+div.langage ul{height: 100px;list-style: none;text-align: left}
+div.langage li{height: 25px}
+div.langage li > strong{display: inline-block;width: 80px;}
+div.langage li > progress{display: inline-block;width: 120px;}
 
 
 header h1 {
