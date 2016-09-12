@@ -10,6 +10,7 @@
 	},
 
 	"links" : {
+		"linkedin" : {"img" : "lkd.svg" , "link" : "    https://fr.linkedin.com/in/alexandre-rousseau-a55a9464"},
 		"stackoverflow" : {"img" : "stw.svg" , "link" : "http://stackoverflow.com/users/5935198/rousseaualexandre"},
 		"github" : {"img" : "gih.svg" , "link" : "http://github.com/madeindjs/"}
 
@@ -22,18 +23,18 @@
 			"jobs" : {
 
 				"Chef de projet" : {
-					"skp.svg" : "Leadership sur le développement d'un outil de design marketing avec Sketchup. Formation des commerciaux européens sur cet outil.",
-					"rby.svg" : "Création d'un plugin Sketchup en Ruby pour faciliter le dessin 3D.",
-					"csh.svg" : "Création d'une application web pour collecter  les rapports d'intervention des assistants technique. Interprétation de ces données avec MySQL pour mesurer les coûts de qualité."
+					"skp.svg" : "Leadership sur la création d'une solution de dessin 3D avec **Sketchup** dans un but marketing & commercial. Formation des commerciaux européens sur cet outil.",
+					"rby.svg" : "Création d'un plugin **Sketchup** en **Ruby** pour faciliter le dessin 3D.",
+					"csh.svg" : "Création d'une application web pour collecter  et interpréter les rapports d'interventions techniques. Développement réalisé en avec le framework Windows **ASP.NET MVC** en **C#**"
 				},
 
 				"Scripting" : {
-					"exc.svg" : "Automatisation de la construction de plusieurs types de devis via macro Excel Visual Basic.",
-					"pyt.svg" : "Automatisation de 'tâches ingrâtes' via quelques scripts Python."
+					"exc.svg" : "Automatisation de la création de devis complexes via macro **Excel Visual Basic**.",
+					"pyt.svg" : "Automatisation de *'tâches ingérâtes'* via quelques scripts **Python**."
 				},
 
 				"Bureau d'études" : {
-					"acd.png" : "Dessin des plans d'exécution sur AutoCad. Dimensionnement de l'installation frigorifique. Configuration et mise en service de la régulation des vitrines."
+					"acd.png" : "Dessin des plans d'exécutions sur AutoCad. Dimensionnement de l'installation frigorifique. Configuration et mise en service de la régulation des vitrines."
 				}
 
 
@@ -45,21 +46,21 @@
 
 		"Webmaster" : {
 
-			"begin" : "?",
+			"begin" : "01/10/2015",
 
 			"activities" : {
 
-				"ror.png" : "Bonne connaissance et application du langage orienté objet Ruby et de son framework web Ruby On Rails.",
-				"php.png" : "Bonne connaissance et application du langage PHP et de son framework web CakePHP.",
-				"css.png" : "Bonne connaissance et application des standards du web : HTML, CSS, Javascript & JQuery"
+				"ror.png" : "Création d'une [application web](http://raspberry-cook.fr) permettant de stocker & partager des recettes de cuisine. \r\n\r\n* création back et fron-end\r\n* promotion et réferecement",
+				"php.png" : "Utilisation antérieure du langage **PHP** et de son framework web **CakePHP** pour la création d'applications web.",
+				"js.png" : "Utilisation quotidienne de **Javascript** "
 			}
 		},
 
 		"Développement applications" : {
-			"begin" : "?",
+			"begin" : "01/02/2014",
 
 			"activities" : {
-				"bry.svg" : "Création d'applications pour la plateforme Blackberry 10. Accéder à mon compte vendeur."
+				"bry.svg" : "Création d'applications pour la plateforme Blackberry 10. [Accéder à mon compte vendeur](https://appworld.blackberry.com/webstore/vendor/45412)."
 			}
 		},
 
