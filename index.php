@@ -11,6 +11,7 @@ $user = new User("data.json");
 		<meta charset="utf-8">
 		<link href="css/stylesheet.css" rel="stylesheet" type="text/css" media="screen" >
 		<link href="css/print.css" rel="stylesheet" type="text/css"  media="print">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	</head>
 
 
