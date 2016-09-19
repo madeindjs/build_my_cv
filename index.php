@@ -21,7 +21,7 @@ $user = new User("data.json");
 
 
 		<div id="contact" style="display:none">
-			<div id="contact_icons" style="display:none">
+			<div id="contact_icons">
 				<a href="mailto:<?= $data["user"]["email"] ?>?subject=Votre%20CV"><img src="img/mai.png"></a>
 				<?= $user->print_links() ?>
 			</div>
