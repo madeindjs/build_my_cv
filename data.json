@@ -51,7 +51,7 @@
 			"activities" : {
 
 				"ror.png" : "Création d'une *Web App* permettant de stocker & partager des recettes de cuisine: [raspberry-cook.fr](http://raspberry-cook.fr). \r\n\r\n* création back et fron-end\r\n* création et maintenance du serveur\r\n* promotion et réferecement",
-				"php.png" : "Utilisation de **PHP** pour l'anciene version de [raspberry-cook.fr](http://raspberry-cook.fr)et de son framework web **CakePHP** sur un projet professionnel.",
+				"php.png" : "Utilisation de **PHP** pour l'anciene version de [raspberry-cook.fr](http://raspberry-cook.fr) et utilisation du framework **CakePHP** sur un projet professionnel.",
 				"pyt.svg" : "Créations de quelques librairies **Python** et utilisation sur des petits projets personnels.",
 				"js.svg" : "Utilisation de **Javascript** et **JQuery** en front-end (animations, appels AJAX, etc..)"
 			}
