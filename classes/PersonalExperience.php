@@ -13,7 +13,7 @@ class PersonalExperience extends Experience
 	function __construct($name, $details)
 	{
 		$this->name = $name;
-		$this->begin = $details['begin'];
+		$this->begin = DateTime::createFromFormat('Y-m-d',$details['begin']);
 
 		foreach ($details["activities"] as $picture => $description) {
 			array_push($this->activities, new Activity($picture, $description )) ;

@@ -10,7 +10,7 @@ class Qualification extends Experience
 	function __construct($title, $details)
 	{
 		$this->name= $title;
-		$this->begin= $details['begin'];
+		$this->begin= DateTime::createFromFormat('Y-m-d',$details['begin']);
 		$this->place= $details['place'];
 	}
 }

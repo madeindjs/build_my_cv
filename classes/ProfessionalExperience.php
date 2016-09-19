@@ -12,7 +12,7 @@ class ProfessionalExperience  extends Experience
 	function __construct($name, $details)
 	{
 		$this->name = $name;
-		$this->begin = $details['begin'];
+		$this->begin = DateTime::createFromFormat('Y-m-d',$details['begin']);
 
 		foreach ($details["jobs"] as $title => $details) {
 			array_push($this->jobs, new Job($title, $details )) ;
