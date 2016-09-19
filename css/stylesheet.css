@@ -1,15 +1,8 @@
 a{color:inherit;}
 
-html,body{
-	font-family:'Lato',sans-serif;
-	background-color:#ecf0f1;color:#2c3e50;
-	margin:0px;
-}
-header{
-	/*background-image:url(../img/background.svg);background-size:cover;*/
-	background-color: #22313F;
-	height:100vh;display:flex;flex-direction:column;justify-content:center;
-	text-align:center;font-size:xx-large;color:#bdc3c7;}
+html,body{font-family:'Lato',sans-serif; background-color:#ecf0f1;color:#2c3e50; margin:0px; }
+header{text-align:center;font-size:xx-large;color:#bdc3c7;background-color: #22313F;
+	/*set cover sheet*/height:100vh;display:flex;flex-direction:column;justify-content:center;}
 
 header h1{font-family:'Neuton',serif;color:#ecf0f1;}
 h1,h2,h3,h4{font-weight:lighter;}
@@ -28,60 +21,21 @@ header p{font-size:18px;font-weight:300;text-align:center;}
 	background-color:#22313F; ;
 }
 
-	#contact a{
-		vertical-align:top;
-		display:inline-block;
-		margin-left:3px;margin-right:7px;}
-
+	#contact img{transition:all.2s;}
+	#contact a{vertical-align:top; display:inline-block; margin-left:3px;margin-right:7px;}
 	#contact p{margin:0px;padding:0px;display:inline;float:left;}
 	
 
-	/*mobile*/
-	@media only screen and (max-width: 768px) {
-		#contact img{width:53px;height:53px; transition:all.2s;}
-		#contact img:hover{width:60px;height:60px;}
-	}
-	/*desktop*/
-	@media only screen and (min-width: 768px) {
-		#contact{height:60px;}
-		#contact img{width:60px;height:60px; transition:all.2s;}
-		#contact img:hover{width:80px;height:80px;}
-	}
-
-
-
-
-section{padding-left:10%;padding-right:10%;padding-top:100px;padding-bottom:100px;text-align:center;}
+section{padding-top:100px;padding-bottom:100px;text-align:center;}
 
 /*eachitem*/
 ul.experience{list-style:none;padding:5px;}
 
 	ul.experience>li{
 		vertical-align:top;
-		/*border:5pxdashedred;*/
 		margin:0px;padding:5px;
-		display:inline-block;
+		
 		text-align:justify}
-
-	/*mobile*/
-	@media only screen and (max-width: 768px) {
-		ul.experience>li{margin-bottom: 15px;}
-		ul.experience img{max-width:60px;max-height:60px;float:left;margin-right:5px;}
-	}
-	/*desktop*/
-	@media only screen and (min-width: 768px) {
-		/*on desktop, we display / hide text when user hover icon*/
-		ul.experience>li{
-			max-width:110px;max-height:100px;
-			margin:0px;padding:5px;
-			overflow:hidden;
-			color:transparent;
-			transition:all.5s;}
-
-			ul.experience>li:hover{max-width:450px;overflow:visible;color:inherit;}
-			ul.experience img{max-width:100px;max-height:100px;float:left;margin-right:5px;}
-	}
-
 
 	ul.experience p{margin:0px}
 
@@ -97,3 +51,30 @@ div.langage li>progress{display:inline-block;width:120px;}
 
 footer{background-color:#34495e;color:#bdc3c7;
 	padding:50px;margin:0px;}
+
+
+
+/*mobile*/
+@media only screen and (max-width: 768px) {
+	/*display list items*/
+	ul.experience>li{margin-bottom: 15px;display:block;min-height:100px;}
+	ul.experience img{max-width:60px;max-height:60px;float:left;margin-right:5px;}
+	/*reduce contacts items*/
+	#contact img{width:53px;height:53px;}
+	#contact img:hover{width:60px;height:60px;}
+	/*set fixed padding*/
+	section{padding-left:10px;padding-right:10px;}
+}
+/*desktop*/
+@media only screen and (min-width: 768px) {
+	/*on desktop, we display / hide text when user hover icon*/
+	ul.experience>li{display:inline-block;max-width:110px;max-height:100px; margin:0px;padding:5px;
+		overflow:hidden; color:transparent;transition:all.5s;}
+		ul.experience>li:hover{max-width:450px;overflow:visible;color:inherit;}
+		ul.experience img{max-width:100px;max-height:100px;float:left;margin-right:5px;}
+	/*bigger contacts items*/
+	#contact img{width:60px;height:60px;}
+	#contact img:hover{width:80px;height:80px;}
+	/*set changing padding*/
+	section{padding-left:10%;padding-right:10%;}
+}
