@@ -6,7 +6,8 @@ html,body{
 	margin:0px;
 }
 header{
-	background-image:url(../img/background.svg);background-size:cover;
+	/*background-image:url(../img/background.svg);background-size:cover;*/
+	background-color: #22313F;
 	height:100vh;display:flex;flex-direction:column;justify-content:center;
 	text-align:center;font-size:xx-large;color:#bdc3c7;}
 
@@ -21,18 +22,34 @@ header p{font-size:18px;font-weight:300;text-align:center;}
 
 #contact{
 	position:fixed;right:0px;top:0px;left:0px;
-	height:60px;
+	height:53px;
 	text-align:right;vertical-align:top;
-	padding-top:4px;padding-bottom:4px;}
-
+	padding-top:4px;padding-bottom:4px;
+	background-color:#22313F; ;
+}
 
 	#contact a{
 		vertical-align:top;
 		display:inline-block;
 		margin-left:3px;margin-right:7px;}
-	#contact img{width:60px;height:60px;
-		transition:all.2s;}
-	#contact img:hover{width:80px;height:80px;}
+
+	#contact p{margin:0px;padding:0px;display:inline;float:left;}
+	
+
+	/*mobile*/
+	@media only screen and (max-width: 768px) {
+		#contact img{width:53px;height:53px; transition:all.2s;}
+		#contact img:hover{width:60px;height:60px;}
+	}
+	/*desktop*/
+	@media only screen and (min-width: 768px) {
+		#contact{height:60px;}
+		#contact img{width:60px;height:60px; transition:all.2s;}
+		#contact img:hover{width:80px;height:80px;}
+	}
+
+
+
 
 section{padding-left:10%;padding-right:10%;padding-top:100px;padding-bottom:100px;text-align:center;}
 
