@@ -1,141 +1,68 @@
-a{
-	color: inherit;
-	text-decoration: 
-}
+a{color:inherit;}
 
-html, body{
-	background-color: #ecf0f1;
-	margin: 0px;
-	color: #2c3e50;
-	font-family: 'Lato', sans-serif;
+html,body{
+	font-family:'Lato',sans-serif;
+	background-color:#ecf0f1;color:#2c3e50;
+	margin:0px;
 }
 header{
-	/*background-color: #2c3e50;*/
-	background-image: url(../img/background.svg);
-	background-size: cover;
-	height: 100vh;
+	background-image:url(../img/background.svg);background-size:cover;
+	height:100vh;display:flex;flex-direction:column;justify-content:center;
+	text-align:center;font-size:xx-large;color:#bdc3c7;}
 
-	display: flex ;
-	flex-direction: column;
-	justify-content: center;
+header h1{font-family:'Neuton',serif;color:#ecf0f1;}
+h1,h2,h3,h4{font-weight:lighter;}
+h3,h4{text-align:left;}
+h1{color:#2980b9;}
+h2{color:#c0392b;font-size:xx-large;text-align:center;}
+h3{color:#2980b9;}
+h4{color:#3498db;}
+header p{font-size:large;font-weight:300;text-align:center;}
 
-	text-align:center;
-	font-size: xx-large;
-
-	color: #bdc3c7 ;
-}
-header h1{
-	font-family: 'Neuton', serif;
-}
-h3,h4{
-	text-align: left;
-}
-header p {
-	font-size: large;
-	font-weight: 300 ;
-	text-align: center;
-}
-#contact {
-	position: fixed;
-	height: 60px;
-	right: 0px; top: 0px; left: 0px;
-	text-align: right;
-	vertical-align: top;
-	padding-top: 4px;
-	padding-bottom: 4px;
+#contact{
+	position:fixed;right:0px;top:0px;left:0px;
+	height:60px;
+	text-align:right;vertical-align:top;
+	padding-top:4px;padding-bottom:4px;}
 
 
-}
+	#contact a{
+		vertical-align:top;
+		display:inline-block;
+		margin-left:3px;margin-right:7px;}
+	#contact img{width:60px;height:60px;
+		transition:all.2s;}
+	#contact img:hover{width:80px;height:80px;}
 
+section{padding-left:10%;padding-right:10%;padding-top:100px;padding-bottom:100px;text-align:center;}
 
-	#contact a {
-		vertical-align: top;
-		display: inline-block;
-		margin-left: 3px;
-		margin-right: 7px;
-	}
-	#contact img {
-		width: 60px;
-		height: 60px;
-		transition: all .2s;
-	}
-	#contact img:hover {
-		width: 80px;
-		height: 80px;
-	}
-
-section{
-	padding-left: 10%;
-	padding-right: 10%;
-	padding-top: 100px;
-	padding-bottom: 100px;
-	text-align: center;
-}
-
-/* each item */
-ul.experience{
-	list-style: none;
-	padding: 5px;
-}
-	ul.experience > li {
-		vertical-align: top;
-		/*border: 5px dashed red;  */
-		max-width: 110px;
-		max-height: 100px; 
-		margin: 0px;
-		padding: 5px;
-		display: inline-block;
-		text-align: justify;
-		overflow: hidden;
+/*eachitem*/
+ul.experience{list-style:none;padding:5px;}
+	ul.experience>li{
+		vertical-align:top;
+		/*border:5pxdashedred;*/
+		max-width:110px;max-height:100px;
+		margin:0px;padding:5px;
+		display:inline-block;
+		text-align:justify;
+		overflow:hidden;
 		color:transparent;
-		transition: all .5s;
+		transition:all.5s;}
 
-	}
-		ul.experience > li:hover {
-			max-width: 450px;
-			overflow: visible;
-			color: inherit;
-		}
-	ul.experience img {
-		max-width: 100px;
-		max-height: 100px;
-		float:left;
-		margin-right: 5px;
-	}
-	ul.experience p {margin: 0px}
+		ul.experience>li:hover{max-width:450px;overflow:visible;color:inherit;}
 
-div.langage{height: 100px}
-div.langage img{height: 100px;margin-right: 20px}
-div.langage ul{height: 100px;list-style: none;text-align: left}
-div.langage li{height: 25px}
-div.langage li > strong{display: inline-block;width: 80px;}
-div.langage li > progress{display: inline-block;width: 120px;}
+	ul.experience img{max-width:100px;max-height:100px;float:left;margin-right:5px;}
+	ul.experience p{margin:0px}
+
+div.langage{height:100px}
+div.langage img{height:100px;margin-right:20px}
+div.langage ul{height:100px;list-style:none;text-align:left}
+div.langage li{height:25px}
+div.langage li>strong{display:inline-block;width:80px;}
+div.langage li>progress{display:inline-block;width:120px;}
 
 
-header h1 {
-	color : #ecf0f1
-}
-h1 , h2 , h3 , h4{
-	font-weight: lighter;
-}
-h1{
-	color:#2980b9;
-}
-h2{
-	color:#c0392b;
-	font-size: xx-large;
-	text-align: center;
-}
-h3{
-	color: #2980b9;
-}
-h4{
-	color: #3498db;
-}
 
-footer{
-	background-color: #34495e;
-	color: #bdc3c7 ;
-	padding: 50px;
-	margin: 0px;
-}
+
+footer{background-color:#34495e;color:#bdc3c7;
+	padding:50px;margin:0px;}
