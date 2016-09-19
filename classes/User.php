@@ -38,7 +38,7 @@ class User
 		$this->email = $data["user"]["email"] ;
 		$this->phone = $data["user"]["phone"] ;
 		$this->adress = $data["user"]["adress"] ;
-		$this->birth_date = $data["user"]["birth date"] ;
+		$this->birth_date = DateTime::createFromFormat('Y-m-d',$data["user"]["birth date"]);
 		$this->town_birth = $data["user"]["town birth"] ;
 
 		$this->links = $data['links'] ;
