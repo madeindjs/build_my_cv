@@ -24,8 +24,8 @@
 
 				"Chef de projet" : {
 					"skp.svg" : "Leadership sur la création d'une solution de dessin 3D avec **Sketchup** dans un but marketing & commercial. Formation des commerciaux européens sur cet outil.",
-					"rby.svg" : "Création d'un plugin **Sketchup** en **Ruby** pour faciliter le dessin 3D.",
-					"csh.svg" : "Création d'une application web pour collecter  et interpréter les rapports d'interventions techniques. Développement réalisé en avec le framework Windows **ASP.NET MVC** en **C#**"
+					"rby.svg" : "Développement d'un plugin **Sketchup** en **Ruby** pour faciliter le dessin 3D.",
+					"csh.svg" : "Développement d'une application web pour collecter  et interpréter les rapports d'interventions techniques. Développement réalisé en avec le framework Windows **ASP.NET MVC** en **C#**"
 				},
 
 				"Scripting" : {
@@ -50,9 +50,10 @@
 
 			"activities" : {
 
-				"ror.png" : "Création d'une [application web](http://raspberry-cook.fr) permettant de stocker & partager des recettes de cuisine. \r\n\r\n* création back et fron-end\r\n* promotion et réferecement",
-				"php.png" : "Utilisation antérieure du langage **PHP** et de son framework web **CakePHP** pour la création d'applications web.",
-				"js.svg" : "Utilisation quotidienne de **Javascript** "
+				"ror.png" : "Création d'une *Web App* permettant de stocker & partager des recettes de cuisine: [raspberry-cook.fr](http://raspberry-cook.fr). \r\n\r\n* création back et fron-end\r\n* création et maintenance du serveur\r\n* promotion et réferecement",
+				"php.png" : "Utilisation de **PHP** pour l'anciene version de [raspberry-cook.fr](http://raspberry-cook.fr)et de son framework web **CakePHP** sur un projet professionnel.",
+				"pyt.svg" : "Créations de quelques librairies **Python** et utilisation sur des petits projets personnels.",
+				"js.svg" : "Utilisation de **Javascript** et **JQuery** en front-end (animations, appels AJAX, etc..)"
 			}
 		},
 
@@ -60,7 +61,7 @@
 			"begin" : "01/02/2014",
 
 			"activities" : {
-				"bry.svg" : "Création d'applications pour la plateforme Blackberry 10. [Accéder à mon compte vendeur](https://appworld.blackberry.com/webstore/vendor/45412)."
+				"bry.svg" : "Développement d'applications pour la plateforme Blackberry 10 : Mon compte vendeur](https://appworld.blackberry.com/webstore/vendor/45412)."
 			}
 		},
 
@@ -70,9 +71,9 @@
 			"begin" : "?",
 
 			"activities" : {
-				"lnx.svg" : "Connaissance et utilisation environnement Linux via SSH pour installer et utiliser un serveur Apache ou Nginx.",
-				"ink.svg" : "Connaissance de la retouche photographique avec GIMP et du dessin vectoriel avec Inkscape",
-				"git.svg" : "Utilisation du versionning avec Git"
+				"lnx.svg" : "Connaissance environnement **Linux**",
+				"ink.svg" : "Connaissance de la retouche photographique avec **GIMP** et du dessin vectoriel avec Inkscape",
+				"git.svg" : "Versionning avec **Git**"
 			}
 
 		}
