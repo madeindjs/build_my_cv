@@ -5,7 +5,7 @@
 		"email" : "RousseauAlexandre.Lyon@gmail.com",
 		"phone" : "+336 663 549 581",
 		"adress" : "2c, rue de Margnolles, 69300 , Caluire-et-Cuire, France",
-		"birth date" : "28/12/1992",
+		"birth date" : "1992-12-28",
 		"town birth" : "Toulouse"
 	},
 
@@ -18,7 +18,7 @@
 
 	"professional experience" : {
 		"Carrier Réfrigération" : {
-			"begin" : "01/09/2011",
+			"begin" : "2011-09-01",
 
 			"jobs" : {
 
@@ -46,7 +46,7 @@
 
 		"Webmaster" : {
 
-			"begin" : "01/10/2015",
+			"begin" : "2015-10-01",
 
 			"activities" : {
 
@@ -58,7 +58,7 @@
 		},
 
 		"Développement applications" : {
-			"begin" : "01/02/2014",
+			"begin" : "2014-02-01",
 
 			"activities" : {
 				"bry.svg" : "Développement d'applications pour la plateforme Blackberry 10 : Mon compte vendeur](https://appworld.blackberry.com/webstore/vendor/45412)."
@@ -83,11 +83,11 @@
 	"diplomas" : {
 
 		"BTS F.E.E." : {
-			"begin" : "31/08/2013",
+			"begin" : "2013-08-31",
 			"place" : "La Martinière Monplaisir"
 		},
 		"Baccalauréat STI" : {
-			"begin" : "31/08/2011",
+			"begin" : "2011-08-31",
 			"place" : "La Martinière Monplaisir"
 		}
 	},
@@ -98,7 +98,7 @@
 			"place" : "Lyon"
 		},
 		"Attestation d’aptitude des fluides frigorigènes (Catégorie 1)" : {
-			"begin" : "mai 2012",
+			"begin" : "2012-05-01",
 			"place" : "?"
 		}
 	},
