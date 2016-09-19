@@ -89,7 +89,7 @@ $user = new User("data.json");
 
 
 	<footer>
-		<p><?= $user->birth_date ?> à <?= $user->town_birth ?></p>
+		<p><?= $user->birth_date->format('Y-m-d') ?> à <?= $user->town_birth ?></p>
 		<p><adress><?= $user->adress ?></adress></p>
 		<p><strong><?= $user->phone ?></strong></p>
 		<p><a href="mailto:<?= $user->email ?>?subject=Votre%20CV"><?= $user->email ?></a></p>
