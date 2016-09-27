@@ -27,6 +27,7 @@ header p{font-size:18px;font-weight:300;text-align:center;}
 	
 
 section{padding-top:100px;padding-bottom:100px;text-align:center;}
+section:nth-child(odd){background-color:#bdc3c7;}
 
 /*eachitem*/
 ul.experience{list-style:none;padding:5px;}

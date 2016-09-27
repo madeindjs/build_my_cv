@@ -46,7 +46,7 @@ $user = new User("data.json");
 		
 
 		<!--  personal experience in POO-->
-		<section style="background-color:#bdc3c7" >
+		<section>
 			<h2>Experience personnelle</h2>
 
 			<?php foreach( $user->personalExperiences as $personalExp)://loop on all personalExperiences ?>
