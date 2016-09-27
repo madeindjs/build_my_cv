@@ -13,6 +13,7 @@ $user = new User("data.json");
 		<link href="css/print.css" rel="stylesheet" type="text/css"  media="print">
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<script type="text/javascript" src="js/Chart.min.js"></script>
 	</head>
 
 
@@ -32,6 +33,7 @@ $user = new User("data.json");
 
 		<section>
 			<h2>Comptétences</h2>
+			<canvas id="canvas" height="450" width="610"></canvas>
 			<div id="competencies" height="450" width="600"> </div>
 
 		</section>
@@ -105,30 +107,25 @@ $user = new User("data.json");
 	</footer>
 
 	<script type="text/javascript" src="js/ribbon.js"></script>
-	<!-- include morris.js -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
-	<script type="text/javascript">
+	<script>
 
-		new Morris.Bar({
-			element: 'competencies',
-			data: [
-				{ langage: 'Python', value: 70 },
-				{ langage: 'PHP', value: 50 },
-				{ langage: 'Ruby', value: 80 },
-				{ langage: 'C#', value: 30 },
-				{ langage: 'Javascript', value: 20 },
-				{ langage: 'Python', value: 70 },
-			],
-			xkey: 'langage',
-			ykeys: ['value'],
-			ymax: 100,
-			postUnits: '%' ,
-			labels: ['Value']
-		});
- 
+		var RadarChart = {
+			labels : ["Ruby", "Python","C#","PHP","javascript","HTML/CSS"],
+			datasets : [
+				{
+					fillColor : "rgba(151,249,190,0.5)",
+					strokeColor : "rgba(255,255,255,1)",
+					pointColor : "rgba(220,220,220,1)",
+					pointStrokeColor : "#fff",
+					data : [80,70,30,50,40,70],
+					
+				}
+			]
+		}
+
+		var myRadarChart = new Chart(document.getElementById("canvas").getContext("2d")).Radar(RadarChart, {pointLabelFontSize : 13, pointLabelFontColor  : "#ffa45e",});
+	
 	</script>
 
 
