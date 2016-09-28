@@ -31,12 +31,8 @@ $user = new User("data.json");
 			
 		</div>
 
-		<section>
-			<h2>Comptétences</h2>
-			<p>Evaluation de mes conaissances sur différents langages de programation:</p>
-			<canvas id="competencies" height="450" width="610"></canvas>
 
-		</section>
+		<div id="competencies_container"><canvas id="competencies"></canvas></div>
 
 		<!--  professional experience in POO-->
 		<section>
@@ -113,7 +109,8 @@ $user = new User("data.json");
 		var ctx = document.getElementById("competencies").getContext('2d');
 		ctx.canvas.height = 200;
 		var data = <?= $user->compentencies_to_json()?>;
-		var myRadarChart = new Chart(ctx , {  type: 'polarArea' , data: data , options: { } });
+		var option = { title: {display: true, text: 'Compétences'} };
+		var myRadarChart = new Chart(ctx , {  type: 'polarArea' , data: data , options: option });
 	
 	</script>
 
