@@ -19,7 +19,10 @@ $user = new User("data.json");
 
 	<body>
 
-		<header><h1><?= $user->complete_name() ?></h1></header>
+		<header>
+			<h1><?= $user->complete_name() ?></h1>
+			<p>Web-developper</p>
+		</header>
 
 
 		<div id="contact" style="display:none">
@@ -28,11 +31,16 @@ $user = new User("data.json");
 				<a href="mailto:<?= $data["user"]["email"] ?>?subject=Votre%20CV"><img src="img/mai.png"></a>
 				<?= $user->print_links() ?>
 			</div>
-			
 		</div>
 
 
-		<div id="competencies_container"><canvas id="competencies"></canvas></div>
+		<section>
+			<h2>Compétences</h2>
+			<div id="competencies_container"><canvas id="competencies" height="150"></></canvas></div>
+		</section>
+
+
+		
 
 		<!--  professional experience in POO-->
 		<section>
@@ -109,8 +117,8 @@ $user = new User("data.json");
 		var ctx = document.getElementById("competencies").getContext('2d');
 		ctx.canvas.height = 200;
 		var data = <?= $user->compentencies_to_json()?>;
-		var option = { title: {display: true, text: 'Compétences'} };
-		var myRadarChart = new Chart(ctx , {  type: 'polarArea' , data: data , options: option });
+		var option = { maintainAspectRatio: false };
+		var myRadarChart = new Chart(ctx , {  type: 'bar' , data: data , options: option });
 	
 	</script>
 

@@ -1,14 +1,12 @@
 a{color:inherit;}
 
 html,body{font-family:'Lato',sans-serif; background-color:#ecf0f1;color:#2c3e50; margin:0px; }
-header{text-align:center;font-size:xx-large;color:#bdc3c7;background-color: #22313F;
-	/*set cover sheet*/height:100vh;display:flex;flex-direction:column;justify-content:center;}
+header{text-align: center;}
 
-header h1{font-family:'Neuton',serif;color:#ecf0f1;}
-h1,h2,h3,h4{font-weight:lighter;}
+h1,h2,h3,h4{text-transform: uppercase;}
 h3,h4{text-align:left;}
-h1{color:#2980b9;}
-h2{color:#c0392b;font-size:xx-large;text-align:center;}
+h1{font-size: 45px;}
+h2{font-size:xx-large;text-align:left;border-top: 4px solid; border-bottom: dotted 4px}
 h3{color:#2980b9;}
 h4{color:#3498db;}
 header p{font-size:18px;font-weight:300;text-align:center;}
@@ -27,8 +25,6 @@ header p{font-size:18px;font-weight:300;text-align:center;}
 	#contact p{margin:0px;padding:0px;display:inline;float:left;}
 	
 
-section{padding-top:100px;padding-bottom:100px;text-align:center;}
-section:nth-child(odd){background-color:#bdc3c7;}
 
 /*eachitem*/
 ul.experience{list-style:none;padding:5px;}
@@ -54,7 +50,7 @@ div.langage li>progress{display:inline-block;width:120px;}
 footer{background-color:#34495e;color:#bdc3c7;
 	padding:50px;margin:0px;}
 
-#competencies{max-width:500px;float: center;}
+#competencies{max-width: 100%;}
 
 /*mobile*/
 @media only screen and (max-width: 768px) {
