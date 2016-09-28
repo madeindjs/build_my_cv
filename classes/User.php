@@ -17,6 +17,7 @@ class User
 	public $birth_date;
 	public $town_birth;
 
+	public $comptencies = array();
 
 	public $professionalExperiences = array();
 	public $personalExperiences = array();
@@ -34,6 +35,8 @@ class User
 
 		$this->lastname = $data["user"]["lastname"] ;
 		$this->firstname = $data["user"]["firstname"] ;
+
+		$this->competencies = $data["competencies"] ;
 
 		$this->email = $data["user"]["email"] ;
 		$this->phone = $data["user"]["phone"] ;
@@ -74,6 +77,27 @@ class User
 			$html = $html.$this->print_link($name, $details);
 		}
 		return $html;
+	}
+
+	// return an array
+	function compentencies_to_json(){
+
+		$json = array();
+
+		$json['labels'] = array_keys($this->competencies) ;
+		$json['datasets'][0] = array();
+		$json['datasets'][0]['data'] = array();
+		$json['datasets'][0]['backgroundColor'] = array();
+
+		foreach ($this->competencies as $langage => $data) {
+			array_push( $json['datasets'][0]['data'], $data['value'] );
+			array_push( $json['datasets'][0]['backgroundColor'], $data['color'] );
+		}
+
+		$json_encode = json_encode( $json , JSON_PRETTY_PRINT);
+		return $json_encode;
+		// return preg_replace('/"([^"]+)"\s*:\s*/', '$1:', $json_encode ) ;
+
 	}
 
 	private function print_link($name, $details){

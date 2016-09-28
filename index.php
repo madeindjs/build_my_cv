@@ -112,13 +112,7 @@ $user = new User("data.json");
 		// draw comptencies graph
 		var ctx = document.getElementById("competencies").getContext('2d');
 		ctx.canvas.height = 200;
-
-		var data = {
-			labels : ["Ruby", "Python","PHP","javascript","HTML/CSS", "C#"],
-			datasets : [
-				{	backgroundColor: ["#D91E18", "#F7CA18", "#674172", "#F4D03F", "#6C7A89", "#8E44AD"],
-					data : [8,7.5,6,5,8.5,4] } ]
-		};
+		var data = <?= $user->compentencies_to_json()?>;
 		var myRadarChart = new Chart(ctx , {  type: 'polarArea' , data: data , options: { } });
 	
 	</script>
