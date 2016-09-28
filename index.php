@@ -13,7 +13,7 @@ $user = new User("data.json");
 		<link href="css/print.css" rel="stylesheet" type="text/css"  media="print">
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-		<script type="text/javascript" src="js/Chart.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
 	</head>
 
 
@@ -33,8 +33,8 @@ $user = new User("data.json");
 
 		<section>
 			<h2>Comptétences</h2>
-			<canvas id="canvas" height="450" width="610"></canvas>
-			<div id="competencies" height="450" width="600"> </div>
+			<p>Evaluation de mes conaissances sur différents langages de programation:</p>
+			<canvas id="competencies" height="450" width="610"></canvas>
 
 		</section>
 
@@ -109,22 +109,17 @@ $user = new User("data.json");
 	<script type="text/javascript" src="js/ribbon.js"></script>
 
 	<script>
+		// draw comptencies graph
+		var ctx = document.getElementById("competencies").getContext('2d');
+		ctx.canvas.height = 200;
 
-		var RadarChart = {
-			labels : ["Ruby", "Python","C#","PHP","javascript","HTML/CSS"],
+		var data = {
+			labels : ["Ruby", "Python","PHP","javascript","HTML/CSS", "C#"],
 			datasets : [
-				{
-					fillColor : "rgba(151,249,190,0.5)",
-					strokeColor : "rgba(255,255,255,1)",
-					pointColor : "rgba(220,220,220,1)",
-					pointStrokeColor : "#fff",
-					data : [80,70,30,50,40,70],
-					
-				}
-			]
-		}
-
-		var myRadarChart = new Chart(document.getElementById("canvas").getContext("2d")).Radar(RadarChart, {pointLabelFontSize : 13, pointLabelFontColor  : "#ffa45e",});
+				{	backgroundColor: ["#D91E18", "#F7CA18", "#674172", "#F4D03F", "#6C7A89", "#8E44AD"],
+					data : [8,7.5,6,5,8.5,4] } ]
+		};
+		var myRadarChart = new Chart(ctx , {  type: 'polarArea' , data: data , options: { } });
 	
 	</script>
 
