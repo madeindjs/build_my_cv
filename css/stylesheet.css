@@ -23,6 +23,9 @@ header p{font-size:18px;font-weight:300;text-align:center;}
 	#contact img{transition:all.2s;}
 	#contact a{vertical-align:top; display:inline-block; margin-left:3px;margin-right:7px;}
 	#contact p{margin:0px;padding:0px;display:inline;float:left;}
+
+
+div.print{display: none;}
 	
 
 
@@ -51,6 +54,7 @@ footer{background-color:#34495e;color:#bdc3c7;
 	padding:50px;margin:0px;}
 
 #competencies{max-width: 100%;}
+
 
 /*mobile*/
 @media only screen and (max-width: 768px) {
