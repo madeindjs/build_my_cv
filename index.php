@@ -11,7 +11,9 @@ $user = new User("data.json");
 		<meta charset="utf-8">
 		<link href="css/stylesheet.css" rel="stylesheet" type="text/css" media="screen" >
 		<link href="css/print.css" rel="stylesheet" type="text/css"  media="print">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
 	</head>
 
 
@@ -28,6 +30,9 @@ $user = new User("data.json");
 			</div>
 			
 		</div>
+
+
+		<div id="competencies_container"><canvas id="competencies"></canvas></div>
 
 		<!--  professional experience in POO-->
 		<section>
@@ -98,6 +103,16 @@ $user = new User("data.json");
 	</footer>
 
 	<script type="text/javascript" src="js/ribbon.js"></script>
+
+	<script>
+		// draw comptencies graph
+		var ctx = document.getElementById("competencies").getContext('2d');
+		ctx.canvas.height = 200;
+		var data = <?= $user->compentencies_to_json()?>;
+		var option = { title: {display: true, text: 'Compétences'} };
+		var myRadarChart = new Chart(ctx , {  type: 'polarArea' , data: data , options: option });
+	
+	</script>
 
 
 </body></html>
