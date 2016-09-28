@@ -31,18 +31,36 @@ $user = new User("data.json");
 
 		<!--  professional experience in POO-->
 		<section>
+
+			<section>
+				<h2>Timeline</h2>
+				<div id="timeline1" style="width:100%;"></div>
+			</section>
+
+
 			<?php foreach( $user->professionalExperiences as $professionalExp)://loop on all professionalExperiences ?>
 				<h2><?= $professionalExp->title() ?></h2>
-				<?php foreach( $professionalExp->jobs as $job )://loop on all jobs into this professional Experience?>
-					<h3><?= $job->title ?></h3>
-					<ul class="experience" >
-						<?php foreach($job->activities as $activity){//loop on all activities into this activity
-							echo $activity->to_html() ;
-						} // next activity ?>
-					</ul>
-				<?php endforeach // next job ?>
+
+				
+
+				<div class=print>
+
+					<?php foreach( $professionalExp->jobs as $job )://loop on all jobs into this professional Experience?>
+						<h3><?= $job->title ?></h3>
+						<ul class="experience" >
+							<?php foreach($job->activities as $activity){//loop on all activities into this activity
+								echo $activity->to_html() ;
+							} // next activity ?>
+						</ul>
+					<?php endforeach // next job ?>
+					
+				</div>
+
+				
 			<?php endforeach // next professional Experience?>
 		</section>
+
+
 		
 
 		<!--  personal experience in POO-->
@@ -97,7 +115,48 @@ $user = new User("data.json");
 		<div>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 	</footer>
 
+	<script type="text/javascript" src="js/d3_v2_min.js"></script>
+	<script type="text/javascript" src="js/timeknots-min.js"></script>
+
 	<script type="text/javascript" src="js/ribbon.js"></script>
 
+<<<<<<< Updated upstream
+=======
+	<script>
+		// draw comptencies graph
+		var ctx = document.getElementById("competencies").getContext('2d');
+		ctx.canvas.height = 200;
+
+		var data = {
+			labels : ["Ruby", "Python","PHP","javascript","HTML/CSS", "C#"],
+			datasets : [
+				{	backgroundColor: ["#D91E18", "#F7CA18", "#674172", "#F4D03F", "#6C7A89", "#8E44AD"],
+					data : [8,7.5,6,5,8.5,4] } ]
+		};
+		var myRadarChart = new Chart(ctx , {  type: 'polarArea' , data: data , options: { } });
+
+		// draw timeknots
+		var experiences = [
+			{name:"Rejoins Carrier Réfrigération<small>en tant que Apprentis Bureau d'études</small><span>hello</span>", date: "2011-09-01", img: "img/Carrier.svg", color: '#22313F' },
+			{name:"Embauché en tant qu'<strong>assistant Bureau détudes</strong>", date: "2013-09-01", img: "img/Carrier.svg"},
+
+			{name:"Automatisation des devis de pièces détachés via Macro Excel VBA", date: "2015-02-01", img: "img/exc.svg"},
+
+			{name:"Automatisation de 'tâches ingérâtes' via quelques scripts <strong>Python</strong>.", date: "2016-02-01", img: "img/pyt.svg"},
+
+			{name:"Leadership sur la création d'une solution de dessin 3D", date: "2014-09-01", img: "img/skp.svg"},
+			{name:"Formation des commerciaux européens sur la solution de 3D mise en place", date: "2016-09-01", img: "img/skp.svg"},
+];
+
+		TimeKnots.draw("#timeline1", experiences, {dateFormat: "%B %Y", color: "#22313F", showLabels: true, labelFormat: "%Y"});
+
+
+
+
+
+	
+	</script>
+
+>>>>>>> Stashed changes
 
 </body></html>
