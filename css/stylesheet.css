@@ -27,7 +27,7 @@ header p{font-size:18px;font-weight:300;text-align:center;}
 
 div.print{display: none;}
 	
-
+#timeline1 div {min-height: 100px}
 
 /*eachitem*/
 ul.experience{list-style:none;padding:5px;}
@@ -60,19 +60,16 @@ footer{background-color:#34495e;color:#bdc3c7;
 @media only screen and (max-width: 768px) {
 	/*display list items*/
 	ul.experience>li{margin-bottom: 15px;display:block;min-height:100px;}
-	ul.experience img{max-width:60px;max-height:60px;float:left;margin-right:5px;}
+	ul.experience img{float:left;margin-right:5px;}
 	/*reduce contacts items*/
 	#contact img{width:53px;height:53px;}
-	#contact img:hover{width:60px;height:60px;}
 	/*set fixed padding*/
 	section{padding-left:10px;padding-right:10px;}
 }
 /*desktop*/
 @media only screen and (min-width: 768px) {
 	/*on desktop, we display / hide text when user hover icon*/
-	ul.experience>li{display:inline-block;max-width:110px;max-height:100px; margin:0px;padding:5px;
-		overflow:hidden; color:transparent;transition:all.5s;}
-		ul.experience>li:hover{max-width:450px;overflow:visible;color:inherit;}
+	ul.experience>li{display:inline-block;max-height:100px; margin:0px;padding:5px;}
 		ul.experience img{max-width:100px;max-height:100px;float:left;margin-right:5px;}
 	/*bigger contacts items*/
 	#contact img{width:60px;height:60px;}

@@ -149,7 +149,11 @@ $user = new User("data.json");
 			{name:"Formation des commerciaux européens sur la solution de 3D mise en place", date: "2016-09-01", img: "img/skp.svg"},
 ];
 
-		TimeKnots.draw("#timeline1", experiences, {dateFormat: "%B %Y", color: "#22313F", showLabels: true, labelFormat: "%Y"});
+		TimeKnots.draw("#timeline1", experiences, {
+			dateFormat: "%B %Y", 
+			colorTimeline: "#2c3e50", colorTip: "#2c3e50",
+			backgroundCircle: '#ecf0f1', backgroundTip: 'transparent',
+			showLabels: true, labelFormat: "%Y",tipPosition: 'top', height: '100'});
 	
 	</script>
 
