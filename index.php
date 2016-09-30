@@ -55,17 +55,13 @@ $user = new User("data.json");
 				<h2><?= $professionalExp->title() ?></h2>
 
 
-					<?php foreach( $professionalExp->jobs as $job )://loop on all jobs into this professional Experience?>
-						<h3><?= $job->title ?></h3>
-						<ul class="experience" >
-							<?php foreach($job->activities as $activity){//loop on all activities into this activity
+					<ul class="experience" ><?php foreach($professionalExp->activities as $activity){//loop on all activities into this activity
 								echo $activity->to_html() ;
 							} // next activity ?>
-						</ul>
-					<?php endforeach // next job ?>
+						
+					<?php endforeach // next activity ?></ul>
 					
 				
-			<?php endforeach // next professional Experience?>
 		</section>
 
 
@@ -75,14 +71,14 @@ $user = new User("data.json");
 		<section>
 			<h2>Experience personnelle</h2>
 
-			<?php foreach( $user->personalExperiences as $personalExp)://loop on all personalExperiences ?>
-				<h3><?= $personalExp->title() ?></h3>
+			<?php// foreach( $user->personalExperiences as $personalExp)://loop on all personalExperiences ?>
+				<h3><?// = $personalExp->title() ?></h3>
 				<ul class="experience" >
-					<?php foreach($personalExp->activities as $activity){//loop on all activities into this activity
-						echo $activity->to_html() ;
-					} // next activity ?>
+					<?php// foreach($personalExp->activities as $activity){//loop on all activities into this activity
+						//echo $activity->to_html() ;
+					//} // next activity ?>
 				</ul>
-			<?php endforeach // next activity?>
+			<?php //endforeach // next activity*/?>
 		</section>
 
 

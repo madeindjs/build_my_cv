@@ -1,6 +1,5 @@
 <?php
-require_once('ProfessionalExperience.php');
-require_once('PersonalExperience.php');
+require_once('Experience.php');
 require_once('Qualification.php');
 require_once('Langage.php');
 /**
@@ -48,10 +47,10 @@ class User
 
 
 		foreach ($data["professional experience"] as $key => $value) {
-			array_push($this->professionalExperiences, new ProfessionalExperience($key, $value));
+			array_push($this->professionalExperiences, new Experience($key, $value));
 		}
 		foreach ($data["personal experience"] as $key => $value) {
-			array_push($this->personalExperiences, new PersonalExperience($key, $value));
+			array_push($this->personalExperiences, new Experience($key, $value));
 		}
 		foreach ($data["diplomas"] as $key => $value) {
 			array_push($this->diplomas, new Qualification($key, $value));

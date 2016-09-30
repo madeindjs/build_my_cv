@@ -10,11 +10,12 @@ class Activity
 	public $description;
 	private $Parsedown ;
 
-	function __construct($picture, $description)
+	function __construct($name, $details)
 	{
 		$this->Parsedown = new Parsedown();
-		$this->picture = $picture;
-		$this->description = $description;
+		$this->date = DateTime::createFromFormat('Y-m-d',$details['date']);
+		$this->picture = $details['img'];
+		$this->description = $details['description'];
 	}
 
 	// return Activity's picture in <img/> tag 

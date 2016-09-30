@@ -1,4 +1,5 @@
 <?php
+require_once('Activity.php');
 
 /**
 * and Experience is an abstract class for PersonalExperience, ProfessionalExperience & Qualification
@@ -9,6 +10,18 @@ class Experience
 	public $begin;
 	public $end;
 
+	public $activities = array();
+	
+	function __construct($name, $details)
+	{
+		$this->name = $name;
+		$this->begin = DateTime::createFromFormat('Y-m-d',$details['begin']);
+
+		foreach ($details["activities"] as $picture => $description) {
+			array_push($this->activities, new Activity($picture, $description )) ;
+		}
+
+	}
 
 
 	function title(){
