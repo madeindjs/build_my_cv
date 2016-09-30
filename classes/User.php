@@ -93,11 +93,28 @@ class User
 			array_push( $json['datasets'][0]['backgroundColor'], $data['color'] );
 		}
 
-		$json_encode = json_encode( $json , JSON_PRETTY_PRINT);
-		return $json_encode;
-		// return preg_replace('/"([^"]+)"\s*:\s*/', '$1:', $json_encode ) ;
+		return json_encode( $json , JSON_PRETTY_PRINT);
 
 	}
+
+
+	public function experiences_to_json(){
+		$json = array();
+		foreach ($this->professionalExperiences as $exp){
+			foreach ($exp->activities as $activity) {array_push($json, $activity->to_array()); }
+		}
+		foreach ($this->personalExperiences as $exp){
+			foreach ($exp->activities as $activity) {array_push($json, $activity->to_array()); }
+		}
+
+
+
+
+		return json_encode( $json , JSON_PRETTY_PRINT);
+
+	}
+
+	
 
 	private function print_link($name, $details){
 		return '<a href="'.$details['link'].'"><img src="img/'.$details['img'].'" alt="'.$name.'"></a>';

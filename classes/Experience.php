@@ -17,8 +17,10 @@ class Experience
 		$this->name = $name;
 		$this->begin = DateTime::createFromFormat('Y-m-d',$details['begin']);
 
+
+			
 		foreach ($details["activities"] as $picture => $description) {
-			array_push($this->activities, new Activity($picture, $description )) ;
+			array_push($this->activities, new Activity($this,$picture, $description )) ;
 		}
 
 	}
@@ -32,11 +34,15 @@ class Experience
 		}
 	}
 
-	function to_json(){
-		$json = array();
+	function to_array(){
+		$ret = array();
 		foreach ($this->activities as $activity) {
-			array_push( $json, $activity->to_array() );
+			array_push( $ret, $activity->to_array() );
 		}
-		return json_encode( $json , JSON_PRETTY_PRINT);
+		return $ret ; 
+	}
+
+	function to_json(){
+		return json_encode( $this->to_array() , JSON_PRETTY_PRINT);
 	}
 }

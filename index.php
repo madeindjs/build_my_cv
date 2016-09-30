@@ -127,7 +127,7 @@ $user = new User("data.json");
 
 	<script>
 		// draw comptencies graph
-		var experiences = <?= $user->professionalExperiences[0]->to_json() ?> ;
+		var experiences = <?= $user->experiences_to_json() ?> ;
 
 		var ctx = document.getElementById("competencies").getContext('2d');
 		var data = <?= $user->compentencies_to_json()?>;

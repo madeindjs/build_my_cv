@@ -26,30 +26,49 @@
 	},
 
 	"professional experience" : {
+
+		"Test" : {
+			"begin" : "2010-09-01",
+
+			"activities" : {
+
+				"az" : {
+					"begin": "2012-09-01",
+					"img" : "Carrier.svg",
+					"description" : "Rejoins Carrier Réfrigération<small>en tant que Apprentis Bureau d'études"
+				}
+			}
+		},
+
 		"Carrier Réfrigération" : {
 			"begin" : "2011-09-01",
 
 			"activities" : {
 
 				"Apprentis" : {
-					"begin": "2011-09-01",
-					"img" : "skp.svg",
-					"decription": "Rejoins Carrier Réfrigération<small>en tant que Apprentis Bureau d'études"
+					"begin": "2012-09-01",
+					"img" : "Carrier.svg",
+					"description" : "Rejoins Carrier Réfrigération<small>en tant que Apprentis Bureau d'études"
 				},
 				"Bureau d'études" : {
-					"begin": "2013-12-01",
+					"begin": "2013-09-01",
 					"img" : "acd.png",
 					"description" : "Dessin des plans d'exécutions sur AutoCad. Dimensionnement de l'installation frigorifique. Configuration et mise en service de la régulation des vitrines."
 				},
 				"Chef de projet" : {
-					"begin": "2011-09-01",
+					"begin": "2014-09-01",
 					"img" : "skp.svg",
-					"decription": "Leadership sur la création d'une solution de dessin 3D avec **Sketchup** dans un but marketing & commercial. Formation des commerciaux européens sur cet outil."
+					"description": "Leadership sur la création d'une solution de dessin 3D avec **Sketchup** dans un but marketing & commercial."
 				},
 				"developpeur" : {
 					"begin": "2016-05-01",
 					"img" : "rby.svg",
 					"description" : "Développement d'un plugin **Sketchup** en **Ruby** pour faciliter le dessin 3D."
+				},
+				"Formateur" : {
+					"begin": "2016-01-01",
+					"img" : "skp.svg",
+					"description": "Formation des commerciaux européens sur l'outil 3D en Allemagne, République Tchèque et au Danemark."
 				},
 				"developpeur web-fullstack" : {
 					"begin": "2015-12-01",
@@ -76,22 +95,22 @@
 			"activities" : {
 
 				"developpeur Web Ruby avec Ruby On Rails" : {
-					"date" : "",
+					"begin" : "2016-01-01",
 					"img" : "ror.png",
 					"description" : "Création d'une *Web App* permettant de stocker & partager des recettes de cuisine: [raspberry-cook.fr](http://raspberry-cook.fr). \r\n\r\n* création back et fron-end\r\n* création et maintenance du serveur\r\n* promotion et réferecement"
 				},
 				"developpeur Web PHP avec CakePHP" : {
-					"date" : "",
+					"begin" : "2015-10-01",
 					"img" : "php.png",
 					"description" : "Utilisation de **PHP** pour l'anciene version de [raspberry-cook.fr](http://raspberry-cook.fr) et utilisation du framework **CakePHP** sur un projet professionnel."
 				},
 				"développeur Python" : {
-					"date" : "",
+					"begin" : "2016-10-01",
 					"img" : "pyt.svg",
 					"description" : "Créations de quelques librairies **Python** et utilisation sur des petits projets personnels."
 				},
 				"développeur Javascript" : {
-					"date" : "",
+					"begin" : "2015-10-01",
 					"img" : "js.svg",
 					"description" : "Utilisation de **Javascript** et **JQuery** en front-end (animations, appels AJAX, etc..)"
 				}
@@ -103,7 +122,7 @@
 
 			"activities" : {
 				"développeur Blackberry" : {
-					"date" : "",
+					"begin" : "2015-01-01",
 					"img" : "bby.svg",
 					"description" : "Développement d'applications pour la plateforme Blackberry 10 : [Mon compte vendeur](https://appworld.blackberry.com/webstore/vendor/45412)."
 				}

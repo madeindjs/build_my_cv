@@ -11,8 +11,11 @@ class Activity
 	public $begin;
 	public $picture;
 
-	function __construct($name, $details)
+	private $parent ;
+
+	function __construct($parent, $name, $details)
 	{
+		$this->parent = $parent;
 		$this->begin = DateTime::createFromFormat('Y-m-d',$details['begin']);
 		$this->name = $name;
 		$this->picture = $details['img'];
@@ -34,7 +37,7 @@ class Activity
 		$Parsedown = new Parsedown();
 		$ret = array();
 		$ret['name'] = $this->name ;
-		$ret['description'] = $Parsedown->text($this->description) ;
+		if($this->description){$ret['description'] = $Parsedown->text($this->description) ;}
 		$ret['img'] = 'img/'.$this->picture ;
 		$begin = $this->begin ? $this->begin : new DateTime() ;
 		$ret['date'] = $begin->format('Y-m-d');
