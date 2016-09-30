@@ -127,23 +127,14 @@ $user = new User("data.json");
 
 	<script>
 		// draw comptencies graph
+		var experiences = <?= $user->professionalExperiences[0]->to_json() ?> ;
+
 		var ctx = document.getElementById("competencies").getContext('2d');
 		var data = <?= $user->compentencies_to_json()?>;
 		var option = { maintainAspectRatio: false };
 		var myRadarChart = new Chart(ctx , {  type: 'bar' , data: data , options: option });
 	
 		// draw timeknots
-		var experiences = [
-			{name:"Rejoins Carrier Réfrigération<small>en tant que Apprentis Bureau d'études</small><span>hello</span>", date: "2011-09-01", img: "img/Carrier.svg", color: '#22313F' },
-			{name:"Embauché en tant qu'<strong>assistant Bureau détudes</strong>", date: "2013-09-01", img: "img/Carrier.svg"},
-
-			{name:"Automatisation des devis de pièces détachés via Macro Excel VBA", date: "2015-02-01", img: "img/exc.svg"},
-
-			{name:"Automatisation de 'tâches ingérâtes' via quelques scripts <strong>Python</strong>.", date: "2016-02-01", img: "img/pyt.svg"},
-
-			{name:"Leadership sur la création d'une solution de dessin 3D", date: "2014-09-01", img: "img/skp.svg"},
-			{name:"Formation des commerciaux européens sur la solution de 3D mise en place", date: "2016-09-01", img: "img/skp.svg"},
-];
 
 		TimeKnots.draw("#timeline1", experiences, {
 			dateFormat: "%B %Y", 

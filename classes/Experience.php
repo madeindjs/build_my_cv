@@ -31,4 +31,12 @@ class Experience
 			return $this->name;
 		}
 	}
+
+	function to_json(){
+		$json = array();
+		foreach ($this->activities as $activity) {
+			array_push( $json, $activity->to_array() );
+		}
+		return json_encode( $json , JSON_PRETTY_PRINT);
+	}
 }

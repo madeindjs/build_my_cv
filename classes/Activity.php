@@ -6,16 +6,17 @@ require_once('lib/Parsedown.php');
 */
 class Activity
 {
-	public $picture;
+	public $name;
 	public $description;
-	private $Parsedown ;
+	public $begin;
+	public $picture;
 
 	function __construct($name, $details)
 	{
-		$this->Parsedown = new Parsedown();
-		$this->date = DateTime::createFromFormat('Y-m-d',$details['date']);
+		$this->begin = DateTime::createFromFormat('Y-m-d',$details['begin']);
+		$this->name = $name;
 		$this->picture = $details['img'];
-		$this->description = $details['description'];
+		$this->description = array_key_exists('description' , $details ) ? $details['description'] : null ;
 	}
 
 	// return Activity's picture in <img/> tag 
@@ -25,6 +26,18 @@ class Activity
 
 	// return Activty in list item with its picture & description
 	function to_html(){
-		return '<li>'.$this->picture().$this->Parsedown->text($this->description).'</li>';
+		$Parsedown = new Parsedown();
+		return '<li>'.$this->picture().$Parsedown->text($this->description).'</li>';
+	}
+
+	function to_array(){
+		$Parsedown = new Parsedown();
+		$ret = array();
+		$ret['name'] = $this->name ;
+		$ret['description'] = $Parsedown->text($this->description) ;
+		$ret['img'] = 'img/'.$this->picture ;
+		$begin = $this->begin ? $this->begin : new DateTime() ;
+		$ret['date'] = $begin->format('Y-m-d');
+		return $ret ;
 	}
 }
