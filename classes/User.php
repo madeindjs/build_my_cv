@@ -78,6 +78,7 @@ class User
 		return $html;
 	}
 
+
 	// return an array
 	function compentencies_to_json(){
 
@@ -98,23 +99,31 @@ class User
 	}
 
 
-	public function experiences_to_json(){
-		$json = array();
+	public function activities(){
+		$array = array();
 		foreach ($this->professionalExperiences as $exp){
-			foreach ($exp->activities as $activity) {array_push($json, $activity->to_array()); }
+			foreach ($exp->activities as $activity) {array_push($array, $activity); }
 		}
 		foreach ($this->personalExperiences as $exp){
-			foreach ($exp->activities as $activity) {array_push($json, $activity->to_array()); }
+			foreach ($exp->activities as $activity) {array_push($array, $activity); }
 		}
 
+		usort($array, function($a, $b) {if ($a->begin == $b->begin) {return 0; }else{ return ($a->begin > $b->begin) ? -1 : 1; } } );
 
-
-
-		return json_encode( $json , JSON_PRETTY_PRINT);
-
+		return $array ;
 	}
 
-	
+
+	public function activities_to_array(){
+		$array = array();
+		foreach ($this->activities() as $activity){ array_push($array, $activity->to_array()); }
+		return $array ;
+	}
+
+	public function activities_to_json(){
+		return json_encode( $this->activities_to_array() , JSON_PRETTY_PRINT);
+	}
+
 
 	private function print_link($name, $details){
 		return '<a href="'.$details['link'].'"><img src="img/'.$details['img'].'" alt="'.$name.'"></a>';

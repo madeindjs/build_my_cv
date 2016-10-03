@@ -22,6 +22,17 @@ class Activity
 		$this->description = array_key_exists('description' , $details ) ? $details['description'] : null ;
 	}
 
+	function title(){
+		if($this->parent->professional_exp){
+			return $this->name.'<small> chez '.$this->parent->name.' <date>'.$this->begin->format('m/Y').'</date></small>' ;
+		}else{return $this->name.'<small> (experience personnelle) <date>'.$this->begin->format('m/Y').'</date></small>';}
+	}
+
+	function description(){
+		$Parsedown = new Parsedown();
+		return $Parsedown->line($this->description);
+	}
+
 	// return Activity's picture in <img/> tag 
 	function picture(){
 		return '<img src="img/'.$this->picture.'" alt="logo of this Activity" >';
@@ -36,7 +47,7 @@ class Activity
 	function to_array(){
 		$Parsedown = new Parsedown();
 		$ret = array();
-		$ret['name'] = $this->parent->professional_exp ? $this->name.' chez '.$this->parent->name : $this->name.' (experience personnelle)';
+		$ret['name'] = $this->title();
 		if($this->description){$ret['description'] = $Parsedown->text($this->description) ;}
 		$ret['img'] = 'img/'.$this->picture ;
 		$begin = $this->begin ? $this->begin : new DateTime() ;

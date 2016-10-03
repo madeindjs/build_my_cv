@@ -19,8 +19,6 @@ class Experience
 		$this->professional_exp = $professional_exp;
 		$this->begin = DateTime::createFromFormat('Y-m-d',$details['begin']);
 
-
-			
 		foreach ($details["activities"] as $picture => $description) {
 			array_push($this->activities, new Activity($this,$picture, $description )) ;
 		}

@@ -25,7 +25,7 @@ header p{font-size:18px;font-weight:300;text-align:center;}
 	#contact p{margin:0px;padding:0px;display:inline;float:left;}
 
 
-div.print{display: none;}
+.print{display: none;}
 	
 #timeline1 div {min-height: 100px}
 
@@ -54,6 +54,18 @@ footer{background-color:#34495e;color:#bdc3c7;
 	padding:50px;margin:0px;}
 
 #competencies{max-width: 100%;}
+
+
+ul.timeline {list-style: none; padding: 0px; border-left : 4px solid; margin-left: 70px}
+ul.timeline > li { position: relative; left: -31px ; margin-top: 20px ; vertical-align: top; min-height: 50px; }
+ul.timeline > li > p {margin-left: 10px ; display: inline-block; max-width:500px ; height: 20px; vertical-align: top; overflow: hidden;transition: all .5s}
+ul.timeline > li > p > strong:first-child{display: block}
+ul.timeline > li > img {height: 50px; width: 50px;
+	background-color: #ecf0f1;border : 4px solid;
+	border-radius: 50px; -webkit-border-radius: 50px; -moz-border-radius: 50px; ;transition: all .5s}
+ul.timeline > li:hover > img {height: 70px; width: 70px;
+	border-radius: 70px; -webkit-border-radius: 50px; -moz-border-radius: 50px; }
+ul.timeline > li:hover > p {overflow: visible;height: 200px}
 
 
 /*mobile*/
