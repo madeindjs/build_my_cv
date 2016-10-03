@@ -27,19 +27,6 @@
 
 	"professional experience" : {
 
-		"Test" : {
-			"begin" : "2010-09-01",
-
-			"activities" : {
-
-				"az" : {
-					"begin": "2012-09-01",
-					"img" : "Carrier.svg",
-					"description" : "Rejoins Carrier Réfrigération<small>en tant que Apprentis Bureau d'études"
-				}
-			}
-		},
-
 		"Carrier Réfrigération" : {
 			"begin" : "2011-09-01",
 
@@ -48,7 +35,7 @@
 				"Apprentis" : {
 					"begin": "2012-09-01",
 					"img" : "Carrier.svg",
-					"description" : "Rejoins Carrier Réfrigération<small>en tant que Apprentis Bureau d'études"
+					"description" : "Rejoins Carrier Réfrigération en tant que Apprentis Bureau d'études"
 				},
 				"Bureau d'études" : {
 					"begin": "2013-09-01",
@@ -58,30 +45,18 @@
 				"Chef de projet" : {
 					"begin": "2014-09-01",
 					"img" : "skp.svg",
-					"description": "Leadership sur la création d'une solution de dessin 3D avec **Sketchup** dans un but marketing & commercial."
+					"description": "Leadership sur la création d'une solution de dessin 3D avec **Sketchup**. Formation des commerciaux européens sur l'outil 3D en Allemagne, République Tchèque et au Danemark. "
 				},
-				"developpeur" : {
+				"Développeur Ruby" : {
 					"begin": "2016-05-01",
 					"img" : "rby.svg",
 					"description" : "Développement d'un plugin **Sketchup** en **Ruby** pour faciliter le dessin 3D."
 				},
-				"Formateur" : {
-					"begin": "2016-01-01",
-					"img" : "skp.svg",
-					"description": "Formation des commerciaux européens sur l'outil 3D en Allemagne, République Tchèque et au Danemark."
-				},
-				"developpeur web-fullstack" : {
-					"begin": "2015-12-01",
+				"Développeur Web PHP / C#" : {
+					"begin" : "2015-10-01",
 					"img" : "csh.svg",
-					"description" : "Développement d'une application web pour collecter  et interpréter les rapports d'interventions techniques. Développement réalisé en avec le framework Windows **ASP.NET MVC** en **C#**"
-				},
-				"Scripting" : {
-					"begin": "2015-02-01",
-					"img" : "pyt.svg",
-					"description" : "Automatisation de la création de devis complexes via macro **Excel Visual Basic** et de quelques *'tâches ingérâtes'* via quelques scripts **Python**."
+					"description" : "Développement d'une application web pour collecter  et interpréter les rapports d'interventions techniques. Développement réalisé dans un premier temps avec **PHP** et le framework **CakePHP** puis migration vers en **C#** avec **ASP.NET MVC** "
 				}
-
-
 			}
 		}
 	},
@@ -94,25 +69,10 @@
 
 			"activities" : {
 
-				"developpeur Web Ruby avec Ruby On Rails" : {
+				"Développeur Web Ruby" : {
 					"begin" : "2016-01-01",
 					"img" : "ror.png",
 					"description" : "Création d'une *Web App* permettant de stocker & partager des recettes de cuisine: [raspberry-cook.fr](http://raspberry-cook.fr). \r\n\r\n* création back et fron-end\r\n* création et maintenance du serveur\r\n* promotion et réferecement"
-				},
-				"developpeur Web PHP avec CakePHP" : {
-					"begin" : "2015-10-01",
-					"img" : "php.png",
-					"description" : "Utilisation de **PHP** pour l'anciene version de [raspberry-cook.fr](http://raspberry-cook.fr) et utilisation du framework **CakePHP** sur un projet professionnel."
-				},
-				"développeur Python" : {
-					"begin" : "2016-10-01",
-					"img" : "pyt.svg",
-					"description" : "Créations de quelques librairies **Python** et utilisation sur des petits projets personnels."
-				},
-				"développeur Javascript" : {
-					"begin" : "2015-10-01",
-					"img" : "js.svg",
-					"description" : "Utilisation de **Javascript** et **JQuery** en front-end (animations, appels AJAX, etc..)"
 				}
 			}
 		},
@@ -121,9 +81,9 @@
 			"begin" : "2014-02-01",
 
 			"activities" : {
-				"développeur Blackberry" : {
+				"Développeur Blackberry" : {
 					"begin" : "2015-01-01",
-					"img" : "bby.svg",
+					"img" : "bry.svg",
 					"description" : "Développement d'applications pour la plateforme Blackberry 10 : [Mon compte vendeur](https://appworld.blackberry.com/webstore/vendor/45412)."
 				}
 			}
