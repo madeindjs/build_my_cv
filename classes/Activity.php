@@ -36,7 +36,7 @@ class Activity
 	function to_array(){
 		$Parsedown = new Parsedown();
 		$ret = array();
-		$ret['name'] = $this->name ;
+		$ret['name'] = $this->parent->professional_exp ? $this->name.' chez '.$this->parent->name : $this->name.' (experience personnelle)';
 		if($this->description){$ret['description'] = $Parsedown->text($this->description) ;}
 		$ret['img'] = 'img/'.$this->picture ;
 		$begin = $this->begin ? $this->begin : new DateTime() ;

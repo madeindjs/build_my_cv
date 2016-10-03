@@ -11,10 +11,12 @@ class Experience
 	public $end;
 
 	public $activities = array();
+	public $professional_exp ;
 	
-	function __construct($name, $details)
+	function __construct($name, $details, $professional_exp = false)
 	{
 		$this->name = $name;
+		$this->professional_exp = $professional_exp;
 		$this->begin = DateTime::createFromFormat('Y-m-d',$details['begin']);
 
 

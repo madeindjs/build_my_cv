@@ -47,10 +47,10 @@ class User
 
 
 		foreach ($data["professional experience"] as $key => $value) {
-			array_push($this->professionalExperiences, new Experience($key, $value));
+			array_push($this->professionalExperiences, new Experience($key, $value, true));
 		}
 		foreach ($data["personal experience"] as $key => $value) {
-			array_push($this->personalExperiences, new Experience($key, $value));
+			array_push($this->personalExperiences, new Experience($key, $value, false));
 		}
 		foreach ($data["diplomas"] as $key => $value) {
 			array_push($this->diplomas, new Qualification($key, $value));
