@@ -1,14 +1,20 @@
 a{color:inherit;}
 
 html,body{font-family:'Lato',sans-serif; background-color:#ecf0f1;color:#2c3e50; margin:0px; }
-header{text-align: center;}
 
-h1,h2,h3,h4{text-transform: uppercase;}
+
+
 h3,h4{text-align:left;}
-h1{font-size: 45px;}
+h1{font-size: 30px}
 h2{font-size:xx-large;text-align:left;border-top: 4px solid; border-bottom: dotted 4px}
 h3{color:#2980b9;}
 h4{color:#3498db;}
+
+
+/*HEADER SPECIFICATIONS*/
+header{text-align: center;padding: 20px; margin-top: 20px}
+header h1{font-weight: normal}
+header img{height: 200px;width: 200px;border-radius: 200px; -webkit-border-radius: 200px; -moz-border-radius: 200px;}
 header p{font-size:18px;font-weight:300;text-align:center;}
 
 
@@ -26,23 +32,12 @@ header p{font-size:18px;font-weight:300;text-align:center;}
 
 
 .print{display: none;}
-	
-#timeline1 div {min-height: 100px}
 
-/*eachitem*/
-ul.experience{list-style:none;padding:5px;}
 
-	ul.experience>li{
-		vertical-align:top;
-		margin:0px;padding:5px;
-		
-		text-align:justify}
 
-	ul.experience p{margin:0px}
-
-div.langage{height:100px}
-div.langage img{height:100px;margin-right:20px}
-div.langage ul{height:100px;list-style:none;text-align:left}
+div.langage{height:100px;vertical-align:top;}
+div.langage img{height:100px;display: inline-block; float: left}
+div.langage ul{height:100px;list-style:none;text-align:left; width: 300px;}
 div.langage li{height:25px}
 div.langage li>strong{display:inline-block;width:80px;}
 div.langage li>progress{display:inline-block;width:120px;}
@@ -56,23 +51,8 @@ footer{background-color:#34495e;color:#bdc3c7;
 #competencies{max-width: 100%;}
 
 
-ul.timeline {list-style: none; padding: 0px; border-left : 4px solid; margin-left: 70px}
-ul.timeline > li { position: relative; left: -31px ; margin-top: 20px ; vertical-align: top; min-height: 50px; }
-ul.timeline > li > p {margin-left: 10px ; display: inline-block; max-width:500px ; height: 20px; vertical-align: top; overflow: hidden;transition: all .5s}
-ul.timeline > li > p > strong:first-child{display: block}
-ul.timeline > li > img {height: 50px; width: 50px;
-	background-color: #ecf0f1;border : 4px solid;
-	border-radius: 50px; -webkit-border-radius: 50px; -moz-border-radius: 50px; ;transition: all .5s}
-ul.timeline > li:hover > img {height: 70px; width: 70px;
-	border-radius: 70px; -webkit-border-radius: 50px; -moz-border-radius: 50px; }
-ul.timeline > li:hover > p {overflow: visible;height: 200px}
-
-
 /*mobile*/
 @media only screen and (max-width: 768px) {
-	/*display list items*/
-	ul.experience>li{margin-bottom: 15px;display:block;min-height:100px;}
-	ul.experience img{float:left;margin-right:5px;}
 	/*reduce contacts items*/
 	#contact img{width:53px;height:53px;}
 	/*set fixed padding*/
@@ -80,9 +60,6 @@ ul.timeline > li:hover > p {overflow: visible;height: 200px}
 }
 /*desktop*/
 @media only screen and (min-width: 768px) {
-	/*on desktop, we display / hide text when user hover icon*/
-	ul.experience>li{display:inline-block;max-height:100px; margin:0px;padding:5px;}
-		ul.experience img{max-width:100px;max-height:100px;float:left;margin-right:5px;}
 	/*bigger contacts items*/
 	#contact img{width:60px;height:60px;}
 	#contact img:hover{width:80px;height:80px;}

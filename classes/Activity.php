@@ -24,8 +24,12 @@ class Activity
 
 	function title(){
 		if($this->parent->professional_exp){
-			return $this->name.'<small> chez '.$this->parent->name.' <date>'.$this->begin->format('m/Y').'</date></small>' ;
-		}else{return $this->name.'<small> (experience personnelle) <date>'.$this->begin->format('m/Y').'</date></small>';}
+			return $this->name.'<small> chez '.$this->parent->name .'</small>';
+		}else{return $this->name.'<small> (experience personnelle)</small>';}
+	}
+
+	function date(){
+		return '<date>'.$this->begin->format('m/Y').'</date>';
 	}
 
 	function description(){

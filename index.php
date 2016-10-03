@@ -11,7 +11,9 @@ $user = new User("data.json");
 		<meta charset="utf-8">
 		<link href="css/stylesheet.css" rel="stylesheet" type="text/css" media="screen" >
 		<link href="css/print.css" rel="stylesheet" type="text/css"  media="print">
+		<link href="css/timeline_responsive.css" rel="stylesheet" type="text/css"  media="screen">
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
 	</head>
@@ -21,10 +23,30 @@ $user = new User("data.json");
 
 
 		<header>
+			<img src="img/php.svg"/>
 			<h1><?= $user->complete_name() ?></h1>
-			<p>Web-developper</p>
+			<p>Développeur passionné auto-didacte</p>
 		</header>
 
+	<ul class="timeline">
+
+		<?php $left = true ;
+		foreach ($user->activities() as $activty): ?>
+			<li <?= $left ? '' : 'class="timeline-inverted"' ?> >
+				<div class="timeline-badge"><?= $activty->picture() ?></div>
+				<div class="timeline-panel">
+					<div class="timeline-heading">
+						<h4 class="timeline-title"><?= $activty->title() ?></h4>
+						<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?= $activty->date() ?></small></p>
+					</div>
+					<div class="timeline-body"> <p><?= $activty->description() ?></p></div>
+				</div>
+			</li>
+		<?php $left = !$left ;
+		endforeach ?>
+	</ul>
+
+        
 
 
 		<div id="contact" style="display:none">
@@ -36,18 +58,11 @@ $user = new User("data.json");
 		</div>
 
 
+
+
 		<section>
 			<h2>Compétences</h2>
 			<div id="competencies_container"><canvas id="competencies" height="150"></></canvas></div>
-		</section>
-
-
-
-		<section>
-			<h2>Timeline</h2>
-			<ul class="timeline"><?php foreach ($user->activities() as $activty): ?>
-				<li><?= $activty->picture() ?><p><strong><?= $activty->title() ?></strong><?= $activty->description() ?></p></li>
-			<?php endforeach ?></ul>
 		</section>
 
 
@@ -70,11 +85,7 @@ $user = new User("data.json");
 			</ul>
 
 			<h3>Langues</h3>
-			<ul class="experience">
-				<?php/* foreach( $user->langages as $langage){
-					echo $langage->to_html();
-				}*/ ?>
-			</ul>
+			<?php foreach( $user->langages as $langage){echo $langage->to_html(); } ?>
 
 		</section>
 
@@ -87,9 +98,6 @@ $user = new User("data.json");
 		<hr/>
 		<div>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 	</footer>
-
-	<script type="text/javascript" src="js/d3_v2_min.js"></script>
-	<script type="text/javascript" src="js/timeknots-min.js"></script>
 
 	<script type="text/javascript" src="js/ribbon.js"></script>
 
