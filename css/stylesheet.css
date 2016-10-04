@@ -1,80 +1,64 @@
 a{color:inherit;}
 
 html,body{font-family:'Lato',sans-serif; background-color:#ecf0f1;color:#2c3e50; margin:0px; }
-header{text-align:center;font-size:xx-large;color:#bdc3c7;background-color: #22313F;
-	/*set cover sheet*/height:100vh;display:flex;flex-direction:column;justify-content:center;}
 
-header h1{font-family:'Neuton',serif;color:#ecf0f1;}
-h1,h2,h3,h4{font-weight:lighter;}
-h3,h4{text-align:left;}
-h1{color:#2980b9;}
-h2{color:#c0392b;font-size:xx-large;text-align:center;}
+section{text-align: center;}
+section > ul{list-style: none; padding: 0px}
+
+
+h1{font-size: 30px}
+h2{font-size:xx-large;text-align:left;border-bottom: solid 1px #eeeeee; text-align: center}
 h3{color:#2980b9;}
 h4{color:#3498db;}
+
+
+/*HEADER SPECIFICATIONS*/
+header{text-align: center;padding: 20px; }
+header h1{font-weight: normal}
+header img{height: 200px;width: 200px;border-radius: 200px; -webkit-border-radius: 200px; -moz-border-radius: 200px;}
 header p{font-size:18px;font-weight:300;text-align:center;}
 
+
 #contact{
-	position:fixed;right:0px;top:0px;left:0px;
 	height:53px;
-	text-align:right;vertical-align:top;
+	text-align:center;vertical-align:top;
 	padding-top:4px;padding-bottom:4px;
-	background-color:#22313F; ;
 }
 
 	#contact img{transition:all.2s;}
 	#contact a{vertical-align:top; display:inline-block; margin-left:3px;margin-right:7px;}
 	#contact p{margin:0px;padding:0px;display:inline;float:left;}
-	
 
-section{padding-top:100px;padding-bottom:100px;text-align:center;}
 
-/*eachitem*/
-ul.experience{list-style:none;padding:5px;}
+.print{display: none;}
 
-	ul.experience>li{
-		vertical-align:top;
-		margin:0px;padding:5px;
-		
-		text-align:justify}
 
-	ul.experience p{margin:0px}
 
-div.langage{height:100px}
-div.langage img{height:100px;margin-right:20px}
-div.langage ul{height:100px;list-style:none;text-align:left}
+div.langage{height:100px;width: 300px;vertical-align:top;display: inline-block;}
+div.langage img{height:100px;display: inline-block; float: left}
+div.langage ul{height:100px;list-style:none;text-align:left; width: 300px;}
 div.langage li{height:25px}
 div.langage li>strong{display:inline-block;width:80px;}
 div.langage li>progress{display:inline-block;width:120px;}
 
 
+footer{border-top: solid 2px #eeeeee; padding:50px;margin-top:30px;text-align: center}
 
-
-footer{background-color:#34495e;color:#bdc3c7;
-	padding:50px;margin:0px;}
-
+#competencies{max-width: 100%;/*to correct bad align*/ }
 
 
 /*mobile*/
 @media only screen and (max-width: 768px) {
-	/*display list items*/
-	ul.experience>li{margin-bottom: 15px;display:block;min-height:100px;}
-	ul.experience img{max-width:60px;max-height:60px;float:left;margin-right:5px;}
 	/*reduce contacts items*/
 	#contact img{width:53px;height:53px;}
-	#contact img:hover{width:60px;height:60px;}
 	/*set fixed padding*/
 	section{padding-left:10px;padding-right:10px;}
 }
 /*desktop*/
 @media only screen and (min-width: 768px) {
-	/*on desktop, we display / hide text when user hover icon*/
-	ul.experience>li{display:inline-block;max-width:110px;max-height:100px; margin:0px;padding:5px;
-		overflow:hidden; color:transparent;transition:all.5s;}
-		ul.experience>li:hover{max-width:450px;overflow:visible;color:inherit;}
-		ul.experience img{max-width:100px;max-height:100px;float:left;margin-right:5px;}
 	/*bigger contacts items*/
-	#contact img{width:60px;height:60px;}
-	#contact img:hover{width:80px;height:80px;}
+	#contact img{width:40px;height:40px;}
+	#contact img:hover{width:50px;height:50px;}
 	/*set changing padding*/
 	section{padding-left:10%;padding-right:10%;}
 }

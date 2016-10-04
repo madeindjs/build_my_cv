@@ -6,15 +6,35 @@ require_once('lib/Parsedown.php');
 */
 class Activity
 {
-	public $picture;
+	public $name;
 	public $description;
-	private $Parsedown ;
+	public $begin;
+	public $picture;
 
-	function __construct($picture, $description)
+	private $parent ;
+
+	function __construct($parent, $name, $details)
 	{
-		$this->Parsedown = new Parsedown();
-		$this->picture = $picture;
-		$this->description = $description;
+		$this->parent = $parent;
+		$this->begin = DateTime::createFromFormat('Y-m-d',$details['begin']);
+		$this->name = $name;
+		$this->picture = $details['img'];
+		$this->description = array_key_exists('description' , $details ) ? $details['description'] : null ;
+	}
+
+	function title(){
+		if($this->parent->professional_exp){
+			return $this->name.'<small> chez '.$this->parent->name .'</small>';
+		}else{return $this->name.'<small> (experience personnelle)</small>';}
+	}
+
+	function date(){
+		return '<date>'.$this->begin->format('m/Y').'</date>';
+	}
+
+	function description(){
+		$Parsedown = new Parsedown();
+		return $Parsedown->line($this->description);
 	}
 
 	// return Activity's picture in <img/> tag 
@@ -24,6 +44,18 @@ class Activity
 
 	// return Activty in list item with its picture & description
 	function to_html(){
-		return '<li>'.$this->picture().$this->Parsedown->text($this->description).'</li>';
+		$Parsedown = new Parsedown();
+		return '<li>'.$this->picture().$Parsedown->text($this->description).'</li>';
+	}
+
+	function to_array(){
+		$Parsedown = new Parsedown();
+		$ret = array();
+		$ret['name'] = $this->title();
+		if($this->description){$ret['description'] = $Parsedown->text($this->description) ;}
+		$ret['img'] = 'img/'.$this->picture ;
+		$begin = $this->begin ? $this->begin : new DateTime() ;
+		$ret['date'] = $begin->format('Y-m-d');
+		return $ret ;
 	}
 }
