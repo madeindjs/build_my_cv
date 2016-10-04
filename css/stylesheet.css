@@ -20,11 +20,9 @@ header p{font-size:18px;font-weight:300;text-align:center;}
 
 
 #contact{
-	position:fixed;right:0px;top:0px;left:0px;
 	height:53px;
-	text-align:right;vertical-align:top;
+	text-align:center;vertical-align:top;
 	padding-top:4px;padding-bottom:4px;
-	background-color:#22313F; ;
 }
 
 	#contact img{transition:all.2s;}
@@ -61,8 +59,8 @@ footer{border-top: solid 2px #eeeeee; padding:50px;margin-top:30px;text-align: c
 /*desktop*/
 @media only screen and (min-width: 768px) {
 	/*bigger contacts items*/
-	#contact img{width:60px;height:60px;}
-	#contact img:hover{width:80px;height:80px;}
+	#contact img{width:40px;height:40px;}
+	#contact img:hover{width:50px;height:50px;}
 	/*set changing padding*/
 	section{padding-left:10%;padding-right:10%;}
 }
