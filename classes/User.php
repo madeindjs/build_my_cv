@@ -78,6 +78,13 @@ class User
 		return $html;
 	}
 
+	/* return the image from gravatar.com
+	snippet from https://fr.gravatar.com/site/implement/images/php */
+	function image($size=200){
+		$src = "https://www.gravatar.com/avatar/".md5( strtolower( trim( $this->email ) ) )."?s=".$size;
+		return '<img src="'.$src.'" alt="picture of '.$this->complete_name().'"/> ' ;
+	}
+
 
 	// return an array
 	function compentencies_to_json(){

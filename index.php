@@ -23,7 +23,7 @@ $user = new User("data.json");
 
 
 		<header>
-			<img src="img/php.svg"/>
+		<?= $user->image() ?>
 			<h1><?= $user->complete_name() ?></h1>
 			<p>Développeur passionné auto-didacte</p>
 		</header>
