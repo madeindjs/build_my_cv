@@ -2,11 +2,12 @@ a{color:inherit;}
 
 html,body{font-family:'Lato',sans-serif; background-color:#ecf0f1;color:#2c3e50; margin:0px; }
 
+section{text-align: center;}
+section > ul{list-style: none; padding: 0px}
 
 
-h3,h4{text-align:left;}
 h1{font-size: 30px}
-h2{font-size:xx-large;text-align:left;border-top: 4px solid; border-bottom: dotted 4px}
+h2{font-size:xx-large;text-align:left;border-bottom: solid 1px #eeeeee; text-align: center}
 h3{color:#2980b9;}
 h4{color:#3498db;}
 
@@ -35,7 +36,7 @@ header p{font-size:18px;font-weight:300;text-align:center;}
 
 
 
-div.langage{height:100px;vertical-align:top;}
+div.langage{height:100px;width: 300px;vertical-align:top;display: inline-block;}
 div.langage img{height:100px;display: inline-block; float: left}
 div.langage ul{height:100px;list-style:none;text-align:left; width: 300px;}
 div.langage li{height:25px}
@@ -45,10 +46,9 @@ div.langage li>progress{display:inline-block;width:120px;}
 
 
 
-footer{background-color:#34495e;color:#bdc3c7;
-	padding:50px;margin:0px;}
+footer{border-top: solid 2px #eeeeee; padding:50px;margin-top:30px;text-align: center}
 
-#competencies{max-width: 100%;}
+#competencies{max-width: 100%;/*to correct bad align*/ }
 
 
 /*mobile*/

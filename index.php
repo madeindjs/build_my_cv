@@ -28,27 +28,7 @@ $user = new User("data.json");
 			<p>Développeur passionné auto-didacte</p>
 		</header>
 
-	<ul class="timeline">
-
-		<?php $left = true ;
-		foreach ($user->activities() as $activty): ?>
-			<li <?= $left ? '' : 'class="timeline-inverted"' ?> >
-				<div class="timeline-badge"><?= $activty->picture() ?></div>
-				<div class="timeline-panel">
-					<div class="timeline-heading">
-						<h4 class="timeline-title"><?= $activty->title() ?></h4>
-						<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?= $activty->date() ?></small></p>
-					</div>
-					<div class="timeline-body"> <p><?= $activty->description() ?></p></div>
-				</div>
-			</li>
-		<?php $left = !$left ;
-		endforeach ?>
-	</ul>
-
-        
-
-
+	
 		<div id="contact" style="display:none">
 			<p>Rousseau Alexandre</p>
 			<div id="contact_icons">
@@ -58,11 +38,32 @@ $user = new User("data.json");
 		</div>
 
 
+		<section>
+			<h2>Timeline</h2>
+			<ul class="timeline">
+
+				<?php $left = true ;
+				foreach ($user->activities() as $activty): ?>
+					<li <?= $left ? '' : 'class="timeline-inverted"' ?> >
+						<div class="timeline-badge"><?= $activty->picture() ?></div>
+						<div class="timeline-panel">
+							<div class="timeline-heading">
+								<h4 class="timeline-title"><?= $activty->title() ?></h4>
+								<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?= $activty->date() ?></small></p>
+							</div>
+							<div class="timeline-body"> <p><?= $activty->description() ?></p></div>
+						</div>
+					</li>
+				<?php $left = !$left ;
+				endforeach ?>
+			</ul>
+		</section>
+
 
 
 		<section>
 			<h2>Compétences</h2>
-			<div id="competencies_container"><canvas id="competencies" height="150"></></canvas></div>
+			<canvas id="competencies" height="200"></></canvas>
 		</section>
 
 
@@ -70,33 +71,34 @@ $user = new User("data.json");
 		<section>
 			<h2>Etudes et formations</h2>
 
-			<h3>Parcours scolaire</h3>
+			<h3>Etudes</h3>
 			<ul>
 				<?php foreach($user->diplomas as $diploma): ?>
 					<li><?= $diploma->title() ?></li>
 				<?php endforeach ?>
 			</ul>
 
-			<h3>Formation et aptitudes</h3>
+			<h3>Formations</h3>
 			<ul>
 				<?php foreach($user->trainings as $training ): ?>
 					<li><?= $training->title() ?></li>
 				<?php endforeach ?>
 			</ul>
+		</section>
 
-			<h3>Langues</h3>
+		<section>
+			<h2>Langues</h2>
 			<?php foreach( $user->langages as $langage){echo $langage->to_html(); } ?>
-
 		</section>
 
 
 	<footer>
-		<p><?= $user->birth_date->format('Y-m-d') ?> à <?= $user->town_birth ?></p>
-		<p><adress><?= $user->adress ?></adress></p>
-		<p><strong><?= $user->phone ?></strong></p>
-		<p><a href="mailto:<?= $user->email ?>?subject=Votre%20CV"><?= $user->email ?></a></p>
+		<p><i class="glyphicon glyphicon-user"></i> <?= $user->birth_date->format('d/m/Y') ?> à <?= $user->town_birth ?></p>
+		<p><i class="glyphicon glyphicon-home"></i> <adress><?= $user->adress ?></adress></p>
+		<p><i class="glyphicon glyphicon-earphone"></i> <strong><?= $user->phone ?></strong></p>
+		<p><i class="glyphicon glyphicon-envelope"></i> <a href="mailto:<?= $user->email ?>?subject=Votre%20CV"><?= $user->email ?></a></p>
 		<hr/>
-		<div>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+		<samll>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></samll>
 	</footer>
 
 	<script type="text/javascript" src="js/ribbon.js"></script>
@@ -106,7 +108,7 @@ $user = new User("data.json");
 		var ctx = document.getElementById("competencies").getContext('2d');
 		var data = <?= $user->compentencies_to_json()?>;
 		var option = { maintainAspectRatio: false };
-		var myRadarChart = new Chart(ctx , {  type: 'bar' , data: data , options: option });
+		var myRadarChart = new Chart(ctx , {  type: 'polarArea' , data: data , options: option });
 	</script>
 
 </body></html>

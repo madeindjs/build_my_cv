@@ -28,7 +28,7 @@ class Experience
 
 	function title(){
 		if($this->begin) {
-			return $this->name.' <small>depuis <time datetime="'.$this->begin->format('Y-m-d').'">'.$this->begin->format('d/m/Y').'</time></small>';
+			return $this->name.' <small>le <time datetime="'.$this->begin->format('Y-m-d').'">'.$this->begin->format('d/m/Y').'</time></small>';
 		}else{
 			return $this->name;
 		}

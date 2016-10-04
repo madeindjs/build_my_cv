@@ -33,7 +33,7 @@
 			"activities" : {
 
 				"Apprentis" : {
-					"begin": "2012-09-01",
+					"begin": "2011-09-01",
 					"img" : "Carrier.svg",
 					"description" : "Rejoins Carrier Réfrigération en tant que Apprentis Bureau d'études"
 				},
@@ -45,7 +45,7 @@
 				"Chef de projet" : {
 					"begin": "2014-09-01",
 					"img" : "skp.svg",
-					"description": "Leadership sur la création d'une solution de dessin 3D avec **Sketchup**. Formation des commerciaux européens sur l'outil 3D en Allemagne, République Tchèque et au Danemark. "
+					"description": "Leadership sur la création d'une solution de dessin 3D avec **Sketchup**. Formation des commerciaux européens en Allemagne, en République Tchèque et au Danemark sur cette solution. "
 				},
 				"Développeur Ruby" : {
 					"begin": "2016-05-01",
@@ -55,7 +55,7 @@
 				"Développeur Web PHP / C#" : {
 					"begin" : "2015-10-01",
 					"img" : "csh.svg",
-					"description" : "Développement d'une application web pour collecter  et interpréter les rapports d'interventions techniques. Développement réalisé dans un premier temps avec **PHP** et le framework **CakePHP** puis migration vers en **C#** avec **ASP.NET MVC** "
+					"description" : "Développement d'une application web pour collecter  et interpréter les rapports d'interventions techniques. Développement réalisé dans un premier temps avec **PHP** et le framework **CakePHP** puis migration vers en **ASP.NET MVC** en **C#**."
 				}
 			}
 		}
