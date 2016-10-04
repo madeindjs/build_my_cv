@@ -1,6 +1,5 @@
 <?php
-require_once('ProfessionalExperience.php');
-require_once('PersonalExperience.php');
+require_once('Experience.php');
 require_once('Qualification.php');
 require_once('Langage.php');
 /**
@@ -48,10 +47,10 @@ class User
 
 
 		foreach ($data["professional experience"] as $key => $value) {
-			array_push($this->professionalExperiences, new ProfessionalExperience($key, $value));
+			array_push($this->professionalExperiences, new Experience($key, $value, true));
 		}
 		foreach ($data["personal experience"] as $key => $value) {
-			array_push($this->personalExperiences, new PersonalExperience($key, $value));
+			array_push($this->personalExperiences, new Experience($key, $value, false));
 		}
 		foreach ($data["diplomas"] as $key => $value) {
 			array_push($this->diplomas, new Qualification($key, $value));
@@ -79,6 +78,14 @@ class User
 		return $html;
 	}
 
+	/* return the image from gravatar.com
+	snippet from https://fr.gravatar.com/site/implement/images/php */
+	function image($size=200){
+		$src = "https://www.gravatar.com/avatar/".md5( strtolower( trim( $this->email ) ) )."?s=".$size;
+		return '<img src="'.$src.'" alt="picture of '.$this->complete_name().'"/> ' ;
+	}
+
+
 	// return an array
 	function compentencies_to_json(){
 
@@ -94,11 +101,36 @@ class User
 			array_push( $json['datasets'][0]['backgroundColor'], $data['color'] );
 		}
 
-		$json_encode = json_encode( $json , JSON_PRETTY_PRINT);
-		return $json_encode;
-		// return preg_replace('/"([^"]+)"\s*:\s*/', '$1:', $json_encode ) ;
+		return json_encode( $json , JSON_PRETTY_PRINT);
 
 	}
+
+
+	public function activities(){
+		$array = array();
+		foreach ($this->professionalExperiences as $exp){
+			foreach ($exp->activities as $activity) {array_push($array, $activity); }
+		}
+		foreach ($this->personalExperiences as $exp){
+			foreach ($exp->activities as $activity) {array_push($array, $activity); }
+		}
+
+		usort($array, function($a, $b) {if ($a->begin == $b->begin) {return 0; }else{ return ($a->begin > $b->begin) ? -1 : 1; } } );
+
+		return $array ;
+	}
+
+
+	public function activities_to_array(){
+		$array = array();
+		foreach ($this->activities() as $activity){ array_push($array, $activity->to_array()); }
+		return $array ;
+	}
+
+	public function activities_to_json(){
+		return json_encode( $this->activities_to_array() , JSON_PRETTY_PRINT);
+	}
+
 
 	private function print_link($name, $details){
 		return '<a href="'.$details['link'].'"><img src="img/'.$details['img'].'" alt="'.$name.'"></a>';

@@ -26,27 +26,37 @@
 	},
 
 	"professional experience" : {
+
 		"Carrier Réfrigération" : {
 			"begin" : "2011-09-01",
 
-			"jobs" : {
+			"activities" : {
 
-				"Chef de projet" : {
-					"skp.svg" : "Leadership sur la création d'une solution de dessin 3D avec **Sketchup** dans un but marketing & commercial. Formation des commerciaux européens sur cet outil.",
-					"rby.svg" : "Développement d'un plugin **Sketchup** en **Ruby** pour faciliter le dessin 3D.",
-					"csh.svg" : "Développement d'une application web pour collecter  et interpréter les rapports d'interventions techniques. Développement réalisé en avec le framework Windows **ASP.NET MVC** en **C#**"
+				"Apprentis" : {
+					"begin": "2011-09-01",
+					"img" : "Carrier.svg",
+					"description" : "Rejoins Carrier Réfrigération en tant que Apprentis Bureau d'études"
 				},
-
-				"Scripting" : {
-					"exc.svg" : "Automatisation de la création de devis complexes via macro **Excel Visual Basic**.",
-					"pyt.svg" : "Automatisation de *'tâches ingérâtes'* via quelques scripts **Python**."
-				},
-
 				"Bureau d'études" : {
-					"acd.png" : "Dessin des plans d'exécutions sur AutoCad. Dimensionnement de l'installation frigorifique. Configuration et mise en service de la régulation des vitrines."
+					"begin": "2013-09-01",
+					"img" : "acd.png",
+					"description" : "Dessin des plans d'exécutions sur AutoCad. Dimensionnement de l'installation frigorifique. Configuration et mise en service de la régulation des vitrines."
+				},
+				"Chef de projet" : {
+					"begin": "2014-09-01",
+					"img" : "skp.svg",
+					"description": "Leadership sur la création d'une solution de dessin 3D avec **Sketchup**. Formation des commerciaux européens en Allemagne, en République Tchèque et au Danemark sur cette solution. "
+				},
+				"Développeur Ruby" : {
+					"begin": "2016-05-01",
+					"img" : "rby.svg",
+					"description" : "Développement d'un plugin **Sketchup** en **Ruby** pour faciliter le dessin 3D."
+				},
+				"Développeur Web PHP / C#" : {
+					"begin" : "2015-10-01",
+					"img" : "csh.svg",
+					"description" : "Développement d'une application web pour collecter  et interpréter les rapports d'interventions techniques. Développement réalisé dans un premier temps avec **PHP** et le framework **CakePHP** puis migration vers en **ASP.NET MVC** en **C#**."
 				}
-
-
 			}
 		}
 	},
@@ -59,10 +69,11 @@
 
 			"activities" : {
 
-				"ror.png" : "Création d'une *Web App* permettant de stocker & partager des recettes de cuisine: [raspberry-cook.fr](http://raspberry-cook.fr). \r\n\r\n* création back et fron-end\r\n* création et maintenance du serveur\r\n* promotion et réferecement",
-				"php.png" : "Utilisation de **PHP** pour l'anciene version de [raspberry-cook.fr](http://raspberry-cook.fr) et utilisation du framework **CakePHP** sur un projet professionnel.",
-				"pyt.svg" : "Créations de quelques librairies **Python** et utilisation sur des petits projets personnels.",
-				"js.svg" : "Utilisation de **Javascript** et **JQuery** en front-end (animations, appels AJAX, etc..)"
+				"Développeur Web Ruby" : {
+					"begin" : "2016-01-01",
+					"img" : "ror.png",
+					"description" : "Création d'une *Web App* permettant de stocker & partager des recettes de cuisine: [raspberry-cook.fr](http://raspberry-cook.fr). \r\n\r\n* création back et fron-end\r\n* création et maintenance du serveur\r\n* promotion et réferecement"
+				}
 			}
 		},
 
@@ -70,21 +81,12 @@
 			"begin" : "2014-02-01",
 
 			"activities" : {
-				"bry.svg" : "Développement d'applications pour la plateforme Blackberry 10 : [Mon compte vendeur](https://appworld.blackberry.com/webstore/vendor/45412)."
+				"Développeur Blackberry" : {
+					"begin" : "2015-01-01",
+					"img" : "bry.svg",
+					"description" : "Développement d'applications pour la plateforme Blackberry 10 : [Mon compte vendeur](https://appworld.blackberry.com/webstore/vendor/45412)."
+				}
 			}
-		},
-
-
-		"Autres" : {
-
-			"begin" : "?",
-
-			"activities" : {
-				"lnx.svg" : "Connaissance environnement **Linux**",
-				"ink.svg" : "Connaissance de la retouche photographique avec **GIMP** et du dessin vectoriel avec Inkscape",
-				"git.svg" : "Versionning avec **Git**"
-			}
-
 		}
 	}, 
 
