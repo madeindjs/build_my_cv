@@ -13,7 +13,7 @@ h4{color:#3498db;}
 
 
 /*HEADER SPECIFICATIONS*/
-header{text-align: center;padding: 20px; margin-top: 20px}
+header{text-align: center;padding: 20px; }
 header h1{font-weight: normal}
 header img{height: 200px;width: 200px;border-radius: 200px; -webkit-border-radius: 200px; -moz-border-radius: 200px;}
 header p{font-size:18px;font-weight:300;text-align:center;}
@@ -40,8 +40,6 @@ div.langage ul{height:100px;list-style:none;text-align:left; width: 300px;}
 div.langage li{height:25px}
 div.langage li>strong{display:inline-block;width:80px;}
 div.langage li>progress{display:inline-block;width:120px;}
-
-
 
 
 footer{border-top: solid 2px #eeeeee; padding:50px;margin-top:30px;text-align: center}
