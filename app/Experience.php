@@ -1,4 +1,7 @@
 <?php
+namespace DrawMyCV\app ;
+
+
 /**
 * and Experience is an abstract class for PersonalExperience, ProfessionalExperience & Qualification
 */
@@ -15,7 +18,7 @@ class Experience
 	{
 		$this->name = $name;
 		$this->professional_exp = $professional_exp;
-		$this->begin = DateTime::createFromFormat('Y-m-d',$details['begin']);
+		$this->begin = \DateTime::createFromFormat('Y-m-d',$details['begin']);
 
 		foreach ($details["activities"] as $picture => $description) {
 			array_push($this->activities, new Activity($this,$picture, $description )) ;

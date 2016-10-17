@@ -1,5 +1,7 @@
 <?php
 
+namespace DrawMyCV\core ;
+
 class Autoloader{
 
 	/**
@@ -14,6 +16,7 @@ class Autoloader{
 	 * @param $class string Le nom de la classe à charger
 	 */
 	static function autoload($class){
+		$class = str_replace('DrawMyCV\\app\\', '', $class);
 		require '../app/' . $class . '.php';
 	}
 

@@ -1,8 +1,8 @@
 <?php
 require_once('../core/Autoloader.php');
-Autoloader::register();
+DrawMyCV\core\Autoloader::register();
 
-$user = User::getInstance();
+$user = DrawMyCV\app\User::getInstance();
 ?>
 <!DOCTYPE html>
 <html>

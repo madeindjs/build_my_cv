@@ -1,4 +1,7 @@
 <?php
+namespace DrawMyCV\app ;
+
+
 /**
 * a classic User with classics properties (firstname, phone, etc..) and also many
 * professionalExperiences loaded from json file
@@ -134,7 +137,7 @@ class User
 		foreach ($data["user"] as $key => $value) {
 			if( property_exists(get_class($this), $key )){
 				// if it's a date, we set it as DatTime object
-				$this->$key = (strpos($key, 'date')) ? DateTime::createFromFormat('Y-m-d',$value) : $value ;
+				$this->$key = (strpos($key, 'date')) ? \DateTime::createFromFormat('Y-m-d',$value) : $value ;
 			}
 		}
 		// setup other properties 

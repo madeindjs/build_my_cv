@@ -1,4 +1,6 @@
 <?php
+namespace DrawMyCV\app ;
+
 require_once('lib/Parsedown.php');
 /**
 * An activity is a task done during a job. 
@@ -16,7 +18,7 @@ class Activity
 	function __construct($parent, $name, $details)
 	{
 		$this->parent = $parent;
-		$this->begin = DateTime::createFromFormat('Y-m-d',$details['begin']);
+		$this->begin = \DateTime::createFromFormat('Y-m-d',$details['begin']);
 		$this->name = $name;
 		$this->picture = $details['img'];
 		$this->description = array_key_exists('description' , $details ) ? $details['description'] : null ;
@@ -48,7 +50,7 @@ class Activity
 	* @return String
 	*/
 	function description(){
-		$Parsedown = new Parsedown();
+		$Parsedown = new \Parsedown();
 		return $Parsedown->line($this->description);
 	}
 
@@ -78,7 +80,7 @@ class Activity
 		$ret['name'] = $this->title();
 		if($this->description){$ret['description'] = $Parsedown->text($this->description) ;}
 		$ret['img'] = 'img/'.$this->picture ;
-		$begin = $this->begin ? $this->begin : new DateTime() ;
+		$begin = $this->begin ? $this->begin : new \DateTime() ;
 		$ret['date'] = $begin->format('Y-m-d');
 		return $ret ;
 	}
