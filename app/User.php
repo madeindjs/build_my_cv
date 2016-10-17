@@ -23,8 +23,22 @@ class User
 
 	public $links = array();
 
+	private static $instance;
+
+
+	/*
+	* Singleton class
+	*/
+	public static function getInstance(){
+		if(is_null(self::$instance)){
+			self::$instance = new User();
+		}
+		return self::$instance ;
+
+	}
+
 	
-	function __construct() {
+	private function __construct() {
 		$String = file_get_contents("data.json");
 		$this->hydrate( json_decode($String, true) );
 	}
