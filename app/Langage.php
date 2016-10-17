@@ -13,16 +13,15 @@ class Langage
 	public $read;
 
 	
-	function __construct($name, $details)
-	{
+	function __construct($name, $details){
 		$this->name = $name;
-		$this->picture = $details['picture'];
-		$this->speaken = $details['notes']['speaken'];
-		$this->writen = $details['notes']['writen'];
-		$this->listen = $details['notes']['listen'];
-		$this->read = $details['notes']['read'];
+		$this->hydrate($details);
 	}
 
+	/*
+	* create a complete Html <div> with all information about this object
+	* @return String
+	*/
 	public function to_html(){
 		return '<div class="langage">'.
 			'<img src="img/'.$this->picture.'" alt="logo of '.$this->name.' langage"/><ul>'.
@@ -33,7 +32,23 @@ class Langage
 		'</ul></div>';
 	}
 
+	/*
+	* create html <li> tag with information about one note
+	*/
 	private function note_to_html($text, $note){
 		return '<li><strong>'.$text.'</strong><progress value='.$note.' max="5">'.$note.'/5</progress></li>';
+	}
+
+	/*
+	* set up object properties in loop
+	*/
+	private function hydrate(array $data){
+		// setup user informations
+		foreach ($data["notes"] as $key => $value) {
+			if( property_exists(get_class($this), $key )){
+				$this->$key = $value ;
+			}
+		}
+		$this->picture = $data['picture'];
 	}
 }

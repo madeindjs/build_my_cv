@@ -22,31 +22,55 @@ class Activity
 		$this->description = array_key_exists('description' , $details ) ? $details['description'] : null ;
 	}
 
+
+	/* 
+	* create a Html picture of user from gravatar (snippet from https://fr.gravatar.com/site/implement/images/php)
+	* @return string as html image tag from gravatar.com
+	*/
 	function title(){
 		if($this->parent->professional_exp){
 			return $this->name.'<small> chez '.$this->parent->name .'</small>';
 		}else{return $this->name.'<small> (experience personnelle)</small>';}
 	}
 
+
+	/* 
+	* create an Html <date> formated
+	* @return String
+	*/
 	function date(){
 		return '<date>'.$this->begin->format('m/Y').'</date>';
 	}
 
+
+	/* 
+	* create an Html description parsed in Markdown
+	* @return String
+	*/
 	function description(){
 		$Parsedown = new Parsedown();
 		return $Parsedown->line($this->description);
 	}
 
-	// return Activity's picture in <img/> tag 
+
+	/* 
+	* create a Html picture of user from gravatar (snippet from https://fr.gravatar.com/site/implement/images/php)
+	* @return string as html image tag from gravatar.com
+	*/
 	function picture(){
 		return '<img src="img/'.$this->picture.'" alt="logo of this Activity" >';
 	}
 
-	// return Activty in list item with its picture & description
+
+	/*
+	* create a complete Html <div> with all information about this object
+	* @return String
+	*/
 	function to_html(){
 		$Parsedown = new Parsedown();
 		return '<li>'.$this->picture().$Parsedown->text($this->description).'</li>';
 	}
+
 
 	function to_array(){
 		$Parsedown = new Parsedown();

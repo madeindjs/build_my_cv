@@ -20,10 +20,12 @@ class Experience
 		foreach ($details["activities"] as $picture => $description) {
 			array_push($this->activities, new Activity($this,$picture, $description )) ;
 		}
-
 	}
 
-
+	/*
+	* create title with title and date time
+	* @return String
+	*/
 	function title(){
 		if($this->begin) {
 			return $this->name.' <small>le <time datetime="'.$this->begin->format('Y-m-d').'">'.$this->begin->format('d/m/Y').'</time></small>';
@@ -32,6 +34,9 @@ class Experience
 		}
 	}
 
+	/*
+	* @return String
+	*/
 	function to_array(){
 		$ret = array();
 		foreach ($this->activities as $activity) {
@@ -40,6 +45,10 @@ class Experience
 		return $ret ; 
 	}
 
+
+	/*
+	*@return String
+	*/
 	function to_json(){
 		return json_encode( $this->to_array() , JSON_PRETTY_PRINT);
 	}
