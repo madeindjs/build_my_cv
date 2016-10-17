@@ -1,8 +1,8 @@
 <?php
 require_once('../core/Autoloader.php');
-Autoloader::register(); 
-
-$user = new User("data.json");
+Autoloader::register();
+ 
+$user = new User();
 ?>
 <!DOCTYPE html>
 <html>

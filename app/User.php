@@ -24,41 +24,9 @@ class User
 	public $links = array();
 
 	
-	function __construct($json_file)
-	{
-		$string = file_get_contents($json_file);
-		$data = json_decode($string, true);
-
-		$this->lastname = $data["user"]["lastname"] ;
-		$this->firstname = $data["user"]["firstname"] ;
-
-		$this->competencies = $data["competencies"] ;
-
-		$this->email = $data["user"]["email"] ;
-		$this->phone = $data["user"]["phone"] ;
-		$this->adress = $data["user"]["adress"] ;
-		$this->birth_date = DateTime::createFromFormat('Y-m-d',$data["user"]["birth date"]);
-		$this->town_birth = $data["user"]["town birth"] ;
-
-		$this->links = $data['links'] ;
-
-
-		foreach ($data["professional experience"] as $key => $value) {
-			array_push($this->professionalExperiences, new Experience($key, $value, true));
-		}
-		foreach ($data["personal experience"] as $key => $value) {
-			array_push($this->personalExperiences, new Experience($key, $value, false));
-		}
-		foreach ($data["diplomas"] as $key => $value) {
-			array_push($this->diplomas, new Qualification($key, $value));
-		}
-		foreach ($data["trainings"] as $key => $value) {
-			array_push($this->trainings, new Qualification($key, $value));
-		}
-		foreach ($data["langages"] as $key => $value) {
-			array_push($this->langages, new Langage($key, $value));
-		}
-
+	function __construct() {
+		$string = file_get_contents("data.json");
+		$this->hydrate( json_decode($string, true) );
 	}
 
 	/* return the complete name as `Rousseau Alexandre` */
@@ -118,18 +86,39 @@ class User
 	}
 
 
-	public function activities_to_array(){
-		$array = array();
-		foreach ($this->activities() as $activity){ array_push($array, $activity->to_array()); }
-		return $array ;
-	}
-
 	public function activities_to_json(){
 		return json_encode( $this->activities_to_array() , JSON_PRETTY_PRINT);
 	}
 
 
-	private function print_link($name, $details){
-		return '<a href="'.$details['link'].'"><img src="img/'.$details['img'].'" alt="'.$name.'"></a>';
+	/*
+	* set up object properties in loop
+	*/
+	private function hydrate(array $data){
+		// setup user informations
+		foreach ($data["user"] as $key => $value) {
+			if( property_exists(get_class($this), $key )){
+				// if it's a date, we set it as DatTime object
+				$this->$key = (strpos($key, 'date')) ? DateTime::createFromFormat('Y-m-d',$value) : $value ;
+			}
+		}
+		// setup other properties 
+		foreach ($data["professional experience"] as $key => $value) {
+			array_push($this->professionalExperiences, new Experience($key, $value, true));
+		}
+		foreach ($data["personal experience"] as $key => $value) {
+			array_push($this->personalExperiences, new Experience($key, $value, false));
+		}
+		foreach ($data["diplomas"] as $key => $value) {
+			array_push($this->diplomas, new Qualification($key, $value));
+		}
+		foreach ($data["trainings"] as $key => $value) {
+			array_push($this->trainings, new Qualification($key, $value));
+		}
+		foreach ($data["langages"] as $key => $value) {
+			array_push($this->langages, new Langage($key, $value));
+		}
+		$this->competencies = $data["competencies"] ;
+		$this->links = $data['links'] ;
 	}
 }
