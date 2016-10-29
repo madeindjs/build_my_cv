@@ -1,6 +1,6 @@
 <?php
-namespace DrawMyCV\app ;
 
+namespace BuildMyCV\classes ;
 
 /**
 * a classic User with classics properties (firstname, phone, etc..) and also many
