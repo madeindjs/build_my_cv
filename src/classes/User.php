@@ -54,6 +54,14 @@ class User
 	function complete_name(){
 		return $this->lastname." ".$this->firstname ;
 	}
+        
+        /**
+         * create a balise tag to call this user
+         * @return string as <a> tag
+         */
+        function phone(){
+            return '<a href="tel:'.$this->phone.'" >'.$this->phone.'</a>' ;
+        }
 
 
 	/*
@@ -159,4 +167,5 @@ class User
 		$this->competencies = $data["competencies"] ;
 		$this->links = $data['links'] ;
 	}
+
 }
