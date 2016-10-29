@@ -16,14 +16,32 @@ $container = $app->getContainer();
 $container['view'] = new \Slim\Views\PhpRenderer('../templates/');
 
 /**
- * Get the root to render 
+ * GET /
  */
 $app->get('/', function (Request $request, Response $response) {
-    $response = $this->view->render(
+    $user = \BuildMyCV\classes\User::getInstance() ;
+    return $this->view->render(
         $response, 
         "cv.phtml", 
-        ["user" => \BuildMyCV\classes\User::getInstance() 
-    ]);
-    return $response;
+        [
+            "title" => $user->complete_name(),
+            "user" => $user
+        ]
+    );
 });
+
+
+/**
+ * GET /project/{name}
+ */
+$app->get('/project/{name}', function(Request $request, Response $response, $args){
+    $project_name = $args['name'];
+    return $this->view->render(
+        $response, 
+        "project.phtml", 
+        ["project_name" => $project_name ]
+    );
+});
+
+
 $app->run();
