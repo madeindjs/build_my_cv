@@ -1,5 +1,5 @@
 <?php
-namespace DrawMyCV\app ;
+namespace BuildMyCV\classes ;
 
 
 /**
