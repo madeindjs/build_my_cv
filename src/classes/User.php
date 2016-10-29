@@ -125,8 +125,9 @@ class User
      * @return Activity as activity searched
      */
     public function get_activity_by_name($name){
+        $activity_name =  Activity::urldecode($name);
         foreach($this->activities() as $activity){
-            if($activity->name == $name){ return $activity ; }
+            if($activity->name == $activity_name){ return $activity ; }
         }
         return null ;
     }

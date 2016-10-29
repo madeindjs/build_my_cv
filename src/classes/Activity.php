@@ -102,5 +102,15 @@ class Activity
         $sanitize_project_name = str_replace('/', '_', $link);
         return urlencode($sanitize_project_name);
     }
+    
+    /**
+     * Return activity name decoded from url
+     * @param string $link as url param
+     * @return string as url encoded
+     */
+    public static function urldecode($link){
+        $sanitize_project_name = str_replace('_', '/', $link);
+        return urldecode($sanitize_project_name);
+    }
         
 }
