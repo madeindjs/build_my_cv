@@ -1,7 +1,7 @@
 <?php
 namespace BuildMyCV\classes ;
 
-require_once('lib/Parsedown.php');
+require_once '../../vendor/erusev/parsedown/Parsedown.php';
 /**
 * An activity is a task done during a job. 
 * it contains a picture & a description
