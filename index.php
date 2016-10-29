@@ -91,7 +91,7 @@ $user = new User("data.json");
 		
 		<p><i class="glyphicon glyphicon-user"></i> <?= $user->birth_date->format('d/m/Y') ?> à <?= $user->town_birth ?></p>
 		<p><i class="glyphicon glyphicon-home"></i> <adress><?= $user->adress ?></adress></p>
-		<p><i class="glyphicon glyphicon-earphone"></i> <strong><?= $user->phone ?></strong></p>
+		<p><i class="glyphicon glyphicon-earphone"></i> <strong><?= $user->phone() ?></strong></p>
 		<p><i class="glyphicon glyphicon-envelope"></i> <a href="mailto:<?= $user->email ?>?subject=Votre%20CV"><?= $user->email ?></a></p>
 		<hr/>
 		<small>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></small>

@@ -68,6 +68,14 @@ class User
 	function complete_name(){
 		return $this->lastname." ".$this->firstname ;
 	}
+        
+        /**
+         * create a balise tag to call this user
+         * @return string as <a> tag
+         */
+        function phone(){
+            return '<a href="tel:'.$this->phone.'" >'.$this->phone.'</a>' ;
+        }
 
 	function print_links(){
 		$html = '' ;
