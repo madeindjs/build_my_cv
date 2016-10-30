@@ -15,7 +15,8 @@ h4{color:#3498db;}
 /*HEADER SPECIFICATIONS*/
 header{text-align: center;padding: 20px; }
 header h1{font-weight: normal}
-header img{height: 200px;width: 200px;border-radius: 200px; -webkit-border-radius: 200px; -moz-border-radius: 200px;}
+header img{height: 200px;width: 200px;}
+header img.user{border-radius: 200px; -webkit-border-radius: 200px; -moz-border-radius: 200px;}
 header p{font-size:18px;font-weight:300;text-align:center;}
 
 
