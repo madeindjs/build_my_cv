@@ -2,13 +2,9 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-require_once '../../vendor/autoload.php';
+require_once '../classes/autoload.php';
+require_once ROOT.'/vendor/autoload.php';
 
-//Setup Autoloader
-spl_autoload_register(function ($classname) {
-    $class = str_replace('BuildMyCV\\classes\\', '', $classname);
-    require ("../classes/" . $class . ".php");
-});
 
 // create Application
 $app = new \Slim\App;
