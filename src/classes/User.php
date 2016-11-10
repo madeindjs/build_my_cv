@@ -41,7 +41,7 @@ class User
 
 	
     private function __construct() {
-        $String = file_get_contents("data.json");
+        $String = file_get_contents(ROOT."/src/public/data.json");
         $this->hydrate( json_decode($String, true) );
     }
 
