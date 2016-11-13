@@ -8,6 +8,20 @@
         "birth_date" : "1992-12-28",
         "town_birth" : "Toulouse"
     },
+    
+    "text" : {
+      
+        "oneline" : "Développeur passionné auto-didacte",
+        "multiline" : "Passionné et autodidacte, mon implication personnelle m'a permis d'évoluer au sein de Carrier. Aujourd'hui je veux suivre ma passion et me spécialiser en tant que développeur.",
+        "interest_points" : [
+            "Course à pied", 
+            "natation", 
+            "Cross-fit",
+            "Linux",
+            "Open-source",
+            "Nouvelles technologies"
+        ]
+    },
 
     "links" : {
         "linkedin" : {"img" : "lkd.svg" , "link" : "    https://fr.linkedin.com/in/alexandre-rousseau-a55a9464"},
@@ -34,28 +48,59 @@
 
                 "Apprentis" : {
                     "begin": "2011-09-01",
-                    "img" : "Carrier.svg",
-                    "description" : "Rejoins Carrier Réfrigération en tant que Apprentis Bureau d'études"
+                    "end" : "2013-08-01",
+                    "technologies" : [
+                        "AutoCad",
+                        "Excel"
+                    ],
+                    "description" : [
+                        "Soutien du chargé d'affaire pour nos clients d'Afrique du Nord",
+                        "Dessin des plans d'executions"
+                    ]
                 },
-                "Bureau d'études" : {
+                "Assistant Technique Bureau d'étude" : {
                     "begin": "2013-09-01",
-                    "img" : "acd.png",
-                    "description" : "Dessin des plans d'exécutions sur AutoCad. Dimensionnement de l'installation frigorifique. Configuration et mise en service de la régulation des vitrines."
+                    "end" : "2017-01-07",
+                    "technologies" : [
+                        "AutoCad",
+                        "Excel",
+                        "Python"
+                    ],
+                    "description" : [
+                        "Création des bilans frigorifiques",
+                        "Sélection des composants frigorifiques",
+                        "Dessin des plans d'éxecutions sur AutoCad",
+                        "Installation / configuration des système de régulation"
+                    ]
                 },
-                "Chef de projet" : {
-                    "begin": "2014-09-01",
-                    "img" : "skp.svg",
-                    "description": "Leadership sur la création d'une solution de dessin 3D avec **Sketchup**. Formation des commerciaux européens en Allemagne, en République Tchèque et au Danemark sur cette solution. "
-                },
-                "Développeur Ruby" : {
+                "Chef de projet - Développeur" : {
                     "begin": "2016-05-01",
-                    "img" : "rby.svg",
-                    "description" : "Développement d'un plugin **Sketchup** en **Ruby** pour faciliter le dessin 3D."
+                    "end" : "2017-01-07",
+                    "technologies" : [
+                        "Ruby",
+                        "Sketchup",
+                        "Javascript"
+                    ],
+                    "description" : [
+                        "Dessin 3D",
+                        "Présentation / Formation eurpéene (DL, CZ, DK)",
+                        "Développement plugin Ruby"
+                    ]
                 },
-                "Développeur Web PHP / C#" : {
+                "Pilote qualité process - Développeur" : {
                     "begin" : "2015-10-01",
-                    "img" : "csh.svg",
-                    "description" : "Développement d'une application web pour collecter  et interpréter les rapports d'interventions techniques. Développement réalisé dans un premier temps avec **PHP** et le framework **CakePHP** puis migration vers en **ASP.NET MVC** en **C#**."
+                    "end" : "2017-01-07",
+                    "technologies" : [
+                        "PHP",
+                        "C#"
+                    ],
+                    "description" : [
+                        "Analyse des process techniques (SAV, intervention, etc..)",
+                        "Développement plateforme Web interne",
+                        "Installation, configuration et mise en production",
+                        "Présentation / formation",
+                        "Amélioration continue"
+                    ]
                 }
             }
         }
@@ -63,30 +108,34 @@
 
     "personal experience" : {
 
-        "Webmaster" : {
+        "Développeur Fullstack" : {
 
             "begin" : "2015-10-01",
 
-            "activities" : {
-
-                "Développeur Web Ruby" : {
-                    "begin" : "2016-01-01",
-                    "img" : "ror.png",
-                    "description" : "Création d'une *Web App* permettant de stocker & partager des recettes de cuisine: [raspberry-cook.fr](http://raspberry-cook.fr). \r\n\r\n* création back et fron-end\r\n* création et maintenance du serveur\r\n* promotion et réferecement"
-                }
-            }
+            "technologies" : [
+                "PHP",
+                "Ruby",
+                "Javascript"
+            ],
+            "description" : [
+                "Développement http://raspberry-cook.fr avec Ruby on Rails",
+                "Création et installation serveur sur un Raspberry Pi",
+                "SEO, optimisation",
+                "Promotion, publicité"
+            ]
         },
 
         "Développement applications" : {
             "begin" : "2014-02-01",
+            "end":"2014-08-31",
 
-            "activities" : {
-                "Développeur Blackberry" : {
-                    "begin" : "2015-01-01",
-                    "img" : "bry.svg",
-                    "description" : "Développement d'applications pour la plateforme Blackberry 10 : [Mon compte vendeur](https://appworld.blackberry.com/webstore/vendor/45412)."
-                }
-            }
+            "technologies" : [
+                "C++",
+                "Qt"
+            ],
+            "description" : [
+                "Développement application pour Blackberry 10"
+            ]
         }
     }, 
 
