@@ -89,28 +89,6 @@ class User
 
 
     /**
-    * Convert all comptencies in json format to use in javascript
-    * @return String
-    */
-    function compentencies_to_json():string{
-        $json = array();
-
-        $json['labels'] = array_keys($this->competencies) ;
-        $json['datasets'][0] = array();
-        $json['datasets'][0]['data'] = array();
-        $json['datasets'][0]['backgroundColor'] = array();
-
-        foreach ($this->competencies as $langage => $data) {
-            array_push( $json['datasets'][0]['data'], $data['value'] );
-            array_push( $json['datasets'][0]['backgroundColor'], $data['color'] );
-        }
-
-        return json_encode( $json , JSON_PRETTY_PRINT);
-
-    }
-
-
-    /**
     * get all activities (Personnal AND professionnal experiences) sorted by date
     * @return array of Experience objects
     */
@@ -133,7 +111,7 @@ class User
      * @param string $name as activity name
      * @return Activity as activity searched
      */
-    public function get_activity_by_name($name):Activity{
+    public function get_activity_by_name(string $name):Activity{
         $activity_name =  Activity::urldecode($name);
         foreach($this->activities() as $activity){
             if($activity->name == $activity_name){ return $activity ; }
@@ -165,6 +143,7 @@ class User
         foreach ($data["professional experience"] as $key => $value) {
             array_push($this->professionalExperiences, new Experience($key, $value, true));
         }
+        
         foreach ($data["personal experience"] as $key => $value) {
             array_push($this->personalExperiences, new Experience($key, $value, false));
         }

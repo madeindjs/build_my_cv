@@ -20,6 +20,7 @@ class Experience
         $this->name = $name;
         $this->professional_exp = $professional_exp;
         $this->begin = \DateTime::createFromFormat('Y-m-d',$details['begin']);
+        $this->end = isset($details['begin']) ? \DateTime::createFromFormat('Y-m-d',$details['begin']) : null;
 
         foreach ($details["activities"] as $picture => $description) {
             array_push($this->activities, new Activity($this,$picture, $description )) ;

@@ -5,9 +5,14 @@ use \Psr\Http\Message\ResponseInterface as Response;
 require_once '../classes/autoload.php';
 require_once ROOT.'/vendor/autoload.php';
 
+$config = [
+    'settings' => [
+        'displayErrorDetails' => true,
+    ],
+];
 
 // create Application
-$app = new \Slim\App;
+$app = new \Slim\App($config);
 $container = $app->getContainer();
 $container['view'] = new \Slim\Views\PhpRenderer('../templates/');
 

@@ -25,7 +25,6 @@ class Activity
         $this->parent = $parent;
         $this->begin = \DateTime::createFromFormat('Y-m-d',$details['begin']);
         $this->name = $name;
-        $this->picture = $details['img'];
         $this->description = array_key_exists('description' , $details ) ? $details['description'] : null ;
     }
 
