@@ -15,8 +15,13 @@ class Activity
 
     private $parent ;
 
-    function __construct($parent, $name, $details)
-    {
+    /**
+     * Construct an Activity based on details and his parent
+     * @param \BuildMyCV\classes\Experience $parent as Activity's parent
+     * @param string $name
+     * @param array $details
+     */
+    function __construct(Experience $parent, string $name, array $details){
         $this->parent = $parent;
         $this->begin = \DateTime::createFromFormat('Y-m-d',$details['begin']);
         $this->name = $name;
@@ -29,7 +34,7 @@ class Activity
     * create a Html picture of user from gravatar (snippet from https://fr.gravatar.com/site/implement/images/php)
     * @return string as html image tag from gravatar.com
     */
-    function title(){
+    function title():string{
         if($this->parent->professional_exp){
             return $this->link().'<small> chez '.$this->parent->name .'</small>';
         }else{return $this->link().'<small> (experience personnelle)</small>';}
@@ -40,7 +45,7 @@ class Activity
     * create an Html <date> formated
     * @return String
     */
-    function date(){
+    function date(): string{
         return '<date>'.$this->begin->format('m/Y').'</date>';
     }
 
@@ -49,7 +54,7 @@ class Activity
     * create an Html description parsed in Markdown
     * @return String
     */
-    function description(){
+    function description():string{
         $Parsedown = new \Parsedown();
         return $Parsedown->line($this->description);
     }
@@ -59,7 +64,7 @@ class Activity
     * create a Html picture of user from gravatar (snippet from https://fr.gravatar.com/site/implement/images/php)
     * @return string as html image tag from gravatar.com
     */
-    function picture(){
+    function picture():string{
         return '<img src="/img/'.$this->picture.'" alt="logo of this Activity" >';
     }
 
@@ -68,13 +73,13 @@ class Activity
     * create a complete Html <div> with all information about this object
     * @return String
     */
-    function to_html(){
+    function to_html():string{
         $Parsedown = new Parsedown();
         return '<li>'.$this->picture().$Parsedown->text($this->description).'</li>';
     }
 
 
-    function to_array(){
+    function to_array():array{
         $Parsedown = new Parsedown();
         $ret = array();
         $ret['name'] = $this->title();
@@ -89,7 +94,7 @@ class Activity
      * Create a link to the project
      * @return string as Html link
      */
-    function link(){
+    function link():string{
         return '<a href="/activity/'.$this->urlencode($this->name).'">'.$this->name.'</a>';
     }
     
@@ -98,7 +103,7 @@ class Activity
      * Return activity name encoded to be used as link
      * @return string as url encoded
      */
-    private function urlencode($link){
+    private function urlencode(string $link):string{
         $sanitize_project_name = str_replace('/', '_', $link);
         return urlencode($sanitize_project_name);
     }
@@ -108,7 +113,7 @@ class Activity
      * @param string $link as url param
      * @return string as url encoded
      */
-    public static function urldecode($link){
+    public static function urldecode(string $link):string{
         $sanitize_project_name = str_replace('_', '/', $link);
         return urldecode($sanitize_project_name);
     }

@@ -30,8 +30,9 @@ class User
 
     /**
     * Singleton class
+    * @return an instance of User
     */
-    public static function getInstance(){
+    public static function getInstance():User{
         if(is_null(self::$instance)){
             self::$instance = new User();
         }
@@ -50,7 +51,7 @@ class User
     * get the complete name formated like `Rousseau Alexandre`
     * @return String
     */
-    function complete_name(){
+    function complete_name():string{
         return $this->lastname." ".$this->firstname ;
     }
     
@@ -59,7 +60,7 @@ class User
     * create a balise tag to call this user
     * @return string as <a> tag
     */
-    function phone(){
+    function phone():string{
         return '<a href="tel:'.$this->phone.'" >'.$this->phone.'</a>' ;
     }
 
@@ -68,7 +69,7 @@ class User
     * create Html links in the contact area as <ul> tag
     * @return String
     */
-    function print_links(){
+    function print_links():string{
         $html = '' ;
         foreach ($this->links as $name => $details) {
             $html = $html.$this->print_link($name, $details);
@@ -81,7 +82,7 @@ class User
     * create a Html picture of user from gravatar (snippet from https://fr.gravatar.com/site/implement/images/php)
     * @return String as html image tag from gravatar.com
     */
-    function image($size=200){
+    function image(int $size=200):string{
         $src = "https://www.gravatar.com/avatar/".md5( strtolower( trim( $this->email ) ) )."?s=".$size;
         return '<img class="user" src="'.$src.'" alt="picture of '.$this->complete_name().'"/> ' ;
     }
@@ -91,7 +92,7 @@ class User
     * Convert all comptencies in json format to use in javascript
     * @return String
     */
-    function compentencies_to_json(){
+    function compentencies_to_json():string{
         $json = array();
 
         $json['labels'] = array_keys($this->competencies) ;
@@ -113,7 +114,7 @@ class User
     * get all activities (Personnal AND professionnal experiences) sorted by date
     * @return array of Experience objects
     */
-    public function activities(){
+    public function activities():array{
         $array = array();
         foreach ($this->professionalExperiences as $exp){
             foreach ($exp->activities as $activity) {array_push($array, $activity); }
@@ -132,7 +133,7 @@ class User
      * @param string $name as activity name
      * @return Activity as activity searched
      */
-    public function get_activity_by_name($name){
+    public function get_activity_by_name($name):Activity{
         $activity_name =  Activity::urldecode($name);
         foreach($this->activities() as $activity){
             if($activity->name == $activity_name){ return $activity ; }
@@ -144,7 +145,7 @@ class User
     * create link tag for User::print_links method
     * @return String links as <a .. ><img ... /></a>
     */
-    private function print_link($name, $details){
+    private function print_link(string $name, array $details):string{
         return '<a href="'.$details['link'].'"><img src="img/'.$details['img'].'" alt="'.$name.'"></a>';
     }
 
