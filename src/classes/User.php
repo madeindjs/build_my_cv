@@ -7,23 +7,23 @@ namespace BuildMyCV\classes ;
 */
 class User
 {
-    public $firstname;
-    public $lastname;
-    public $email;
-    public $phone;
-    public $adress;
-    public $birth_date;
-    public $town_birth;
+    private $firstname;
+    private $lastname;
+    private $email;
+    private $phone;
+    private $address;
+    private $birth_date;
+    private $town_birth;
 
-    public $comptencies = array();
+    private $comptencies = array();
 
-    public $professionalExperiences = array();
-    public $personalExperiences = array();
-    public $diplomas = array();
-    public $trainings = array();
-    public $langages = array();
+    private $professionalExperiences = array();
+    private $personalExperiences = array();
+    private $diplomas = array();
+    private $trainings = array();
+    private $langages = array();
 
-    public $links = array();
+    private $links = array();
 
     private static $instance;
 
@@ -56,14 +56,48 @@ class User
     }
     
     
+    function birth_informations(){
+        return 'né le '.$this->birth_date->format('d/m/Y').' à '.$this->town_birth;
+    }
+    
+    function get_address(){
+        return $this->address;
+    }
+
+
     /**
     * create a balise tag to call this user
     * @return string as <a> tag
     */
-    function phone():string{
+    function phone_link():string{
         return '<a href="tel:'.$this->phone.'" >'.$this->phone.'</a>' ;
     }
 
+    /**
+     * print a link tag to send an email
+     * @return string
+     */
+    function email_link():string{
+        return '<a href="mailto:'.$this->email.'?subject=Votre%20CV">'.$this->email.'</a>';
+    }
+    
+    function get_diplomas(){
+        foreach ($this->diplomas as $diploma){
+            yield $diploma;
+        }
+    }
+    
+    function get_trainings(){
+        foreach ($this->trainings as $training){
+            yield $training;
+        }
+    }
+    
+    function get_langages(){
+        foreach ($this->langages as $lang){
+            yield $lang;
+        }
+    }
 
     /**
     * create Html links in the contact area as <ul> tag
@@ -87,24 +121,6 @@ class User
         return '<img class="user" src="'.$src.'" alt="picture of '.$this->complete_name().'"/> ' ;
     }
 
-
-    /**
-    * get all activities (Personnal AND professionnal experiences) sorted by date
-    * @return array of Experience objects
-    */
-    public function activities():array{
-        $array = array();
-        foreach ($this->professionalExperiences as $exp){
-            foreach ($exp->activities as $activity) {array_push($array, $activity); }
-        }
-        foreach ($this->personalExperiences as $exp){
-            foreach ($exp->activities as $activity) {array_push($array, $activity); }
-        }
-
-        usort($array, function($a, $b) {if ($a->begin == $b->begin) {return 0; }else{ return ($a->begin > $b->begin) ? -1 : 1; } } );
-
-        return $array ;
-    }
 
     /**
      * find personnal or professionnal activity by name

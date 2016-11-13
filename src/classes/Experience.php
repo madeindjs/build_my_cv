@@ -15,10 +15,9 @@ class Experience
     public $activities = array();
     public $professional_exp ;
 
-    function __construct(string $name, array $details, bool $professional_exp = false)
+    function __construct(string $name, array $details)
     {
         $this->name = $name;
-        $this->professional_exp = $professional_exp;
         $this->begin = \DateTime::createFromFormat('Y-m-d',$details['begin']);
         $this->end = isset($details['begin']) ? \DateTime::createFromFormat('Y-m-d',$details['begin']) : null;
 

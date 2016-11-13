@@ -5,10 +5,10 @@
     <?= $user->image() ?>
     <h1><?= $user->complete_name() ?></h1>
     <p>Développeur passionné auto-didacte</p>
-    <address><?= $user->address ?></address>
-    <p>né le <?= $user->birth_date->format('d/m/Y') ?> à <?= $user->town_birth ?></p>
-    <p><?= $user->phone ?></p>
-    <p><i class="glyphicon glyphicon-envelope"></i> <a href="mailto:<?= $user->email ?>?subject=Votre%20CV"><?= $user->email ?></a></p>
+    <address><?= $user->get_address() ?></address>
+    <p><?= $user->birth_informations() ?></p>
+    <p><?= $user->phone_link() ?></p>
+    <p><?= $user->email_link() ?></p>
 </header>
 
 <div id="contact">
@@ -42,14 +42,14 @@
 
     <h3>Etudes</h3>
     <ul>
-        <?php foreach($user->diplomas as $diploma): ?>
+        <?php foreach($user->get_diplomas() as $diploma): ?>
             <li><?= $diploma->title() ?></li>
         <?php endforeach ?>
     </ul>
 
     <h3>Formations</h3>
     <ul>
-        <?php foreach($user->trainings as $training ): ?>
+        <?php foreach($user->get_trainings() as $training ): ?>
             <li><?= $training->title() ?></li>
         <?php endforeach ?>
     </ul>
@@ -57,7 +57,7 @@
 
 <section>
     <h2>Langues</h2>
-    <?php foreach( $user->langages as $langage){echo $langage->to_html(); } ?>
+    <?php foreach( $user->get_langages() as $langage){echo $langage->to_html(); } ?>
 </section>
 
 
