@@ -5,9 +5,12 @@ namespace BuildMyCV\classes ;
 /**
 * a qualification is a diplomas
 */
-class Qualification extends Experience
+class Qualification
 {
 	private $place;
+        private $title;
+        private $date;
+        
 	
         /**
          * Build a qualification with array details and title

@@ -1,11 +1,8 @@
 <?php include '_header.phtml';
 /* @var $user BuildMyCV\classes\User */
-
 ?>
 
-
 <header>
-    <?= $user->image() ?>
     <h1><?= $user->complete_name() ?></h1>
     <p>Développeur passionné auto-didacte</p>
     <address><?= $user->get_address() ?></address>
@@ -14,8 +11,21 @@
     <p><?= $user->email_link() ?></p>
 </header>
 
-<div id="contact">
-    <?= $user->print_links() ?>
+<div>
+    <?= $user->image() ?>
+    <div id="contact"><?= $user->print_links() ?></div>
+    
+    
+    <h2>Profil</h2>
+    <p></p>
+    
+    <h2>Langages</h2>
+    <ul></ul>
+    
+    <h2>Frameworks</h2>
+    
+    <h2>Points d'intérêt</h2>
+    <ul></ul>
 </div>
 
 <section>
@@ -30,44 +40,19 @@
     <ul><?php foreach($user->get_personal_experiences() as $exp ): ?>
         <?= $exp->to_html() ?>
     <?php endforeach ?></ul>
-    
 </section>
 
 
-
-
 <section>
-    <h2>Compétences</h2>
-    <canvas id="competencies" height="200"></canvas>
-</section>
-
-
-
-<section>
-    <h2>Etudes et formations</h2>
-
-    <h3>Etudes</h3>
-
-
-    <h3>Formations</h3>
-    <ul>
-        <?php foreach($user->get_trainings() as $training ): ?>
+    <h2>Diplômes & formations</h2>
+    <ul> <?php foreach($user->get_trainings() as $training ): ?>
             <li><?= $training->title() ?></li>
-        <?php endforeach ?>
-    </ul>
+    <?php endforeach ?></ul>
 </section>
 
 <section>
     <h2>Langues</h2>
     <?php foreach( $user->get_langages() as $langage){echo $langage->to_html(); } ?>
 </section>
-
-
-<footer>
-    
-    <hr/>
-    <small>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></small>
-</footer>
-
 
 <?php include '_footer.phtml'?>
