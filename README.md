@@ -1,7 +1,7 @@
 build_my_CV()
 =============
 
-An automatic CV builder from a JSON file.
+An automatic CV builder from a JSON file based on **PHP7**.
 
 You can visit it an example at [rousseau-alexandre.fr](http://rousseau-alexandre.fr)
 
