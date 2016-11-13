@@ -32,7 +32,7 @@ class User
     * Singleton class
     * @return an instance of User
     */
-    public static function getInstance():User{
+    public static function get_instance():User{
         if(is_null(self::$instance)){
             self::$instance = new User();
         }
@@ -99,6 +99,18 @@ class User
         }
     }
 
+    function get_professional_experiences(){
+        foreach ($this->professionalExperiences as $exp){
+            yield $exp;
+        }
+    }
+    
+    function get_personal_experiences(){
+        foreach ($this->personalExperiences as $exp){
+            yield $exp;
+        }
+    }
+    
     /**
     * create Html links in the contact area as <ul> tag
     * @return String
@@ -157,18 +169,20 @@ class User
         }
         // setup other properties 
         foreach ($data["professional experience"] as $key => $value) {
-            array_push($this->professionalExperiences, new Experience($key, $value, true));
+            array_push($this->professionalExperiences, new Experience($value));
         }
         
-        foreach ($data["personal experience"] as $key => $value) {
-            array_push($this->personalExperiences, new Experience($key, $value, false));
+        foreach ($data["personal experience"] as $value) {
+            array_push($this->personalExperiences, new Experience($value));
         }
         foreach ($data["diplomas"] as $key => $value) {
             array_push($this->diplomas, new Qualification($key, $value));
         }
+        /*
         foreach ($data["trainings"] as $key => $value) {
             array_push($this->trainings, new Qualification($key, $value));
         }
+        */
         foreach ($data["langages"] as $key => $value) {
             array_push($this->langages, new Langage($key, $value));
         }

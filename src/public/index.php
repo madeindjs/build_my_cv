@@ -20,7 +20,7 @@ $container['view'] = new \Slim\Views\PhpRenderer('../templates/');
  * GET /
  */
 $app->get('/', function (Request $request, Response $response) {
-    $user = \BuildMyCV\classes\User::getInstance() ;
+    $user = \BuildMyCV\classes\User::get_instance() ;
     return $this->view->render(
         $response, 
         "cv.phtml", 
@@ -37,7 +37,7 @@ $app->get('/', function (Request $request, Response $response) {
  */
 $app->get('/activity/{name}', function(Request $request, Response $response, $args){
     $activity_name = $args['name'];
-    $user = \BuildMyCV\classes\User::getInstance() ;
+    $user = \BuildMyCV\classes\User::get_instance() ;
     
     // find activity
     if($activity = $user->get_activity_by_name($activity_name)){

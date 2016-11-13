@@ -1,4 +1,7 @@
-<?php include '_header.phtml' ?>
+<?php include '_header.phtml';
+/* @var $user BuildMyCV\classes\User */
+
+?>
 
 
 <header>
@@ -17,13 +20,16 @@
 
 <section>
     <h2>Experience Professionnelle</h2>
-    
-    
+    <ul><?php foreach($user->get_professional_experiences() as $exp ): ?>
+        <?= $exp->to_html() ?>
+    <?php endforeach ?></ul>
 </section>
 
 <section>
     <h2>Experience Personnelle</h2>
-    
+    <ul><?php foreach($user->get_personal_experiences() as $exp ): ?>
+        <?= $exp->to_html() ?>
+    <?php endforeach ?></ul>
     
 </section>
 
@@ -41,11 +47,7 @@
     <h2>Etudes et formations</h2>
 
     <h3>Etudes</h3>
-    <ul>
-        <?php foreach($user->get_diplomas() as $diploma): ?>
-            <li><?= $diploma->title() ?></li>
-        <?php endforeach ?>
-    </ul>
+
 
     <h3>Formations</h3>
     <ul>

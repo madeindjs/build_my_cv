@@ -3,7 +3,7 @@ a{color:inherit;}
 html,body{font-family:'Lato',sans-serif; background-color:#ecf0f1;color:#2c3e50; margin:0px; }
 
 section{text-align: center;}
-section > ul{list-style: none; padding: 0px}
+section ul{text-align: left;}
 
 
 h1{font-size: 30px}
