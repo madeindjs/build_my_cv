@@ -2,7 +2,7 @@
 <html>
 
     <head>
-            <title><?= isset($title) ? $title : "My CV" ?></title>
+            <title><?= $title ?? "My CV" ?></title>
             <meta charset="utf-8">
             <link href="/css/stylesheet.css" rel="stylesheet" type="text/css" media="all" >
             <link href="/css/timeline_responsive.css" rel="stylesheet" type="text/css"  media="all">
@@ -22,8 +22,8 @@
             <meta name="author" content="ROUSSEAU Alexandre">
             <meta name="publisher" content="ROUSSEAU Alexandre">
 
-            <meta property="og:description" content="<?= isset($description) ? $description : "My personnal informations" ?>" >
-            <meta name="description" content="<?= isset($description) ? $description : "My personnal informations" ?>" />
+            <meta property="og:description" content="<?= $description ?? "My personnal informations" ?>" >
+            <meta name="description" content="<?= $description ?? "My personnal informations" ?>" />
     </head>
 
 
