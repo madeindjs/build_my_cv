@@ -14,7 +14,7 @@ abstract class Entity {
     
     
     function to_html():string{
-        $ret =  '<date>'.$this->work_interval().'</date> '.$this->complete_title() ;
+        $ret =  '<date>'.$this->work_interval().'</date><strong>'.$this->complete_title().'</strong>' ;
         if(method_exists(get_class($this), 'tasks_to_html' )){
             $ret .= $this->tasks_to_html();
         }
@@ -26,9 +26,19 @@ abstract class Entity {
         if( property_exists(get_class($this), 'date' )){
             return $this->date->format('Y');
         }else{
-            return $this->end ? $this->begin->format('m/Y').'-'.$this->end->format('m/Y') : $this->begin->format('m/Y').'- now';
+            // if begin & end year is the same, we only print year
+            if($this->end && $this->begin->format('Y') == $this->end->format('Y')){
+                return $this->begin->format('Y');
+            
+            // elseif different but we have an end year, print both in '2015-16' format
+            }elseif ($this->end) {
+                return $this->begin->format('Y').'-'.$this->end->format('y');
+                
+            // else print in '2015-16' format with current year
+            }else{
+                return $this->begin->format('Y').'→';
+            }
         }
-        
     }
     
     protected function complete_title(){
