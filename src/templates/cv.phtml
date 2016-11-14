@@ -20,12 +20,19 @@
     <p><?= $user->get_multiline_description() ?></p>
     
     <h2>Langages</h2>
-    <ul></ul>
+    <ul><?php foreach ($user->get_programming_langages() as $lang): ?>
+        <li><?= $lang->to_html() ?></li>
+    <?php endforeach ?></ul>
     
     <h2>Frameworks</h2>
+    <ul><?php foreach ($user->get_frameworks() as $framework): ?>
+        <li><?= $framework->to_html() ?></li>
+    <?php endforeach ?></ul>
     
     <h2>Points d'intérêt</h2>
-    <ul></ul>
+    <ul><?php foreach ($user->get_interest_points() as $pts): ?>
+        <li><?= $pts ?></li>
+    <?php endforeach ?></ul>
 </div>
 
 <section>

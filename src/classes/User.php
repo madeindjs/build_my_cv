@@ -18,21 +18,19 @@ class User
     private $town_birth;
     private $oneline_description ;
     private $multiline_description ;
+    
+    private $interest_points = array();
 
-    private $comptencies = array();
+    private $programming_langages = array();
+    private $frameworks = array();
 
-    private $professional_exp = array();
-    private $personal_exp = array();
+    private $professional_exps = array();
+    private $personal_exps = array();
     private $diplomas = array();
     private $trainings = array();
     private $langages = array();
     private $links = array();
     
-    
-    private $interest_points = array();
-
-    
-
 
     /**
     * Singleton class
@@ -55,31 +53,14 @@ class User
     /* GETTERS AREA */
     
     function get_address():string{ return $this->address; }
-    function get_diplomas(){
-        foreach ($this->diplomas as $diploma){
-            yield $diploma;
-        }
-    }
-    function get_trainings(){
-        foreach ($this->trainings as $training){
-            yield $training;
-        }
-    }
-    function get_langages(){
-        foreach ($this->langages as $lang){
-            yield $lang;
-        }
-    }
-    function get_professional_experiences(){
-        foreach ($this->professional_exp as $exp){
-            yield $exp;
-        }
-    }
-    function get_personal_experiences(){
-        foreach ($this->personal_exp as $exp){
-            yield $exp;
-        }
-    }
+    function get_diplomas():array{ return $this->diplomas;}
+    function get_trainings():array{ return $this->trainings;}
+    function get_langages():array{ return $this->langages; }
+    function get_professional_experiences():array{ return $this->professional_exps;}
+    function get_personal_experiences():array{ return $this->personal_exps;}
+    function get_programming_langages():array{ return $this->programming_langages;}
+    function get_interest_points():array{return $this->interest_points;}
+    function get_frameworks():array{ return $this->frameworks; }
     function get_oneline_description():string{ return $this->oneline_description ;}
     function get_multiline_description():string{ return $this->multiline_description ;}
 
@@ -172,14 +153,19 @@ class User
         }
         // setup other properties 
         foreach ($data["professional experience"] as $key => $value) {
-            array_push($this->professional_exp, new Experience($value));
+            array_push($this->professional_exps, new Experience($value));
         }
-        
         foreach ($data["personal experience"] as $value) {
-            array_push($this->personal_exp, new Experience($value));
+            array_push($this->personal_exps, new Experience($value));
         }
         foreach ($data["diplomas"] as $key => $value) {
             array_push($this->diplomas, new Qualification($key, $value));
+        }
+        foreach ($data["skills"]["langages"] as $key => $value){
+            array_push($this->programming_langages, new Skill($key, $value));
+        }
+        foreach ($data["skills"]["frameworks"] as $key => $value){
+            array_push($this->frameworks, new Skill($key, $value));
         }
         /*
         foreach ($data["trainings"] as $key => $value) {
@@ -189,7 +175,6 @@ class User
         foreach ($data["langages"] as $key => $value) {
             array_push($this->langages, new Langage($key, $value));
         }
-        $this->competencies = $data["competencies"] ;
         $this->links = $data['links'] ;
     }
 }
