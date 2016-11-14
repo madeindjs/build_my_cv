@@ -1,53 +1,60 @@
-html,body{font-family:'Lato',sans-serif;color:#2c3e50; margin:0px; }
+/* general values */
+html,body{ color:#2c3e50; margin:0px; padding: 0px; background-color: #ecf0f1; }
 a{color:inherit;}
-
-/*mobile*/
-@media only screen and (max-width: 768px) {
-    
-
-
-}
-/*desktop*/
-@media only screen and (min-width: 768px) {
-    
-section{}
-    /* create a vertical line */
-    ul.timeline{margin-left:120px ; padding-left: 25px;list-style: none;border-left: 2px solid #ecf0f1; }
-        ul.timeline > li{}
-        /* small circle on the vertcical line in front of the label */
-        ul.timeline > li:before{display:block;position: relative;right: 31px ; top:52px;width: 80px;
-            content:' '; background-color: rgb(52,152,219); width:10px;height:10px;
-            border-radius: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px;}
-        /* create a title effect on the job title */
-        ul.timeline > li > strong{color: rgb(52,152,219);font-weight: normal;font-size: 18px}
-        /* move date to the left of the vertical ligne in a gray rectangle */
-        ul.timeline > li > date{display:block;position: relative;right: 125px ; top:30px;width: 80px;height:35px;
-            background-color: #ecf0f1;  font-size: 18px;text-align: center;}
-        /* add a small shape on the gray box */
-        ul.timeline > li > date:before{display:block;content:" ";position: relative;top:12.5px;left:80px;
-            width:0; height:0; border-top: 5px solid transparent; border-left: 10px solid #ecf0f1;border-bottom: 5px solid transparent;
-        }
-        ul.timeline ul{list-style: none; padding-left: 10px}
-            ul.timeline ul > li:before{content: '- '}
-
-
-h1{font-size: 30px}
-h2{font-size:xx-large;font-weight: lighter;text-align: left;color:rgb(52,152,219)}
+    a:hover{color:rgb(52,152,219)}
+h2{font-size:24px;font-weight: lighter;text-align: left;color:rgb(52,152,219);margin-bottom: 0px}
 h3{color:#2980b9;}
 h4{color:#3498db;}
 
-
 /*HEADER SPECIFICATIONS*/
 header{ }
-    header h1{font-weight: normal; margin-top: 5px;font-size: 44px}
+    h1{font-family: "Courier New"; font-weight: 100 ;font-size: 44px; margin-top: 5px;margin-bottom: 5px;}
+    #oneline_description{font-family: "Courier New";font-size: 22px; margin-bottom: 10px}
     header p{font-size:16px;font-weight:300;padding: 0;margin:0}
     header a{text-decoration: none;}
 
-
+/* Contact ribon with transition effect when user hover an icon*/
 #contact{ height:53px; vertical-align:top; padding-top:4px;padding-bottom:4px;}
     #contact img{transition:all.2s;}
     #contact a{vertical-align:top; display:inline-block; margin-left:3px;margin-right:7px;}
     #contact p{margin:0px;padding:0px;display:inline;float:left;}
+
+/* left panel with */
+#left_panel {display: block;;position: absolute;left: 0px;top:0px;bottom:0px;height:100vh;max-width:200px;padding: 10px;}
+    #left_panel img.user{height: 200px;width: 200px;border-radius: 200px; -webkit-border-radius: 200px; -moz-border-radius: 200px;}
+    #left_panel h2{font-size: medium}
+    #left_panel p{font-size: small;text-align: justify;}
+    #left_panel ul{list-style: none; padding: 0}
+        #left_panel ul li{font-size: small;}
+            #left_panel ul progress{width: 100%;}
+    
+
+/* Timeline effect with a vertical ligne  */
+ul.timeline{margin-left:120px ; margin-top: 0px;padding-left: 25px;list-style: none;border-left: 2px solid #ecf0f1; }
+
+    ul.timeline ul{list-style: none; padding-left: 10px}
+        ul.timeline ul > li:before{content: '- '}
+    ul.timeline > li{}
+        /* small circle on the vertcical line in front of the label */
+        ul.timeline > li:before{display:block;position: relative;right: 31px ; top:52px;width: 80px;
+            content:' '; background-color: rgb(52,152,219); width:10px;height:10px;
+            border-radius: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px;}
+        /* change color when list item is hovered */
+        ul.timeline > li:hover date:before{border-left-color: rgb(52,152,219)}
+        ul.timeline > li:hover date{background-color: rgb(52,152,219); color:white}
+        /* create a title effect on the job title */
+        ul.timeline > li > strong{color: rgb(52,152,219);font-weight: normal;font-size: 18px}
+        /* move date to the left of the vertical ligne in a gray rectangle */
+        ul.timeline > li > date{display:block;position: relative;right: 145px ; top:30px;width: 100px;height:35px;
+            background-color: #ecf0f1;  font-size: 18px; font-weight: lighter ; text-align: center;}
+        /* add a small shape on the gray box */
+        ul.timeline > li > date:before{display:block;content:" ";position: relative;top:12.5px;left:100px;
+            width:0; height:0; border-top: 5px solid transparent; border-left: 10px solid #ecf0f1;border-bottom: 5px solid transparent;
+        }
+    
+
+
+
 
 .print{display: none;}
 
@@ -67,14 +74,23 @@ footer{border-top: solid 2px #eeeeee; padding:50px;margin-top:30px;text-align: c
 #contact img{width:40px;height:40px;}
 #contact img:hover{width:50px;height:50px;}
 
-#right_panel {background-color: #ecf0f1;position: absolute; top:0;left: 0;bottom: 0;max-width:200px;padding: 10px}
-    #right_panel img{height: 200px;width: 200px;}
-    #right_panel img.user{border-radius: 200px; -webkit-border-radius: 200px; -moz-border-radius: 200px;}
-    #right_panel h2{font-size: medium}
-    #right_panel p{font-size: small;text-align: justify;}
-    #right_panel ul{list-style: none; padding: 0}
-        #right_panel ul li{font-size: small;}
-            #right_panel ul progress{width: 100%;}
 
-#content{margin-left: 240px;}
+
+#content{margin-left: 220px;padding-left: 10px;background-color: white}
+
+
+
+/*mobile*/
+@media only screen and (max-width: 768px) {
+    
+
+
+}
+/*desktop*/
+@media only screen and (min-width: 768px) {
+    
+    
+
+    
+
 }

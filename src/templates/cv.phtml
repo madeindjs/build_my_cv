@@ -4,10 +4,8 @@
 
 
 
-<div id="right_panel">
+<div id="left_panel">
     <?= $user->image() ?>
-    
-    
     
     <h2>Profil</h2>
     <p><?= $user->get_multiline_description() ?></p>
@@ -26,6 +24,8 @@
     <ul><?php foreach ($user->get_interest_points() as $pts): ?>
         <li><?= $pts ?></li>
     <?php endforeach ?></ul>
+    
+    <div id="contact"><?= $user->contact_links() ?></div>
 </div>
 
 
@@ -33,12 +33,12 @@
     
     <header>
         <h1><?= $user->complete_name() ?></h1>
-        <p><?= $user->get_oneline_description() ?></p>
+        <p id="oneline_description"><?= $user->get_oneline_description() ?></p>
         <address><?= $user->get_address() ?></address>
         <p><?= $user->birth_informations() ?></p>
         <p><?= $user->phone_link() ?></p>
         <p><?= $user->email_link() ?></p>
-        <div id="contact"><?= $user->contact_links() ?></div>
+        
     </header>
     
     <section>
@@ -63,10 +63,6 @@
         <?php endforeach ?></ul>
     </section>
 
-    <section>
-        <h2>Langues</h2>
-        <?php foreach( $user->get_langages() as $langage){echo $langage->to_html(); } ?>
-    </section>
 </div>
 
 
