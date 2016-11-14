@@ -3,23 +3,30 @@ namespace BuildMyCV\classes ;
 
 
 /**
-* a qualification is a diplomas
+* a qualification is a diplomas or a Formation
 */
-class Qualification
+class Qualification extends Entity
 {
-	private $place;
-        private $title;
-        private $date;
+    
+    private $place;
+    protected $date;
         
 	
-        /**
-         * Build a qualification with array details and title
-         * @param type $title
-         * @param type $details
-         */
-	function __construct(string $title, array $details){
-		$this->name= $title;
-		$this->begin= \DateTime::createFromFormat('Y-m-d',$details['begin']);
-		$this->place= $details['place'];
-	}
+    /**
+     * Build a qualification
+     * @param type $details
+     */
+    function __construct(array $details){
+            $this->title= $details['title'];
+            $this->date= \DateTime::createFromFormat('Y-m-d',$details['date']);
+            $this->place= $details['place'];
+    }
+    
+    /**
+    * create title with job title & company
+    * @return String
+    */
+    protected function complete_title():string{
+        return $this->title.' @ '.$this->place ;
+    }
 }

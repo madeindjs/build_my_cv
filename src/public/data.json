@@ -150,28 +150,26 @@
     ], 
 
 
-    "diplomas" : {
-
-        "BTS F.E.E." : {
-            "begin" : "2013-08-31",
+    "diplomas" : [
+        {   
+            "title" : "BTS F.E.E.",
+            "date" : "2013-08-31",
             "place" : "La Martinière Monplaisir"
         },
-        "Baccalauréat STI" : {
-            "begin" : "2011-08-31",
+        {
+            "title" : "Baccalauréat STI",
+            "date" : "2011-08-31",
             "place" : "La Martinière Monplaisir"
         }
-    },
+    ],
 
-    "trainings" : {
-        "Permis de conduire type B" : {
-            "begin" : "?",
-            "place" : "Lyon"
-        },
-        "Attestation d’aptitude des fluides frigorigènes (Catégorie 1)" : {
-            "begin" : "2012-05-01",
-            "place" : "?"
+    "trainings" : [
+        {
+            "title" : "Attestation d’aptitude des fluides frigorigènes (Catégorie 1)",
+            "date" : "2012-05-01",
+            "place" : "AFPM Lyon"
         }
-    },
+    ],
 
     "langages" : {
 

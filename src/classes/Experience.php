@@ -6,11 +6,10 @@ namespace BuildMyCV\classes ;
 * An Experience is a moment passed in a Company or in a personnal project
 * with one or multiple technologies
 */
-class Experience
+class Experience extends Entity
 {
-    private $title;
-    private $begin;
-    private $end;
+    protected $begin;
+    protected $end;
     private $company;
     private $technologies = array();
     private $tasks = array();
@@ -21,25 +20,15 @@ class Experience
     }
 
     /**
-    * create title with title and date time
+    * create title with job title & company
     * @return String
     */
-    function complete_title():string{
+    protected function complete_title():string{
         return $this->company ? $this->title.' @ '.$this->company : $this->title ;
     }
     
     
-    function get_work_interval(){
-        return $this->end ? $this->begin->format('m/Y').'-'.$this->end->format('m/Y') : $this->begin->format('m/Y').'- now';
-    }
-    
-    function to_html(){
-        return '<li>'.
-                '<date>'.$this->get_work_interval().'</date> '.$this->complete_title().
-                $this->tasks_to_html().'</li>';
-    }
-    
-    private function tasks_to_html():string{
+    protected function tasks_to_html():string{
         $ret = '<ul>';
         foreach ($this->tasks as $task){
             $ret .= '<li>'.$task.'</li>';

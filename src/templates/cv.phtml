@@ -38,22 +38,22 @@
 <section>
     <h2>Experience Professionnelle</h2>
     <ul><?php foreach($user->get_professional_experiences() as $exp ): ?>
-        <?= $exp->to_html() ?>
+        <li><?= $exp->to_html() ?></li>
     <?php endforeach ?></ul>
 </section>
 
 <section>
     <h2>Experience Personnelle</h2>
     <ul><?php foreach($user->get_personal_experiences() as $exp ): ?>
-        <?= $exp->to_html() ?>
+        <li><?= $exp->to_html() ?></li>
     <?php endforeach ?></ul>
 </section>
 
 
 <section>
     <h2>Diplômes & formations</h2>
-    <ul> <?php foreach($user->get_trainings() as $training ): ?>
-            <li><?= $training->title() ?></li>
+    <ul> <?php foreach($user->get_diplomas() as $diploma ): ?>
+            <li><?= $diploma->to_html() ?></li>
     <?php endforeach ?></ul>
 </section>
 

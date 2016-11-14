@@ -155,11 +155,11 @@ class User
         foreach ($data["professional experience"] as $key => $value) {
             array_push($this->professional_exps, new Experience($value));
         }
-        foreach ($data["personal experience"] as $value) {
+        foreach ($data["personal experience"] as $key => $value) {
             array_push($this->personal_exps, new Experience($value));
         }
         foreach ($data["diplomas"] as $key => $value) {
-            array_push($this->diplomas, new Qualification($key, $value));
+            array_push($this->diplomas, new Qualification($value));
         }
         foreach ($data["skills"]["langages"] as $key => $value){
             array_push($this->programming_langages, new Skill($key, $value));
