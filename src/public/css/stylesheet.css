@@ -1,38 +1,39 @@
+html,body{font-family:'Lato',sans-serif;color:#2c3e50; margin:0px; }
 a{color:inherit;}
 
-html,body{font-family:'Lato',sans-serif; background-color:#ecf0f1;color:#2c3e50; margin:0px; }
+/*mobile*/
+@media only screen and (max-width: 768px) {
+    
 
-section{text-align: center;}
-section ul{text-align: left;}
+
+}
+/*desktop*/
+@media only screen and (min-width: 768px) {
+    
+section{}
+    section > ul{margin: 0;padding-left:100px }
+        section > ul date{display:inline-block;position: relative;right: 100px ; max-width: 70px; overflow: hidden}
 
 
 h1{font-size: 30px}
-h2{font-size:xx-large;text-align:left;border-bottom: solid 1px #eeeeee; text-align: center}
+h2{font-size:xx-large;font-weight: lighter;text-align: left;color:rgb(52,152,219)}
 h3{color:#2980b9;}
 h4{color:#3498db;}
 
 
 /*HEADER SPECIFICATIONS*/
-header{text-align: center;padding: 20px; }
-header h1{font-weight: normal}
-header img{height: 200px;width: 200px;}
-header img.user{border-radius: 200px; -webkit-border-radius: 200px; -moz-border-radius: 200px;}
-header p{font-size:18px;font-weight:300;text-align:center;}
+header{ }
+    header h1{font-weight: normal; margin-top: 5px;font-size: 44px}
+    header p{font-size:16px;font-weight:300;padding: 0;margin:0}
+    header a{text-decoration: none;}
 
 
-#contact{
-	height:53px;
-	text-align:center;vertical-align:top;
-	padding-top:4px;padding-bottom:4px;
-}
-
-	#contact img{transition:all.2s;}
-	#contact a{vertical-align:top; display:inline-block; margin-left:3px;margin-right:7px;}
-	#contact p{margin:0px;padding:0px;display:inline;float:left;}
-
+#contact{ height:53px; vertical-align:top; padding-top:4px;padding-bottom:4px;}
+    #contact img{transition:all.2s;}
+    #contact a{vertical-align:top; display:inline-block; margin-left:3px;margin-right:7px;}
+    #contact p{margin:0px;padding:0px;display:inline;float:left;}
 
 .print{display: none;}
-
 
 
 div.langage{height:100px;width: 300px;vertical-align:top;display: inline-block;}
@@ -47,19 +48,17 @@ footer{border-top: solid 2px #eeeeee; padding:50px;margin-top:30px;text-align: c
 
 #competencies{max-width: 100%;/*to correct bad align*/ }
 
+#contact img{width:40px;height:40px;}
+#contact img:hover{width:50px;height:50px;}
 
-/*mobile*/
-@media only screen and (max-width: 768px) {
-	/*reduce contacts items*/
-	#contact img{width:53px;height:53px;}
-	/*set fixed padding*/
-	section{padding-left:10px;padding-right:10px;}
-}
-/*desktop*/
-@media only screen and (min-width: 768px) {
-	/*bigger contacts items*/
-	#contact img{width:40px;height:40px;}
-	#contact img:hover{width:50px;height:50px;}
-	/*set changing padding*/
-	section{padding-left:10%;padding-right:10%;}
+#right_panel {background-color: #ecf0f1;position: absolute; top:0;left: 0;bottom: 0;max-width:200px;padding: 10px}
+    #right_panel img{height: 200px;width: 200px;}
+    #right_panel img.user{border-radius: 200px; -webkit-border-radius: 200px; -moz-border-radius: 200px;}
+    #right_panel h2{font-size: medium}
+    #right_panel p{font-size: small;text-align: justify;}
+    #right_panel ul{list-style: none; padding: 0}
+        #right_panel ul li{font-size: small;}
+            #right_panel ul progress{width: 100%;}
+
+#content{margin-left: 240px;}
 }

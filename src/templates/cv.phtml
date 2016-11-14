@@ -2,18 +2,11 @@
 /* @var $user BuildMyCV\classes\User */
 ?>
 
-<header>
-    <h1><?= $user->complete_name() ?></h1>
-    <p><?= $user->get_oneline_description() ?></p>
-    <address><?= $user->get_address() ?></address>
-    <p><?= $user->birth_informations() ?></p>
-    <p><?= $user->phone_link() ?></p>
-    <p><?= $user->email_link() ?></p>
-</header>
 
-<div>
+
+<div id="right_panel">
     <?= $user->image() ?>
-    <div id="contact"><?= $user->contact_links() ?></div>
+    
     
     
     <h2>Profil</h2>
@@ -35,31 +28,47 @@
     <?php endforeach ?></ul>
 </div>
 
-<section>
-    <h2>Experience Professionnelle</h2>
-    <ul><?php foreach($user->get_professional_experiences() as $exp ): ?>
-        <li><?= $exp->to_html() ?></li>
-    <?php endforeach ?></ul>
-</section>
 
-<section>
-    <h2>Experience Personnelle</h2>
-    <ul><?php foreach($user->get_personal_experiences() as $exp ): ?>
-        <li><?= $exp->to_html() ?></li>
-    <?php endforeach ?></ul>
-</section>
+<div id="content">
+    
+    <header>
+        <h1><?= $user->complete_name() ?></h1>
+        <p><?= $user->get_oneline_description() ?></p>
+        <address><?= $user->get_address() ?></address>
+        <p><?= $user->birth_informations() ?></p>
+        <p><?= $user->phone_link() ?></p>
+        <p><?= $user->email_link() ?></p>
+        <div id="contact"><?= $user->contact_links() ?></div>
+    </header>
+    
+    <section>
+        <h2>Experience Professionnelle</h2>
+        <ul><?php foreach($user->get_professional_experiences() as $exp ): ?>
+            <li><?= $exp->to_html() ?></li>
+        <?php endforeach ?></ul>
+    </section>
+
+    <section>
+        <h2>Experience Personnelle</h2>
+        <ul><?php foreach($user->get_personal_experiences() as $exp ): ?>
+            <li><?= $exp->to_html() ?></li>
+        <?php endforeach ?></ul>
+    </section>
 
 
-<section>
-    <h2>Diplômes & formations</h2>
-    <ul> <?php foreach($user->get_diplomas() as $diploma ): ?>
-            <li><?= $diploma->to_html() ?></li>
-    <?php endforeach ?></ul>
-</section>
+    <section>
+        <h2>Diplômes & formations</h2>
+        <ul> <?php foreach($user->get_diplomas() as $diploma ): ?>
+                <li><?= $diploma->to_html() ?></li>
+        <?php endforeach ?></ul>
+    </section>
 
-<section>
-    <h2>Langues</h2>
-    <?php foreach( $user->get_langages() as $langage){echo $langage->to_html(); } ?>
-</section>
+    <section>
+        <h2>Langues</h2>
+        <?php foreach( $user->get_langages() as $langage){echo $langage->to_html(); } ?>
+    </section>
+</div>
+
+
 
 <?php include '_footer.phtml'?>
