@@ -3,12 +3,13 @@
 ?>
 
 
-
-<div id="left_panel">
+<div id="left_panel" class="desktop">
     <?= $user->image() ?>
     
+    <h1 class="mobile"><?= $user->complete_name() ?></h1>
+    
     <h2>Profil</h2>
-    <p><?= $user->get_multiline_description() ?></p>
+    <quote id="multiline_description"><?= $user->get_multiline_description() ?></quote>
     
     <h2>Langages</h2>
     <ul><?php foreach ($user->get_programming_langages() as $lang): ?>
@@ -20,8 +21,8 @@
         <li><?= $framework->to_html() ?></li>
     <?php endforeach ?></ul>
     
-    <h2>Points d'intérêt</h2>
-    <ul><?php foreach ($user->get_interest_points() as $pts): ?>
+    <h2 class="desktop">Points d'intérêt</h2>
+    <ul class="desktop"><?php foreach ($user->get_interest_points() as $pts): ?>
         <li><?= $pts ?></li>
     <?php endforeach ?></ul>
     
@@ -29,16 +30,16 @@
 </div>
 
 
+
 <div id="content">
     
-    <header>
+    <header class="desktop">
         <h1><?= $user->complete_name() ?></h1>
         <p id="oneline_description"><?= $user->get_oneline_description() ?></p>
         <address><?= $user->get_address() ?></address>
         <p><?= $user->birth_informations() ?></p>
         <p><?= $user->phone_link() ?></p>
         <p><?= $user->email_link() ?></p>
-        
     </header>
     
     <section>
@@ -64,7 +65,6 @@
     </section>
 
 </div>
-
 
 
 <?php include '_footer.phtml'?>

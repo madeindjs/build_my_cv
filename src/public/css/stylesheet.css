@@ -19,14 +19,7 @@ header{ }
     #contact a{vertical-align:top; display:inline-block; margin-left:3px;margin-right:7px;}
     #contact p{margin:0px;padding:0px;display:inline;float:left;}
 
-/* left panel with */
-#left_panel {display: block;;position: absolute;left: 0px;top:0px;bottom:0px;height:100vh;max-width:200px;padding: 10px;}
-    #left_panel img.user{height: 200px;width: 200px;border-radius: 200px; -webkit-border-radius: 200px; -moz-border-radius: 200px;}
-    #left_panel h2{font-size: medium}
-    #left_panel p{font-size: small;text-align: justify;}
-    #left_panel ul{list-style: none; padding: 0}
-        #left_panel ul li{font-size: small;}
-            #left_panel ul progress{width: 100%;}
+
     
 
 /* Timeline effect with a vertical ligne  */
@@ -66,31 +59,56 @@ div.langage li{height:25px}
 div.langage li>strong{display:inline-block;width:80px;}
 div.langage li>progress{display:inline-block;width:120px;}
 
-
 footer{border-top: solid 2px #eeeeee; padding:50px;margin-top:30px;text-align: center}
-
-#competencies{max-width: 100%;/*to correct bad align*/ }
 
 #contact img{width:40px;height:40px;}
 #contact img:hover{width:50px;height:50px;}
 
 
+#content{background-color: #f9f9f9}
 
-#content{margin-left: 220px;padding-left: 10px;background-color: white}
 
-
+/* left panel with */
+#left_panel {display: block;padding: 10px;}
+    #left_panel img.user{display:block;height: 200px;width: 200px;border-radius: 200px; -webkit-border-radius: 200px; -moz-border-radius: 200px;}
+    #left_panel h2{font-size: medium}
+    #left_panel p, quote{font-size: small;text-align: justify;}
+    #left_panel ul{list-style: none; padding: 0}
+        #left_panel ul li{font-size: small;}
+            #left_panel ul progress{}
 
 /*mobile*/
 @media only screen and (max-width: 768px) {
     
-
-
+    .desktop{display:none}
+    
+    #left_panel {text-align: center;}
+        #left_panel h2{display: none}
+        #left_panel img.user{margin: auto;}
+        #left_panel > ul{display: inline }
+            #left_panel ul li{max-width: 100px; display: inline-block}
+                #left_panel progress{display: none}
+                
+    quote { display: block; background: #f9f9f9; border-left: 10px solid #ccc;
+        margin: 1.5em 10px; padding: 0.5em 10px; quotes: "\201C""\201D""\2018""\2019"; }
+        quote:before { color: #ccc; content: open-quote; font-size: 4em;
+            line-height: 0.1em; margin-right: 0.25em; vertical-align: -0.4em; }
+        
+    #content{margin: 20px;padding: 10px;}
 }
 /*desktop*/
 @media only screen and (min-width: 768px) {
     
+    .mobile{display:none}
     
-
+    #left_panel {position: absolute;left: 0px;top:0px;bottom:0px;height:100vh;max-width:200px;}
+    
+    #left_panel {}
+        #left_panel ul{}
+            #left_panel ul li{}
+                #left_panel ul progress{width: 100%;}
+                
+    #content{margin-left: 220px;padding-left: 10px;}
     
 
 }
