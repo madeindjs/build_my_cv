@@ -7,6 +7,8 @@ namespace BuildMyCV\classes ;
 */
 class User
 {
+    private static $instance;
+    
     private $firstname;
     private $lastname;
     private $email;
@@ -14,18 +16,22 @@ class User
     private $address;
     private $birth_date;
     private $town_birth;
+    private $oneline_description ;
+    private $multiline_description ;
 
     private $comptencies = array();
 
-    private $professionalExperiences = array();
-    private $personalExperiences = array();
+    private $professional_exp = array();
+    private $personal_exp = array();
     private $diplomas = array();
     private $trainings = array();
     private $langages = array();
-
     private $links = array();
+    
+    
+    private $interest_points = array();
 
-    private static $instance;
+    
 
 
     /**
@@ -45,7 +51,37 @@ class User
         $String = file_get_contents(ROOT."/src/public/data.json");
         $this->hydrate( json_decode($String, true) );
     }
-
+    
+    /* GETTERS AREA */
+    
+    function get_address():string{ return $this->address; }
+    function get_diplomas(){
+        foreach ($this->diplomas as $diploma){
+            yield $diploma;
+        }
+    }
+    function get_trainings(){
+        foreach ($this->trainings as $training){
+            yield $training;
+        }
+    }
+    function get_langages(){
+        foreach ($this->langages as $lang){
+            yield $lang;
+        }
+    }
+    function get_professional_experiences(){
+        foreach ($this->professional_exp as $exp){
+            yield $exp;
+        }
+    }
+    function get_personal_experiences(){
+        foreach ($this->personal_exp as $exp){
+            yield $exp;
+        }
+    }
+    function get_oneline_description():string{ return $this->oneline_description ;}
+    function get_multiline_description():string{ return $this->multiline_description ;}
 
     /**
     * get the complete name formated like `Rousseau Alexandre`
@@ -55,16 +91,10 @@ class User
         return $this->lastname." ".$this->firstname ;
     }
     
-    
     function birth_informations(){
         return 'né le '.$this->birth_date->format('d/m/Y').' à '.$this->town_birth;
     }
     
-    function get_address(){
-        return $this->address;
-    }
-
-
     /**
     * create a balise tag to call this user
     * @return string as <a> tag
@@ -81,46 +111,25 @@ class User
         return '<a href="mailto:'.$this->email.'?subject=Votre%20CV">'.$this->email.'</a>';
     }
     
-    function get_diplomas(){
-        foreach ($this->diplomas as $diploma){
-            yield $diploma;
-        }
-    }
-    
-    function get_trainings(){
-        foreach ($this->trainings as $training){
-            yield $training;
-        }
-    }
-    
-    function get_langages(){
-        foreach ($this->langages as $lang){
-            yield $lang;
-        }
-    }
-
-    function get_professional_experiences(){
-        foreach ($this->professionalExperiences as $exp){
-            yield $exp;
-        }
-    }
-    
-    function get_personal_experiences(){
-        foreach ($this->personalExperiences as $exp){
-            yield $exp;
-        }
-    }
     
     /**
     * create Html links in the contact area as <ul> tag
     * @return String
     */
-    function print_links():string{
+    function contact_links():string{
         $html = '' ;
         foreach ($this->links as $name => $details) {
-            $html = $html.$this->print_link($name, $details);
+            $html = $html.$this->contact_link($name, $details);
         }
         return $html;
+    }
+    
+    /**
+    * create link tag for User::print_links method
+    * @return String links as <a .. ><img ... /></a>
+    */
+    private function contact_link(string $name, array $details):string{
+        return '<a href="'.$details['link'].'"><img src="img/'.$details['img'].'" alt="'.$name.'"></a>';
     }
 
 
@@ -147,13 +156,7 @@ class User
         return null ;
     }
     
-    /**
-    * create link tag for User::print_links method
-    * @return String links as <a .. ><img ... /></a>
-    */
-    private function print_link(string $name, array $details):string{
-        return '<a href="'.$details['link'].'"><img src="img/'.$details['img'].'" alt="'.$name.'"></a>';
-    }
+    
 
 
     /**
@@ -169,11 +172,11 @@ class User
         }
         // setup other properties 
         foreach ($data["professional experience"] as $key => $value) {
-            array_push($this->professionalExperiences, new Experience($value));
+            array_push($this->professional_exp, new Experience($value));
         }
         
         foreach ($data["personal experience"] as $value) {
-            array_push($this->personalExperiences, new Experience($value));
+            array_push($this->personal_exp, new Experience($value));
         }
         foreach ($data["diplomas"] as $key => $value) {
             array_push($this->diplomas, new Qualification($key, $value));

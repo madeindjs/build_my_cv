@@ -6,13 +6,10 @@
         "phone" : "+33 663 549 581",
         "address" : "2c, rue de Margnolles, 69300 , Caluire-et-Cuire, France",
         "birth_date" : "1992-12-28",
-        "town_birth" : "Toulouse"
-    },
-    
-    "text" : {
-      
-        "oneline" : "Développeur passionné auto-didacte",
-        "multiline" : "Passionné et autodidacte, mon implication personnelle m'a permis d'évoluer au sein de Carrier. Aujourd'hui je veux suivre ma passion et me spécialiser en tant que développeur.",
+        "town_birth" : "Toulouse",
+        
+        "oneline_description" : "Développeur passionné auto-didacte",
+        "multiline_description" : "Passionné et autodidacte, mon implication personnelle m'a permis d'évoluer au sein de Carrier. Aujourd'hui je veux suivre ma passion et me spécialiser en tant que développeur.",
         "interest_points" : [
             "Course à pied", 
             "natation", 
@@ -22,7 +19,7 @@
             "Nouvelles technologies"
         ]
     },
-
+    
     "links" : {
         "linkedin" : {"img" : "lkd.svg" , "link" : "    https://fr.linkedin.com/in/alexandre-rousseau-a55a9464"},
         "stackoverflow" : {"img" : "stw.svg" , "link" : "http://stackoverflow.com/users/5935198/rousseaualexandre"},
@@ -31,12 +28,23 @@
     },
 
     "competencies" : {
-        "Ruby": 	{"value": 8 , 	"color": "#D91E18"},
-        "Python": 	{"value": 7.5 , "color": "#F7CA18"},
-        "PHP": 		{"value": 6 , 	"color": "#674172"},
-        "javascript":   {"value": 5 , 	"color": "#F4D03F"},
-        "HTML/CSS":	{"value": 8.5 , "color": "#6C7A89"},
-        "C#" :		{"value": 4 , 	"color": "#8E44AD"}
+        
+        "langages":{
+            "Ruby":  8 ,
+            "Python": 7.5 ,
+            "PHP": 6 ,
+            "javascript": 5 ,
+            "HTML/CSS":	8.5 ,
+            "C#" : 4  
+        },
+        
+        "frameworks":{
+            "Ruby on Rails" : 8,
+            "CakePHP" : 7,
+            "ASP.NET MVC 5" : 7,
+            "Django" : 3
+        }
+        
     },
 
     "professional experience" : [

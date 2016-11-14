@@ -4,7 +4,7 @@
 
 <header>
     <h1><?= $user->complete_name() ?></h1>
-    <p>Développeur passionné auto-didacte</p>
+    <p><?= $user->get_oneline_description() ?></p>
     <address><?= $user->get_address() ?></address>
     <p><?= $user->birth_informations() ?></p>
     <p><?= $user->phone_link() ?></p>
@@ -13,11 +13,11 @@
 
 <div>
     <?= $user->image() ?>
-    <div id="contact"><?= $user->print_links() ?></div>
+    <div id="contact"><?= $user->contact_links() ?></div>
     
     
     <h2>Profil</h2>
-    <p></p>
+    <p><?= $user->get_multiline_description() ?></p>
     
     <h2>Langages</h2>
     <ul></ul>
