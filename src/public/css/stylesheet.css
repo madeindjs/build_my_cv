@@ -11,8 +11,24 @@ a{color:inherit;}
 @media only screen and (min-width: 768px) {
     
 section{}
-    section > ul{margin: 0;padding-left:100px }
-        section > ul date{display:inline-block;position: relative;right: 100px ; max-width: 70px; overflow: hidden}
+    /* create a vertical line */
+    section > ul{margin-left:120px ; padding-left: 25px;list-style: none;border-left: 2px solid #ecf0f1; }
+        section > ul > li{}
+        /* small circle on the vertcical line in front of the label */
+        section > ul > li:before{display:block;position: relative;right: 31px ; top:52px;width: 80px;
+            content:' '; background-color: rgb(52,152,219); width:10px;height:10px;
+            border-radius: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px;}
+        /* create a title effect on the job title */
+        section > ul > li > strong{color: rgb(52,152,219);font-weight: normal;font-size: 18px}
+        /* move date to the left of the vertical ligne in a gray rectangle */
+        section > ul > li > date{display:block;position: relative;right: 125px ; top:30px;width: 80px;height:35px;
+            background-color: #ecf0f1;  font-size: 18px;text-align: center;}
+        /* add a small shape on the gray box */
+        section > ul > li > date:before{display:block;content:" ";position: relative;top:12.5px;left:80px;
+            width:0; height:0; border-top: 5px solid transparent; border-left: 10px solid #ecf0f1;border-bottom: 5px solid transparent;
+        }
+        section > ul ul{list-style: none; padding-left: 10px}
+            section > ul ul > li:before{content: '- '}
 
 
 h1{font-size: 30px}
