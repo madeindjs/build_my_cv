@@ -34,7 +34,7 @@ class Session {
      */
     public function is_logged():bool{
         // TODO: check session variable here
-        return false;
+        return (isset($_SESSION["admin"]) && $_SESSION["admin"] == true);
     }
     
     /**
@@ -43,7 +43,7 @@ class Session {
      */
     public function login(string $password):bool{
         if($this->password == $password){
-            // TODO: set session variable here
+            $_SESSION["admin"] = true ;
             return true;
         }else{
             return false;

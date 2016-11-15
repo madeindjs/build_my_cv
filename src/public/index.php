@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
@@ -43,6 +45,14 @@ $app->get('/admin', function (Request $request, Response $response) {
             "session" => \BuildMyCV\classes\Session::get_instance()
         ]
     );
+});
+
+/**
+ * GET /
+ */
+$app->get('/admin/signout', function (Request $request, Response $response) {
+    session_destroy();
+    return $response->withStatus(302)->withHeader('Location', '/admin');
 });
 
 $app->post('/admin', function (Request $request, Response $response) use ($app) {
