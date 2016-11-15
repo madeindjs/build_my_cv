@@ -1,7 +1,132 @@
-<?php include '_header.phtml' ?>
+<?php include '_header.phtml';
+/* @var $user BuildMyCV\classes\User */
+?>
+<style>
+    legend{font-size: large}
+    label,input{display: inline-block;width: 100px}
+    input, textArea{width:400px; font-family: monospace;border-bottom: 1px dashed gray;border-top: none;border-left: none;border-right: none;}
+    fieldset{display: inline}
+    <table
+</style>
+
 <h1>Admin</h1>
 
+<form method="POST">
+    
+    <fieldset>
+        <legend>General</legend>
+        
+        <label>Firstname</label>
+        <input type="text" name="firstname" value="<?= $user->get_firstname() ?>"><br/>
+
+        <label>Lastname</label>
+        <input type="text" name="lastname" value="<?= $user->get_lastname() ?>"><br/>
+
+        <label>Email</label>
+        <input type="email" name="email" value="<?= $user->get_email() ?>"><br/>
+
+        <label>Phone</label>
+        <input type="number" name="email" value="<?= $user->get_phone() ?>"><br/>
+
+        <label>Adress</label>
+        <input type="text" name="address" value="<?= $user->get_address() ?>"><br/>
+
+        <label>Birth date</label>
+        <input type="date" name="birth_date" value="<?= $user->get_birth_date()->format('Y-m-d') ?>"><br/>
+        
+        <label>Birth Town</label>
+        <input type="text" name="town_birth" value="<?= $user->get_town_birth() ?>"><br/>
+        
+        <label>Interest points</label>
+        <textarea name="interest_points"><?= join(' ; ',$user->get_interest_points()) ?></textarea>
+    </fieldset>
+    
+    
+    <fieldset>
+        <legend>Description</legend>
+        
+        <label>Oneline</label>
+        <input type="text" name="firstname" value="<?= $user->get_oneline_description() ?>"><br/>
+
+        <label>Multiline</label>
+        <textarea name="multiline_description"><?= $user->get_multiline_description() ?></textarea><br/>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Skills</legend>
+        
+        <label>Programming Langages</label>
+        <textarea id="programming_langages" name="programming_langages"><?= join(' ; ', $user->get_programming_langages()) ?></textarea><br/>
+
+        <label>Frameworks</label>
+        <textarea name="frameworks"><?= join(' ; ',$user->get_frameworks()) ?></textarea><br/>
+    </fieldset>
+    
+</form>
 
 
+<p>Programmings languages</p>
+<hr>
+<table id="programming_langages_land">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Action</th>
+        </tr> 
+    </thead>
+    
+    
+    <tfoot>
+        <tr>
+            <td colspan="3"><button onclick="javascript:add_programming_langages()">+</button></td>
+        </tr>
+    </tfoot>
+    
+</table>
+
+    
+<pre>private $professional_exps = array();
+    private $personal_exps = array();
+    private $diplomas = array();
+    private $trainings = array();
+    private $langages = array();
+    private $links = array();
+<pre>
+    
+    
+<script>
+    // create row
+    var skills_row = document.createElement('tr');
+    //create input
+    var cell_input = document.createElement('td');
+    cell_input.appendChild( document.createElement('input')) ;
+    // create select score 
+    var cell_score = document.createElement('td');
+    var select_score = document.createElement('select');
+    for (var i = 1; i <= 10; i++) {
+        var option = document.createElement('option');
+        option.value =  i ;
+        option.innerHTML = i ;
+        select_score.appendChild(option);
+    }
+    cell_score.appendChild( select_score) ;
+    
+    var cell_action = document.createElement('td');
+    cell_action.appendChild( document.createElement('button')) ;
+        
+    skills_row.appendChild( cell_input.cloneNode(true) );
+    skills_row.appendChild( cell_score.cloneNode(true) );
+    skills_row.appendChild( cell_action.cloneNode(true) );
+
+    function add_programming_langages(){
+        
+        var programming_langages_land = document.getElementById('programming_langages_land');
+        
+        programming_langages_land.appendChild( skills_row.cloneNode(true) );
+    }
+
+
+</script>
 
 <?php include '_footer.phtml'?>

@@ -51,8 +51,13 @@ class User
     }
     
     /* GETTERS AREA */
-    
+    function get_firstname():string{ return $this->firstname; }
+    function get_lastname():string{ return $this->lastname; }
     function get_address():string{ return $this->address; }
+    function get_email():string{ return $this->email; }
+    function get_phone():string{ return $this->phone; }
+    function get_birth_date(): \DateTime{ return $this->birth_date; }
+    function get_town_birth():string{ return $this->town_birth; }
     function get_diplomas():array{ return $this->diplomas;}
     function get_trainings():array{ return $this->trainings;}
     function get_langages():array{ return $this->langages; }

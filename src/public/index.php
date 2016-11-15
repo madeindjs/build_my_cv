@@ -38,8 +38,9 @@ $app->get('/', function (Request $request, Response $response) {
  */
 $app->get ('/admin', function (Request $request, Response $response) {
     $session = \BuildMyCV\classes\Session::get_instance() ;
+    $user = \BuildMyCV\classes\User::get_instance() ;
     if($session->is_logged()){
-        return $this->view->render($response, "admin.phtml", ["title" => "admin"]);
+        return $this->view->render($response, "admin.phtml", ["title" => "admin", "user" => $user]);
     }else{
         return $response->withStatus(302)->withHeader('Location', '/admin/signin');
     }
