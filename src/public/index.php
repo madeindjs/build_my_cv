@@ -31,36 +31,17 @@ $app->get('/', function (Request $request, Response $response) {
     );
 });
 
-
 /**
- * GET /project/{name}
+ * GET /
  */
-$app->get('/activity/{name}', function(Request $request, Response $response, $args){
-    $activity_name = $args['name'];
-    $user = \BuildMyCV\classes\User::get_instance() ;
-    
-    // find activity
-    if($activity = $user->get_activity_by_name($activity_name)){
-        
-        return $this->view->render(
-            $response, 
-            "activity.phtml", 
-            [
-                "title" => $activity->name,
-                "activity" => $activity,
-                "user" => $user
-            ]
-        );
-        
-    }else{
-        return $this->view->render(
-            $response, 
-            "404.phtml"
-        )->withStatus(404);
-    }
-
-    
+$app->get('/admin', function (Request $request, Response $response) {
+    return $this->view->render(
+        $response, 
+        "admin.phtml", 
+        [
+            "title" => "admin"
+        ]
+    );
 });
-
 
 $app->run();
