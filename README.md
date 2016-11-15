@@ -42,8 +42,14 @@ In your Apache configuration file
 Libraries
 ---------
 
+**PHP**
+
 * [Slim Framework](http://www.slimframework.com/)
 * [Parsedown](https://github.com/erusev/parsedown)
+
+**Javascript**
+
+* [JSON Editor](https://github.com/jdorn/json-editor)
 
 Purpose
 -------
