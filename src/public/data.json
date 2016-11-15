@@ -51,7 +51,7 @@
     
         {
             "title" : "Apprentis",
-            "company" : "Carrier Réfrigération",
+            "company" : "Carrier",
             "begin": "2011-09-01",
             "end" : "2013-08-01",
             "technologies" : [
@@ -65,7 +65,7 @@
         },
         {
             "title" : "Assistant Technique Bureau d'étude",
-            "company" : "Carrier Réfrigération",
+            "company" : "Carrier",
             "begin": "2013-09-01",
             "end" : "2017-01-07",
             "technologies" : [
@@ -82,7 +82,7 @@
         },
         {
             "title" : "Chef de projet - Développeur",
-            "company" : "Carrier Réfrigération",
+            "company" : "Carrier",
             "begin": "2016-05-01",
             "end" : "2017-01-07",
             "technologies" : [
@@ -98,7 +98,7 @@
         },
         {
             "title" : "Pilote qualité process - Développeur",
-            "company" : "Carrier Réfrigération",
+            "company" : "Carrier",
             "begin" : "2015-10-01",
             "end" : "2017-01-07",
             "technologies" : [
@@ -111,6 +111,18 @@
                 "Installation, configuration et mise en production",
                 "Présentation / formation",
                 "Amélioration continue"
+            ]
+        },
+        {
+            "title" : "Développeur PHP",
+            "company" : "GAC Technology",
+            "begin" : "2017-01-09",
+            "technologies" : [
+                "PHP",
+                "C#"
+            ],
+            "tasks" : [
+                "?"
             ]
         }
     
