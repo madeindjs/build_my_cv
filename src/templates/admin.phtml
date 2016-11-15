@@ -1,48 +1,179 @@
 <?php include '_header.phtml';
 /* @var $user BuildMyCV\classes\User */
 ?>
-<link rel="stylesheet" href="/css/jsoneditor.css"/>
+
+<style>
+    legend{font-size: large}
+    input, textArea{width:400px; font-family: monospace;border-bottom: 1px dashed gray;border-top: none;border-left: none;border-right: none;}
+    fieldset{display: inline-block; max-width: 400px}
+    button.json-editor-btn-edit {display: none}
+</style>
 
 <h1>Admin</h1>
 
 <div id="editor_holder"></div>
 
-<input id="editor_holder" type="submit">
+<input id="submit" type="submit">
     
 <script src="/js/jsoneditor.min.js"></script>
 
 <script>
+    
+
     var editor = new JSONEditor(document.getElementById('editor_holder'),{
         schema: {
+          title: "Settings",
           type: "object",
-          title: "Car",
+          
           properties: {
-            make: {
-              type: "string",
-              enum: [
-                "Toyota",
-                "BMW",
-                "Honda",
-                "Ford",
-                "Chevy",
-                "VW"
-              ]
+             
+            user : {
+              
+                type: "object",
+              
+                properties : {
+                  
+                    firstname: { type: "string" },
+                    lastname: { type: "string" },
+                    email: { type: "string" },
+                    phone: { type: "string" },
+                    address: { type: "string" },
+                    birth_date: { type: "string" },
+                    town_birth: { type: "string" },
+                    oneline_description: { type: "string" },
+                    multiline_description: { type: "string" },
+
+                    town_birth: { type: "string" },
+
+                    interest_points: { type: "array", items: { type: "string" }, }
+                }
             },
-            model: {
-              type: "string"
+              
+            links : {
+                type: "array",
+                
+                items: {
+                    type: "object",
+                    properties :{
+                        name: {type: "string"},
+                        picture: {type: "string"},
+                        link: {type: "string"}
+                    }
+                }
+              
+ 
             },
-            year: {
-              type: "integer",
-              enum: [
-                1995,1996,1997,1998,1999,
-                2000,2001,2002,2003,2004,
-                2005,2006,2007,2008,2009,
-                2010,2011,2012,2013,2014
-              ],
-              default: 2008
-            }
-          }
-        }
+            
+            skills : {
+                type: "object",
+                
+                properties : {
+                    langages : {
+                        type: "array",
+                        items: {
+                            type: "object",
+                            properties :{
+                                name: {type: "string"},
+                                score: { type: "integer", enum: [1,2,3,4,5,6,7,8,9,10],  }
+                            }
+                        }
+                    },
+                    frameworks: {
+                        type: "array",
+                        items: {
+                            type: "object",
+                            properties :{
+                                name: {type: "string"},
+                                score: { type: "integer", enum: [1,2,3,4,5,6,7,8,9,10],  }
+                            }
+                        }
+                    }
+                }
+            },
+            
+            professional_experience : {
+                type: "array",
+                items: {
+                    type: "object",
+                    properties :{
+                        title: {type: "string"},
+                        company: {type: "string"},
+                        begin: {type: "string"},
+                        end: {type: "string"},
+                        
+                        technologies: {
+                            type: "array",
+                            items: { type: "string" }
+                        },
+                        tasks: {
+                            type: "array",
+                            items: { type: "string" }
+                        }
+                    }
+                }
+            },
+            personal_experience : {
+                type: "array",
+                items: {
+                    type: "object",
+                    properties :{
+                        title: {type: "string"},
+                        begin: {type: "string"},
+                        end: {type: "string"},
+                        
+                        technologies: {
+                            type: "array",
+                            items: { type: "string" }
+                        },
+                        tasks: {
+                            type: "array",
+                            items: { type: "string" }
+                        }
+                    }
+                }
+            },
+            diplomas : {
+                type: "array",
+                items: {
+                    type: "object",
+                    properties :{
+                        title: {type: "string"},
+                        date: {type: "string"},
+                        place: {type: "string"}
+                    }
+                }
+            },
+            trainings : {
+                type: "array",
+                items: {
+                    type: "object",
+                    properties :{
+                        title: {type: "string"},
+                        date: {type: "string"},
+                        place: {type: "string"}
+                    }
+                }
+            },
+            langages : {
+                type: "array",
+                items: {
+                    type: "object",
+                    properties :{
+                        langage: {type: "string"},
+                        notes: {
+                            type: "object",
+                            properties : {
+                                speaken : { type: "integer", enum: [1,2,3,4,5] },
+                                listen :  { type: "integer", enum: [1,2,3,4,5] },
+                                writen :  { type: "integer", enum: [1,2,3,4,5] },
+                                read :    { type: "integer", enum: [1,2,3,4,5] }
+                            }
+                        }
+                    }
+                }
+            },
+            
+        }}
       });
       
       // Hook up the submit button to log to the console
