@@ -19,7 +19,7 @@ $container = $app->getContainer();
 $container['view'] = new \Slim\Views\PhpRenderer('../templates/');
 
 /**
- * GET /
+ * CV
  */
 $app->get('/', function (Request $request, Response $response) {
     $user = \BuildMyCV\classes\User::get_instance() ;
@@ -34,39 +34,34 @@ $app->get('/', function (Request $request, Response $response) {
 });
 
 /**
- * GET /
+ * admin
  */
-$app->get('/admin', function (Request $request, Response $response) {
-    return $this->view->render(
-        $response, 
-        "admin.phtml", 
-        [
-            "title" => "admin",
-            "session" => \BuildMyCV\classes\Session::get_instance()
-        ]
-    );
+$app->get ('/admin', function (Request $request, Response $response) {
+    $session = \BuildMyCV\classes\Session::get_instance() ;
+    if($session->is_logged()){
+        return $this->view->render($response, "admin.phtml", ["title" => "admin"]);
+    }else{
+        return $response->withStatus(302)->withHeader('Location', '/admin/signin');
+    }
 });
-
-/**
- * GET /
- */
-$app->get('/admin/signout', function (Request $request, Response $response) {
-    session_destroy();
-    return $response->withStatus(302)->withHeader('Location', '/admin');
+$app->get ('/admin/signin', function (Request $request, Response $response) {
+    return $this->view->render( $response, "admin_signin.phtml", ["title" => "Login to edit your CV"] );
 });
-
-$app->post('/admin', function (Request $request, Response $response) use ($app) {
+$app->post('/admin/signin', function (Request $request, Response $response) use ($app) {
     $session = \BuildMyCV\classes\Session::get_instance() ;
     $post_data = $request->getParsedBody();
     
-    
-    if($post_data['password'] != null && $session->login($post_data['password'])){
-        return $this->view->render( $response,  "admin.phtml",  ["title" => "admin" , "session" => $session] );
+    if($session->login($post_data['password'])){
+        return $response->withStatus(302)->withHeader('Location', '/admin');
     }else{
-        return $this->view->render( $response,  "admin.phtml",  ["title" => "admin" , "session" => $session , "flash" => "password might be wrong" ] );
+        return $this->view->render( $response,  "admin_signin.phtml",  ["flash" => "password might be wrong" ] );
     }
-    
-    
 });
+$app->get ('/admin/signout', function (Request $request, Response $response) {
+    session_destroy();
+    return $response->withStatus(302)->withHeader('Location', '/admin/signin');
+});
+
+
 
 $app->run();
