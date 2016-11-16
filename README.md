@@ -1,42 +1,69 @@
 build_my_CV()
 =============
 
-An automatic CV builder from a JSON file based on **PHP7**.
+A CV génerator without database requirement.
 
-You can visit it an example at [rousseau-alexandre.fr](http://rousseau-alexandre.fr)
+Purpose
+-------
+
+The purpose is simple:
+
+1. Install & configure this project on your server *(see installation section bellow)*
+2. go to */admin* url and edit your personnal informations, add skills, experiences, etc..
+3. That's all. 
+
+**build_my_CV()** will generate a beutifull responsive CV for you. You can easilly update your informations from the admin interface.
+
+### some Screenshots
+
+#### Admin interface
+
+![screenshot of admin interface](https://raw.githubusercontent.com/madeindjs/build_my_cv/master/screenshot_admin.png)
+
+#### CV in dekstop view
+
+![screenshot of CV in dekstop view](https://raw.githubusercontent.com/madeindjs/build_my_cv/master/screenshot_cv_desktop.png)
+
+#### CV in mobile view
+
+![screenshot of CV in mobile view](https://raw.githubusercontent.com/madeindjs/build_my_cv/master/screenshot_cv_mobile.png)
+
+
+You can visit an example at [rousseau-alexandre.fr](http://rousseau-alexandre.fr)
+
+
 
 Instalation
 -----------
 
-clone this repository 
+#### Configuration on Apache Server
 
-    git clone https://github.com/madeindjs/build_my_cv.git
-    cd build_my_cv
+* clone this repository: `git clone https://github.com/madeindjs/build_my_cv.git`
+* move into this folder: `cd build_my_cv`
+* Install dependencies with composer: `php composer.phar install`
+* Create a symbolic link in you Apache server: `sudo ln -s /path/to/git/clone/build_my_cv /var/www/build_my_cv`
+* Edit your apache configuration file: `sudo vim /etc/apache2/sites-enabled/000-default.conf` as bellow
 
+```
+<VirtualHost *:80>
+    DocumentRoot    /var/www/build_my_cv/src/public/
+</VirtualHost>
+```
 
-Install dependencies with composer:
+* Restart Apache server: `sudo /etc/init.d/apache2 restart`
 
-    php composer.phar install
+#### Configuration of admin interface
 
-Create a symbolic link in you Apache server
+The only configuration required is the password to access on admin interface. By default it's "*superuser*" but you can change it in the *config.json* file:
 
-    sudo ln -s /path/to/git/clone/build_my_cv /var/www/build_my_cv
+```
+{
+    "admin" : {
+        "password" : "superuser"
+    }
+}
+```
 
-Edit your apache configuration file:
-
-    sudo vim /etc/apache2/sites-enabled/000-default.conf
-
-    <VirtualHost *:80>
-        DocumentRoot    /var/www/build_my_cv/src/public/
-    </VirtualHost>
-
-Restart Apache server
-
-    sudo /etc/init.d/apache2 restart
-
-In your Apache configuration file
-
-    DocumentRoot    /home/lorna/projects/slim/project/src/public/
 
 
 Libraries
@@ -45,34 +72,23 @@ Libraries
 **PHP**
 
 * [Slim Framework](http://www.slimframework.com/)
-* [Parsedown](https://github.com/erusev/parsedown)
+* [Parsedown](https://github.com/erusev/parsedown/)
 
 **Javascript**
 
-* [JSON Editor](https://github.com/jdorn/json-editor)
+* [JSON Editor](https://github.com/jdorn/json-editor/)
 
-Purpose
--------
 
-The purpose is simple:
-
-1. you fill the *data.json* file with you information like:
-  * firstname, lastname, email, etc..
-  * your internet identity links (Linkedin, StackOverflow, Github, etc..)
-  * competencies on how many langages or Frameworks
-  * professionnals & personnals experiences
-2. that's all!
-
-**build_my_CV()** will generate a beutifull CV with timeline for you.
 
 
 Future
 ------
 
-* [ ] create a json file generator (Python or Ruby?)
+* [x] create a json file generator
 * [ ] add link generator (link to ruby, Python, ror, etc..)
 * [ ] add PHPUnits tests
 * [ ] create projects pages
+* [ ] support multilangage
 * [x] create Markdown support 
 * [x] create a beautifull timeline 
 
