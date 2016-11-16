@@ -100,22 +100,20 @@ class User
     
     /**
     * create Html links in the contact area as <ul> tag
-    * @return String
+    * @yield String as string
     */
-    function contact_links():string{
-        $html = '' ;
-        foreach ($this->links as $name => $details) {
-            $html = $html.$this->contact_link($name, $details);
+    function get_contacts_links(){
+        foreach ($this->links as $n => $details) {
+            yield self::contact_link_to_html($details);
         }
-        return $html;
     }
     
     /**
     * create link tag for User::print_links method
     * @return String links as <a .. ><img ... /></a>
     */
-    private function contact_link(string $name, array $details):string{
-        return '<a href="'.$details['link'].'"><img src="img/'.$details['img'].'" alt="'.$name.'"></a>';
+    private static function contact_link_to_html(array $details):string{
+        return '<a href="'.$details['link'].'">'.$details['name'].'</a>';
     }
 
 
