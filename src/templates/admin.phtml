@@ -19,162 +19,34 @@
 
 <script>
     
-
-    var editor = new JSONEditor(document.getElementById('editor_holder'),{
-        schema: {
-          title: "Settings",
-          type: "object",
-          
-          properties: {
-             
-            user : {
-              
-                type: "object",
-              
-                properties : {
-                  
-                    firstname: { type: "string" },
-                    lastname: { type: "string" },
-                    email: { type: "string" },
-                    phone: { type: "string" },
-                    address: { type: "string" },
-                    birth_date: { type: "string" },
-                    town_birth: { type: "string" },
-                    oneline_description: { type: "string" },
-                    multiline_description: { type: "string" },
-
-                    town_birth: { type: "string" },
-
-                    interest_points: { type: "array", items: { type: "string" }, }
+        /* 
+     * function to get json object from an url
+     * picked from: http://stackoverflow.com/a/14388512/5935198
+    */
+    function fetchJSONFile(path, callback) {
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = function() {
+            if (httpRequest.readyState === 4) {
+                if (httpRequest.status === 200) {
+                    var data = JSON.parse(httpRequest.responseText);
+                    if (callback) callback(data);
                 }
-            },
-              
-            links : {
-                type: "array",
-                
-                items: {
-                    type: "object",
-                    properties :{
-                        name: {type: "string"},
-                        picture: {type: "string"},
-                        link: {type: "string"}
-                    }
-                }
-              
- 
-            },
-            
-            skills : {
-                type: "object",
-                
-                properties : {
-                    langages : {
-                        type: "array",
-                        items: {
-                            type: "object",
-                            properties :{
-                                name: {type: "string"},
-                                score: { type: "integer", enum: [1,2,3,4,5,6,7,8,9,10],  }
-                            }
-                        }
-                    },
-                    frameworks: {
-                        type: "array",
-                        items: {
-                            type: "object",
-                            properties :{
-                                name: {type: "string"},
-                                score: { type: "integer", enum: [1,2,3,4,5,6,7,8,9,10],  }
-                            }
-                        }
-                    }
-                }
-            },
-            
-            professional_experience : {
-                type: "array",
-                items: {
-                    type: "object",
-                    properties :{
-                        title: {type: "string"},
-                        company: {type: "string"},
-                        begin: {type: "string"},
-                        end: {type: "string"},
-                        
-                        technologies: {
-                            type: "array",
-                            items: { type: "string" }
-                        },
-                        tasks: {
-                            type: "array",
-                            items: { type: "string" }
-                        }
-                    }
-                }
-            },
-            personal_experience : {
-                type: "array",
-                items: {
-                    type: "object",
-                    properties :{
-                        title: {type: "string"},
-                        begin: {type: "string"},
-                        end: {type: "string"},
-                        
-                        technologies: {
-                            type: "array",
-                            items: { type: "string" }
-                        },
-                        tasks: {
-                            type: "array",
-                            items: { type: "string" }
-                        }
-                    }
-                }
-            },
-            diplomas : {
-                type: "array",
-                items: {
-                    type: "object",
-                    properties :{
-                        title: {type: "string"},
-                        date: {type: "string"},
-                        place: {type: "string"}
-                    }
-                }
-            },
-            trainings : {
-                type: "array",
-                items: {
-                    type: "object",
-                    properties :{
-                        title: {type: "string"},
-                        date: {type: "string"},
-                        place: {type: "string"}
-                    }
-                }
-            },
-            langages : {
-                type: "array",
-                items: {
-                    type: "object",
-                    properties :{
-                        langage: {type: "string"},
-                        notes: {
-                            type: "object",
-                            properties : {
-                                speaken : { type: "integer", enum: [1,2,3,4,5] },
-                                listen :  { type: "integer", enum: [1,2,3,4,5] },
-                                writen :  { type: "integer", enum: [1,2,3,4,5] },
-                                read :    { type: "integer", enum: [1,2,3,4,5] }
-                            }
-                        }
-                    }
-                }
-            },
-            
-        }}
+            }
+        };
+        httpRequest.open('GET', path);
+        httpRequest.send(); 
+    }
+    
+    fetchJSONFile('/schema.json', function(ajax_shema){
+        var editor = new JSONEditor(document.getElementById('editor_holder'),{
+        schema: ajax_shema
+        
       });
+    })
+    
+    
+
+    
       
       // Hook up the submit button to log to the console
       document.getElementById('submit').addEventListener('click',function() {
