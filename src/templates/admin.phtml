@@ -14,12 +14,12 @@
 <div id="editor_holder"></div>
 
 <input id="submit" type="submit">
-    
+
 <script src="/js/jsoneditor.min.js"></script>
 
 <script>
     
-        /* 
+    /* 
      * function to get json object from an url
      * picked from: http://stackoverflow.com/a/14388512/5935198
     */
@@ -42,17 +42,20 @@
         schema: ajax_shema
         
       });
-    })
-    
-    
-
-    
       
       // Hook up the submit button to log to the console
       document.getElementById('submit').addEventListener('click',function() {
         // Get the value from the editor
-        console.log(editor.getValue());
+        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+        xmlhttp.open("POST", "/admin");
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlhttp.send(JSON.stringify( editor.getValue(), null, 2 ));
       });
+      
+    })
+    
+      
+      
 </script>
 
 <?php include '_footer.phtml'?>

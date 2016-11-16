@@ -45,6 +45,11 @@ $app->get ('/admin', function (Request $request, Response $response) {
         return $response->withStatus(302)->withHeader('Location', '/admin/signin');
     }
 });
+$app->post('/admin', function (Request $request, Response $response) {
+    // GET the JSON data passed by AJAX call and save it
+    $post_data = $request->getParsedBody();
+    echo file_put_contents(WWW.'data.json', json_encode($post_data, JSON_PRETTY_PRINT));
+});
 $app->get ('/admin/signin', function (Request $request, Response $response) {
     return $this->view->render( $response, "admin_signin.phtml", ["title" => "Login to edit your CV"] );
 });
