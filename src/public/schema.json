@@ -10,12 +10,12 @@
                 "firstname": { "type": "string" },
                 "lastname": { "type": "string" },
                 "email": { "type": "string" },
-                "phone": { "type": "string" },
+                "phone": { "type": "string", "format" : "tel" },
                 "address": { "type": "string" },
                 "birth_date": { "type": "string" },
                 "town_birth": { "type": "string" },
                 "oneline_description": { "type": "string" },
-                "multiline_description": { "type": "string" },
+                "multiline_description": { "type": "string", "format" : "textarea" },
                 "town_birth": { "type": "string" },
                 "interest_points": { "type": "array", "items": { "type": "string" } }
             }
@@ -77,7 +77,7 @@
                     },
                     "tasks": {
                         "type": "array",
-                        "items": { "type": "string" }
+                        "items": { "type": "string"}
                     }
                 }
             }
@@ -97,7 +97,7 @@
                     },
                     "tasks": {
                         "type": "array",
-                        "items": { "type": "string" }
+                        "items": { "type": "string"}
                     }
                 }
             }

@@ -2,13 +2,6 @@
 /* @var $user BuildMyCV\classes\User */
 ?>
 
-<style>
-    legend{font-size: large}
-    input, textArea{width:400px; font-family: monospace;border-bottom: 1px dashed gray;border-top: none;border-left: none;border-right: none;}
-    fieldset{display: inline-block; max-width: 400px}
-    button.json-editor-btn-edit {display: none}
-</style>
-
 <h1>Admin</h1>
 
 <div id="editor_holder"></div>
@@ -41,7 +34,10 @@
         fetchJSONFile('/data.json', function(ajax_data){
         var editor = new JSONEditor(document.getElementById('editor_holder'),{
         schema: ajax_shema,
-        startval: ajax_data
+        startval: ajax_data,
+        disable_array_reorder: true,
+        disable_edit_json: true,
+        disable_properties: true
         
       });
       
