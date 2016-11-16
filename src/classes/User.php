@@ -157,20 +157,20 @@ class User
             }
         }
         // setup other properties 
-        foreach ($data["professional experience"] as $key => $value) {
+        foreach ($data["professional_experience"] as $key => $value) {
             array_push($this->professional_exps, new Experience($value));
         }
-        foreach ($data["personal experience"] as $key => $value) {
+        foreach ($data["personal_experience"] as $key => $value) {
             array_push($this->personal_exps, new Experience($value));
         }
         foreach ($data["diplomas"] as $key => $value) {
             array_push($this->diplomas, new Qualification($value));
         }
         foreach ($data["skills"]["langages"] as $key => $value){
-            array_push($this->programming_langages, new Skill($key, $value));
+            array_push($this->programming_langages, new Skill($value['name'], $value['score']));
         }
         foreach ($data["skills"]["frameworks"] as $key => $value){
-            array_push($this->frameworks, new Skill($key, $value));
+            array_push($this->frameworks, new Skill($value['name'], $value['score']));
         }
         /*
         foreach ($data["trainings"] as $key => $value) {
