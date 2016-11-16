@@ -1,0 +1,49 @@
+
+/* collapse button */
+button.json-editor-btn-collapse,
+button.json-editor-btn-add,
+button.json-editor-btn-delete
+{
+    vertical-align: bottom;
+    display: inline-block; height:25px;width: 25px;
+    border: none; cursor:pointer;
+    border-radius: 12.5px; -webkit-border-radius: 12.5px; -moz-border-radius: 12.5px;
+}
+
+button.json-editor-btn-collapse{color: lightgray;background-color: lightgray;}
+button.json-editor-btn-collapse:before{font-size: 10px;color: black; content: "☰";}
+
+button.json-editor-btn-add{color: #26A65B;background-color: #26A65B;}
+button.json-editor-btn-add:before{font-size: 15px;color: white; content: "+";font-weight: bold;}
+
+button.json-editor-btn-delete{color: #D91E18;background-color: #D91E18;}
+button.json-editor-btn-delete:before{font-size: 15px;color: white; content: "-";font-weight: bold;}
+
+label{}
+
+/* FORM STYLE from https://www.sanwebe.com/2014/08/css-html-forms-designs */
+#editor_holder{font-family: 'Open Sans Condensed', arial, sans;width: 500px;padding: 30px;background: #FFFFFF;margin: 50px auto;
+     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);}
+#editor_holder h2{background: #4D4D4D;text-transform: uppercase;font-family: 'Open Sans Condensed', sans-serif;color: #797979;
+     font-size: 18px;font-weight: 100;padding: 20px;margin: -30px -30px 30px -30px;}
+#editor_holder input[type="text"],
+#editor_holder input[type="date"],
+#editor_holder input[type="datetime"],
+#editor_holder input[type="email"],
+#editor_holder input[type="number"],
+#editor_holder input[type="search"],
+#editor_holder input[type="time"],
+#editor_holder input[type="tel"],
+#editor_holder input[type="url"],
+#editor_holder input[type="password"],
+#editor_holder textarea,
+#editor_holder select {box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;
+     outline: none;display: block;width: 100%;padding: 7px;border: none;border-bottom: 1px solid #ddd;
+     background: transparent;margin-bottom: 10px;font: 16px Arial, Helvetica, sans-serif;height: 45px;}
+#editor_holder textarea{resize:none;overflow: hidden;}
+#editor_holder input[type="button"], 
+#editor_holder input[type="submit"]{-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;box-shadow: inset 0px 1px 0px 0px #45D6D6;
+     background-color: #2CBBBB;border: 1px solid #27A0A0;display: inline-block;cursor: pointer;color: #FFFFFF;
+     font-family: 'Open Sans Condensed', sans-serif;font-size: 14px;padding: 8px 18px;text-decoration: none;text-transform: uppercase;}
+#editor_holder input[type="button"]:hover, 
+#editor_holder input[type="submit"]:hover {background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);background-color:#34CACA;}

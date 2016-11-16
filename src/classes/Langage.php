@@ -61,6 +61,6 @@ class Langage
 				$this->$key = $value ;
 			}
 		}
-		$this->picture = $data['picture'];
+		//$this->picture = $data['picture'];
 	}
 }

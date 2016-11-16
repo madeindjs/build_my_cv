@@ -1,0 +1,61 @@
+<?php include '_header.phtml';
+/* @var $user BuildMyCV\classes\User */
+?>
+
+<h1>Admin</h1>
+
+<div id="editor_holder"></div>
+
+<input id="submit" type="submit">
+
+<script src="/js/jsoneditor.min.js"></script>
+
+<script>
+    
+    /* 
+     * function to get json object from an url
+     * picked from: http://stackoverflow.com/a/14388512/5935198
+    */
+    function fetchJSONFile(path, callback) {
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = function() {
+            if (httpRequest.readyState === 4) {
+                if (httpRequest.status === 200) {
+                    var data = JSON.parse(httpRequest.responseText);
+                    if (callback) callback(data);
+                }
+            }
+        };
+        httpRequest.open('GET', path);
+        httpRequest.send(); 
+    }
+    
+    fetchJSONFile('/schema.json', function(ajax_shema){
+        fetchJSONFile('/data.json', function(ajax_data){
+        var editor = new JSONEditor(document.getElementById('editor_holder'),{
+        schema: ajax_shema,
+        startval: ajax_data,
+        disable_array_reorder: true,
+        disable_edit_json: true,
+        disable_properties: true
+        
+      });
+      
+      // Hook up the submit button to log to the console
+      document.getElementById('submit').addEventListener('click',function() {
+        // Get the value from the editor
+        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+        xmlhttp.open("POST", "/admin");
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlhttp.send(JSON.stringify( editor.getValue(), null, 2 ));
+      });
+      
+      })
+      
+    })
+    
+      
+      
+</script>
+
+<?php include '_footer.phtml'?>

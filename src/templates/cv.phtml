@@ -26,7 +26,10 @@
         <li><?= $pts ?></li>
     <?php endforeach ?></ul>
     
-    <div id="contact"><?= $user->contact_links() ?></div>
+    <h2 class="desktop">Links</h2>
+    <ul class="links"><?php foreach ($user->get_contacts_links() as $pts): ?>
+        <li><?= $pts ?></li>
+    <?php endforeach ?></ul>
 </div>
 
 

@@ -51,8 +51,13 @@ class User
     }
     
     /* GETTERS AREA */
-    
+    function get_firstname():string{ return $this->firstname; }
+    function get_lastname():string{ return $this->lastname; }
     function get_address():string{ return $this->address; }
+    function get_email():string{ return $this->email; }
+    function get_phone():string{ return $this->phone; }
+    function get_birth_date(): \DateTime{ return $this->birth_date; }
+    function get_town_birth():string{ return $this->town_birth; }
     function get_diplomas():array{ return $this->diplomas;}
     function get_trainings():array{ return $this->trainings;}
     function get_langages():array{ return $this->langages; }
@@ -95,22 +100,20 @@ class User
     
     /**
     * create Html links in the contact area as <ul> tag
-    * @return String
+    * @yield String as string
     */
-    function contact_links():string{
-        $html = '' ;
-        foreach ($this->links as $name => $details) {
-            $html = $html.$this->contact_link($name, $details);
+    function get_contacts_links(){
+        foreach ($this->links as $n => $details) {
+            yield self::contact_link_to_html($details);
         }
-        return $html;
     }
     
     /**
     * create link tag for User::print_links method
     * @return String links as <a .. ><img ... /></a>
     */
-    private function contact_link(string $name, array $details):string{
-        return '<a href="'.$details['link'].'"><img src="img/'.$details['img'].'" alt="'.$name.'"></a>';
+    private static function contact_link_to_html(array $details):string{
+        return '<a href="'.$details['link'].'">'.$details['name'].'</a>';
     }
 
 
@@ -152,20 +155,20 @@ class User
             }
         }
         // setup other properties 
-        foreach ($data["professional experience"] as $key => $value) {
+        foreach ($data["professional_experience"] as $key => $value) {
             array_push($this->professional_exps, new Experience($value));
         }
-        foreach ($data["personal experience"] as $key => $value) {
+        foreach ($data["personal_experience"] as $key => $value) {
             array_push($this->personal_exps, new Experience($value));
         }
         foreach ($data["diplomas"] as $key => $value) {
             array_push($this->diplomas, new Qualification($value));
         }
         foreach ($data["skills"]["langages"] as $key => $value){
-            array_push($this->programming_langages, new Skill($key, $value));
+            array_push($this->programming_langages, new Skill($value['name'], $value['score']));
         }
         foreach ($data["skills"]["frameworks"] as $key => $value){
-            array_push($this->frameworks, new Skill($key, $value));
+            array_push($this->frameworks, new Skill($value['name'], $value['score']));
         }
         /*
         foreach ($data["trainings"] as $key => $value) {

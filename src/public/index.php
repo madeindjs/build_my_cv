@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
@@ -17,7 +19,7 @@ $container = $app->getContainer();
 $container['view'] = new \Slim\Views\PhpRenderer('../templates/');
 
 /**
- * GET /
+ * CV
  */
 $app->get('/', function (Request $request, Response $response) {
     $user = \BuildMyCV\classes\User::get_instance() ;
@@ -31,36 +33,41 @@ $app->get('/', function (Request $request, Response $response) {
     );
 });
 
-
 /**
- * GET /project/{name}
+ * admin
  */
-$app->get('/activity/{name}', function(Request $request, Response $response, $args){
-    $activity_name = $args['name'];
+$app->get ('/admin', function (Request $request, Response $response) {
+    $session = \BuildMyCV\classes\Session::get_instance() ;
     $user = \BuildMyCV\classes\User::get_instance() ;
-    
-    // find activity
-    if($activity = $user->get_activity_by_name($activity_name)){
-        
-        return $this->view->render(
-            $response, 
-            "activity.phtml", 
-            [
-                "title" => $activity->name,
-                "activity" => $activity,
-                "user" => $user
-            ]
-        );
-        
+    if($session->is_logged()){
+        return $this->view->render($response, "admin.phtml", ["title" => "admin", "user" => $user]);
     }else{
-        return $this->view->render(
-            $response, 
-            "404.phtml"
-        )->withStatus(404);
+        return $response->withStatus(302)->withHeader('Location', '/admin/signin');
     }
-
-    
 });
+$app->post('/admin', function (Request $request, Response $response) {
+    // GET the JSON data passed by AJAX call and save it
+    $post_data = $request->getParsedBody();
+    echo file_put_contents(WWW.'data.json', json_encode($post_data, JSON_PRETTY_PRINT));
+});
+$app->get ('/admin/signin', function (Request $request, Response $response) {
+    return $this->view->render( $response, "admin_signin.phtml", ["title" => "Login to edit your CV"] );
+});
+$app->post('/admin/signin', function (Request $request, Response $response) use ($app) {
+    $session = \BuildMyCV\classes\Session::get_instance() ;
+    $post_data = $request->getParsedBody();
+    
+    if($session->login($post_data['password'])){
+        return $response->withStatus(302)->withHeader('Location', '/admin');
+    }else{
+        return $this->view->render( $response,  "admin_signin.phtml",  ["flash" => "password might be wrong" ] );
+    }
+});
+$app->get ('/admin/signout', function (Request $request, Response $response) {
+    session_destroy();
+    return $response->withStatus(302)->withHeader('Location', '/admin/signin');
+});
+
 
 
 $app->run();

@@ -9,11 +9,15 @@ class Skill{
     
     const MAX = 10 ;
     
-    public function __construct(string $name, int $score) {
+    function __construct(string $name, int $score) {
         $this->name = $name;
         $this->score = $score;
     }
     
+    function __toString(){
+        return $this->name.'('.$this->score.')'; 
+    }
+
     /**
      * Render this skill to Html (name + progress bar)
      * @return string as Html tag
