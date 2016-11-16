@@ -38,8 +38,10 @@
     }
     
     fetchJSONFile('/schema.json', function(ajax_shema){
+        fetchJSONFile('/data.json', function(ajax_data){
         var editor = new JSONEditor(document.getElementById('editor_holder'),{
-        schema: ajax_shema
+        schema: ajax_shema,
+        startval: ajax_data
         
       });
       
@@ -51,6 +53,8 @@
         xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xmlhttp.send(JSON.stringify( editor.getValue(), null, 2 ));
       });
+      
+      })
       
     })
     
