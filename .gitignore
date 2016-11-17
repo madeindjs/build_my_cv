@@ -1,3 +1,4 @@
 vendor/*
 nbproject
 src/public/data.json
+src/public/img/*
