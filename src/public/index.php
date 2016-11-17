@@ -100,12 +100,9 @@ $app->group('/admin', function(){
                $extension = pathinfo($file->getClientFilename(), PATHINFO_EXTENSION);;
                $targetPath = UPLOADS.$args['name'].'.'.$extension;
                $file->moveTo($targetPath);
-               // check if the transfer success
-               $flash = file_exists($targetPath) ? "Picture updated successfully" : "Error occur..";
-               
-               return $response->withStatus(302)->withHeader('Location', '/admin/items', ['flash' => $targetPath]);
            }
        }
+       return $response->withStatus(302)->withHeader('Location', '/admin/items');
    })->add(new CheckSessionMiddleware )->add(new CheckSessionMiddleware );
 
     /**

@@ -20,12 +20,26 @@ class Skill{
     }
     
     function get_name():string{return $this->name;}
+    
+    /**
+     * Create an html picture tag for this skill
+     * @param type $class as CSS class ('skill-picture' by default)
+     * @return string/null as an Html picture tag or null if not founded
+     */
+    function picture_to_html($class="skill-picture"){
+        if($src = $this->picture_src()){
+            $filename = pathinfo($src, PATHINFO_BASENAME);
+            return '<img class="'.$class.'" src="/img/'.$filename.'" alt="picture of '.$this->name.'" />';
+        }else{
+            return false;
+        }
+    }
 
     /**
      * Check if a picture was uploaded or not
      * @return string/null as picture path or null if not founded
      */
-    function picture(){
+    private function picture_src(){
         foreach (self::PICTURE_EXTENSION as $extension){
             $file = UPLOADS.$this->name.'.'.$extension;
             if(file_exists($file)){

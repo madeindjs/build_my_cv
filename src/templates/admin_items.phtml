@@ -19,7 +19,7 @@
         <tr>
             <td><?= $lang->get_name() ?></td>
             <td>
-                <?php if($picture = $lang->picture()): ?>
+                <?php if($picture = $lang->picture_to_html()): ?>
                     <?= $picture ?>
                 <?php endif ?>
             </td>
@@ -38,9 +38,10 @@
         <tr>
             <td><?= $lang->get_name() ?></td>
             <td>
-                <?php if($picture = $lang->picture()): ?>
+                <?php if($picture = $lang->picture_to_html()): ?>
                     <?= $picture ?>
                 <?php endif ?>
+                
             </td>
             <td>
                 <form method="POST" action="/admin/items/<?= $lang->get_name() ?>" enctype="multipart/form-data">
