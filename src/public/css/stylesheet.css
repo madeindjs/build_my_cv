@@ -57,6 +57,9 @@ div.langage{height:100px;width: 300px;vertical-align:top;display: inline-block;}
     #left_panel ul{list-style: none; padding: 0}
         #left_panel ul li{font-size: small;}
             #left_panel ul progress{}
+            
+/* flash message */
+div.flash{display: block; padding:10px; margin-bottom: 10px;background-color: lightcoral; border: 2px dashed darkred}
 
 /*mobile*/
 @media only screen and (max-width: 768px) {
