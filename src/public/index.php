@@ -19,40 +19,60 @@ $container = $app->getContainer();
 $container['view'] = new \Slim\Views\PhpRenderer('../templates/');
 
 /**
- * CV
+ * GET CV.
+ * 
+ * We try to build the user with the data.json file. If file does not exist,
+ * we redirect user to the admin interface and we ask them to complete data
  */
 $app->get('/', function (Request $request, Response $response) {
-    $user = \BuildMyCV\classes\User::get_instance() ;
-    return $this->view->render(
-        $response, 
-        "cv.phtml", 
-        [
-            "title" => $user->complete_name(),
-            "user" => $user
-        ]
-    );
+    try{
+        $user = \BuildMyCV\classes\User::get_instance() ;
+        return $this->view->render( $response,  "cv.phtml", 
+            ["title" => $user->complete_name(),"user" => $user]);
+    } catch (\Exception $ex) {
+        return $response->withStatus(302)->withHeader('Location', '/admin');
+    }
 });
 
 /**
- * admin
+ * GET admin interface
+ * 
+ * We check if admin is logged. If not, we redirect him to the signin route
  */
 $app->get ('/admin', function (Request $request, Response $response) {
     $session = \BuildMyCV\classes\Session::get_instance() ;
-    $user = \BuildMyCV\classes\User::get_instance() ;
     if($session->is_logged()){
-        return $this->view->render($response, "admin.phtml", ["title" => "admin", "user" => $user]);
+        return $this->view->render($response, "admin.phtml", ["title" => "admin"]);
     }else{
         return $response->withStatus(302)->withHeader('Location', '/admin/signin');
     }
 });
+
+/**
+ * POST admin
+ * 
+ * We get JSON fil sent by AJAX call and we update the data.json file
+ */
 $app->post('/admin', function (Request $request, Response $response) {
-    // GET the JSON data passed by AJAX call and save it
+    // TODO: check if user is logged
     $post_data = $request->getParsedBody();
     echo file_put_contents(WWW.'data.json', json_encode($post_data, JSON_PRETTY_PRINT));
 });
+
+/**
+ * GET admin signin
+ * 
+ * Show a form and ask the password to create a new session
+ */
 $app->get ('/admin/signin', function (Request $request, Response $response) {
     return $this->view->render( $response, "admin_signin.phtml", ["title" => "Login to edit your CV"] );
 });
+
+/**
+ * POST admin signin
+ * 
+ * Check password sent & redirect user to the admin interface if success
+ */
 $app->post('/admin/signin', function (Request $request, Response $response) use ($app) {
     $session = \BuildMyCV\classes\Session::get_instance() ;
     $post_data = $request->getParsedBody();
@@ -63,6 +83,12 @@ $app->post('/admin/signin', function (Request $request, Response $response) use 
         return $this->view->render( $response,  "admin_signin.phtml",  ["flash" => "password might be wrong" ] );
     }
 });
+
+/**
+ * GET admin signout
+ * 
+ * Destroy the session and redirect to the signin route
+ */
 $app->get ('/admin/signout', function (Request $request, Response $response) {
     session_destroy();
     return $response->withStatus(302)->withHeader('Location', '/admin/signin');

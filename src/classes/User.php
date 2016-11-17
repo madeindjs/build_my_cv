@@ -31,6 +31,7 @@ class User
     private $langages = array();
     private $links = array();
     
+    const JSON_URL = ROOT."\\src\\public\\data.json" ;
 
     /**
     * Singleton class
@@ -46,8 +47,12 @@ class User
 
 	
     private function __construct() {
-        $String = file_get_contents(ROOT."/src/public/data.json");
-        $this->hydrate( json_decode($String, true) );
+        if(file_exists(self::JSON_URL)){
+            $data = file_get_contents(self::JSON_URL);
+            $this->hydrate( json_decode($data, true) );
+        }else{
+            throw new \Exception( self::JSON_URL.' does not exist');
+        }
     }
     
     /* GETTERS AREA */

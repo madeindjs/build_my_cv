@@ -12,9 +12,30 @@
 
 <script>
     
-    /* 
-     * function to get json object from an url
-     * picked from: http://stackoverflow.com/a/14388512/5935198
+    /**
+     * Check if an url exists can be fetched
+     * 
+     * @param {type} path as 
+     * @returns {Boolean} true if file exists
+     */
+    function fileExists(path) {
+        if(path){
+            var req = new XMLHttpRequest();
+            req.open('GET', path, false);
+            req.send();
+            return req.status==200;
+        } else {
+            return false;
+        }
+    }
+    
+   /**
+    * function to get json object from an url
+    * picked from: http://stackoverflow.com/a/14388512/5935198
+    * 
+    * @param {type} path as json path url
+    * @param {type} callback as function to call when file is fetched
+    * @returns {undefined} json object
     */
     function fetchJSONFile(path, callback) {
         var httpRequest = new XMLHttpRequest();
@@ -30,31 +51,40 @@
         httpRequest.send(); 
     }
     
-    fetchJSONFile('/schema.json', function(ajax_shema){
-        fetchJSONFile('/data.json', function(ajax_data){
-        var editor = new JSONEditor(document.getElementById('editor_holder'),{
-        schema: ajax_shema,
-        startval: ajax_data,
-        disable_array_reorder: true,
-        disable_edit_json: true,
-        disable_properties: true
-        
-      });
-      
-      // Hook up the submit button to log to the console
-      document.getElementById('submit').addEventListener('click',function() {
-        // Get the value from the editor
-        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-        xmlhttp.open("POST", "/admin");
-        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlhttp.send(JSON.stringify( editor.getValue(), null, 2 ));
-      });
-      
-      })
-      
-    })
     
+    // first, we get shema.json file to draw the form
+    fetchJSONFile('/schema.json', function(ajax_shema){
+        
+        var editor = null ;
+        
+        // here the callback to AJAX calls to draw the form
+        var draw_form_callback = function(ajax_data){
+            editor = new JSONEditor(document.getElementById('editor_holder'),{
+                schema: ajax_shema,
+                startval: ajax_data,
+                disable_array_reorder: true,
+                disable_edit_json: true,
+                disable_properties: true
+            });
+        };
+        
+        // we check if the data.json exists. If not, it's the first opening and we load
+        // informations of Eric Cartman from example.json
+        if(fileExists('/data.json')){
+            fetchJSONFile('/data.json', draw_form_callback );
+        }else{
+            fetchJSONFile('/example.json', draw_form_callback );
+        }
       
+        // Listen the submit button to send data to writte the json file
+        document.getElementById('submit').addEventListener('click',function() {
+          // Get the value from the editor
+          var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+          xmlhttp.open("POST", "/admin");
+          xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+          xmlhttp.send(JSON.stringify( editor.getValue(), null, 2 ));
+        });
+    })
       
 </script>
 
