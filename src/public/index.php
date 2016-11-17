@@ -4,6 +4,10 @@ session_start();
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
+use \BuildMyCV\classes\User as User;
+use \BuildMyCV\classes\Session as Session;
+use \BuildMyCV\middlewares\CheckSessionMiddleware as CheckSessionMiddleware ;
+
 require_once '../classes/autoload.php';
 require_once ROOT.'/vendor/autoload.php';
 
@@ -26,7 +30,7 @@ $container['view'] = new \Slim\Views\PhpRenderer('../templates/');
  */
 $app->get('/', function (Request $request, Response $response) {
     try{
-        $user = \BuildMyCV\classes\User::get_instance() ;
+        $user = User::get_instance() ;
         return $this->view->render( $response,  "cv.phtml", 
             ["title" => $user->complete_name(),"user" => $user]);
     } catch (\Exception $ex) {
@@ -45,13 +49,8 @@ $app->group('/admin', function(){
     * We check if admin is logged. If not, we redirect him to the signin route
     */
    $this->get ('', function (Request $request, Response $response) {
-       $session = \BuildMyCV\classes\Session::get_instance() ;
-       if($session->is_logged()){
-           return $this->view->render($response, "admin.phtml", ["title" => "admin"]);
-       }else{
-           return $response->withStatus(302)->withHeader('Location', '/admin/signin');
-       }
-   });
+       return $this->view->render($response, "admin.phtml", ["title" => "admin"]);
+   })->add(new CheckSessionMiddleware );
     
     /**
     * GET /admin/informations
@@ -59,13 +58,8 @@ $app->group('/admin', function(){
     * We check if admin is logged. If not, we redirect him to the signin route
     */
    $this->get ('/informations', function (Request $request, Response $response) {
-       $session = \BuildMyCV\classes\Session::get_instance() ;
-       if($session->is_logged()){
-           return $this->view->render($response, "admin_informations.phtml", ["title" => "admin"]);
-       }else{
-           return $response->withStatus(302)->withHeader('Location', '/admin/signin');
-       }
-   });
+       return $this->view->render($response, "admin_informations.phtml", ["title" => "admin"]);
+   })->add(new CheckSessionMiddleware );
     
     /**
      * POST /admin/informations
@@ -73,24 +67,16 @@ $app->group('/admin', function(){
      * We get JSON fil sent by AJAX call and we update the data.json file
      */
     $this->post('/informations', function (Request $request, Response $response) {
-        $session = \BuildMyCV\classes\Session::get_instance() ;
-        if($session->is_logged()){
-            $post_data = $request->getParsedBody();
-            $json_data = json_encode($post_data, JSON_PRETTY_PRINT);
-            if(file_put_contents(WWW.'data.json', $json_data )){
-                echo 'Your informations was successfully updtaded';
-                return $response->withStatus(200);
-            }else{
-                echo 'Something goes wrong (data file could not be writted)';
-                return $response->withStatus(500);
-            }
+        $post_data = $request->getParsedBody();
+        $json_data = json_encode($post_data, JSON_PRETTY_PRINT);
+        if(file_put_contents(WWW.'data.json', $json_data )){
+            echo 'Your informations was successfully updtaded';
+            return $response->withStatus(200);
         }else{
-            echo 'You are not logged as admininstrator';
-            return $response->withStatus(403);
+            echo 'Something goes wrong (data file could not be writted)';
+            return $response->withStatus(500);
         }
-        // TODO: check if user is logged
-
-    });
+    })->add(new CheckSessionMiddleware );
 
     /**
      * GET /admin/signin
@@ -107,7 +93,7 @@ $app->group('/admin', function(){
      * Check password sent & redirect user to the admin interface if success
      */
     $this->post('/signin', function (Request $request, Response $response) {
-        $session = \BuildMyCV\classes\Session::get_instance() ;
+        $session = Session::get_instance() ;
         $post_data = $request->getParsedBody();
 
         if($session->login($post_data['password'])){
@@ -126,7 +112,7 @@ $app->group('/admin', function(){
     $this->get ('/signout', function (Request $request, Response $response) {
         session_destroy();
         return $response->withStatus(302)->withHeader('Location', '/admin/signin');
-    });   
+    })->add(new CheckSessionMiddleware ); 
  
 });
 
