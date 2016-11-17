@@ -7,6 +7,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 use \BuildMyCV\classes\User as User;
 use \BuildMyCV\classes\Session as Session;
 use \BuildMyCV\middlewares\CheckSessionMiddleware as CheckSessionMiddleware ;
+use \BuildMyCV\middlewares\DataExistsMiddleware as DataExistsMiddleware ;
 
 require_once '../classes/autoload.php';
 require_once ROOT.'/vendor/autoload.php';
@@ -29,14 +30,12 @@ $container['view'] = new \Slim\Views\PhpRenderer('../templates/');
  * we redirect user to the admin interface and we ask them to complete data
  */
 $app->get('/', function (Request $request, Response $response) {
-    try{
-        $user = User::get_instance() ;
-        return $this->view->render( $response,  "cv.phtml", 
-            ["title" => $user->complete_name(),"user" => $user]);
-    } catch (\Exception $ex) {
-        return $response->withStatus(302)->withHeader('Location', '/admin');
-    }
-});
+    $user = User::get_instance() ;
+    return $this->view->render(
+        $response,  "cv.phtml", 
+        ["title" => $user->complete_name(),"user" => $user]
+    );
+})->add(new DataExistsMiddleware );
 
 
 
@@ -49,7 +48,7 @@ $app->group('/admin', function(){
     * We check if admin is logged. If not, we redirect him to the signin route
     */
    $this->get ('', function (Request $request, Response $response) {
-       return $this->view->render($response, "admin.phtml", ["title" => "admin"]);
+       return $this->view->render($response, "admin.phtml" );
    })->add(new CheckSessionMiddleware );
     
     /**
@@ -58,7 +57,7 @@ $app->group('/admin', function(){
     * We check if admin is logged. If not, we redirect him to the signin route
     */
    $this->get ('/informations', function (Request $request, Response $response) {
-       return $this->view->render($response, "admin_informations.phtml", ["title" => "admin"]);
+       return $this->view->render($response, "admin_informations.phtml" );
    })->add(new CheckSessionMiddleware );
     
     /**
@@ -77,6 +76,17 @@ $app->group('/admin', function(){
             return $response->withStatus(500);
         }
     })->add(new CheckSessionMiddleware );
+    
+    
+    /**
+    * GET /admin/items
+    * 
+    * Get all items to edit them
+    */
+   $this->get ('/items', function (Request $request, Response $response) {
+       $user = User::get_instance() ;
+       return $this->view->render($response, "admin_items.phtml", ["user"=> $user] );
+   })->add(new CheckSessionMiddleware )->add(new CheckSessionMiddleware );
 
     /**
      * GET /admin/signin
@@ -84,7 +94,7 @@ $app->group('/admin', function(){
      * Show a form and ask the password to create a new session
      */
     $this->get ('/signin', function (Request $request, Response $response) {
-        return $this->view->render( $response, "admin_signin.phtml", ["title" => "Login to edit your CV"] );
+        return $this->view->render( $response, "admin_signin.phtml" );
     });
 
     /**

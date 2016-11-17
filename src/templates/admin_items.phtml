@@ -1,0 +1,25 @@
+<?php include '_header.phtml';
+/* @var $user BuildMyCV\classes\User */
+?>
+
+<div id="admin-interface" >
+    <h1>Admin</h1>
+    
+    <p>Bellow all items exesting in your CV, you can edit them</p>
+    
+    <h2>Programming langages</h2>
+    
+    <table><?php foreach ($user->get_programming_langages() as $lang):?>
+        <tr>
+            <td><?= $lang->get_name() ?></td>
+            <td>
+                <form>
+                    <input type="file">
+                </form>
+            </td>
+        </tr>
+    <?php endforeach ?></table>
+    
+</div>
+
+<?php include '_footer.phtml'?>

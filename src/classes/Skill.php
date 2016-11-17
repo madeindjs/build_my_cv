@@ -17,6 +17,8 @@ class Skill{
     function __toString(){
         return $this->name.'('.$this->score.')'; 
     }
+    
+    function get_name():string{return $this->name;}
 
     /**
      * Render this skill to Html (name + progress bar)
