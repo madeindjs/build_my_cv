@@ -1,0 +1,82 @@
+{
+    "user": {
+        "firstname": "Eric Théodore",
+        "lastname": "Cartman",
+        "email": "eric.cartman@southpark.com",
+        "phone": "?",
+        "address": "Univertsity of Colorado",
+        "birth_date": "1992-01-01",
+        "town_birth": "Colorado",
+        "oneline_description": "South Park character",
+        "multiline_description": "There's a big part of me that's Eric Cartman. He's both of our dark sides, the things we'd never say.",
+        "interest_points": [
+            "Jews",
+            "Money"
+        ]
+    },
+    "links": [
+        {
+            "name": "Wikipedia",
+            "picture": "",
+            "link": "https://en.wikipedia.org/wiki/Eric_Cartman"
+        }
+    ],
+    "skills": {
+        "langages": [
+            {
+                "name": "Ruby",
+                "score": 8
+            },
+            {
+                "name": "Python",
+                "score": 7
+            }
+        ],
+        "frameworks": [
+            {
+                "name": "Ruby on Rails",
+                "score": 8
+            }
+        ]
+    },
+    "professional_experience": [
+        {
+            "title": "Student",
+            "company": "elementary school",
+            "begin": "2001-09-01",
+            "technologies": [
+                "Python"
+            ],
+            "tasks": [
+                "Gets an Anal Probe"
+            ]
+        }
+    ],
+    "personal_experience": [
+        {
+            "title": "Try to exterminate jews",
+            "begin": "2015-10-01",
+            "end": "",
+            "technologies": [
+                "PHP"
+            ],
+            "tasks": [
+                "azerty",
+                "uiop"
+            ]
+        }
+    ],
+    "diplomas": [
+    ],
+    "langages": [
+        {
+            "langage": "anglais",
+            "notes": {
+                "speaken": 3,
+                "listen": 4,
+                "writen": 3,
+                "read": 3
+            }
+        }
+    ]
+}

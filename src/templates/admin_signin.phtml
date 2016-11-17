@@ -1,0 +1,17 @@
+<?php include '_header.phtml' ?>
+<h1>Admin</h1>
+<p>Enter the password to access to this area</p> 
+
+<form method="POST" >
+    
+    <!-- Flash message -->
+    <?php if(isset($flash)): ?>
+        <div class="flash"><?= $flash ?></div>
+    <?php endif ?>
+    
+    <label>Password</label><input type="password" name="password">
+    <input type="submit"/>
+</form>
+
+
+<?php include '_footer.phtml'?>

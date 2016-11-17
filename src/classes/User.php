@@ -7,31 +7,37 @@ namespace BuildMyCV\classes ;
 */
 class User
 {
-    public $firstname;
-    public $lastname;
-    public $email;
-    public $phone;
-    public $adress;
-    public $birth_date;
-    public $town_birth;
-
-    public $comptencies = array();
-
-    public $professionalExperiences = array();
-    public $personalExperiences = array();
-    public $diplomas = array();
-    public $trainings = array();
-    public $langages = array();
-
-    public $links = array();
-
     private static $instance;
+    
+    private $firstname;
+    private $lastname;
+    private $email;
+    private $phone;
+    private $address;
+    private $birth_date;
+    private $town_birth;
+    private $oneline_description ;
+    private $multiline_description ;
+    
+    private $interest_points = array();
 
+    private $programming_langages = array();
+    private $frameworks = array();
+
+    private $professional_exps = array();
+    private $personal_exps = array();
+    private $diplomas = array();
+    private $trainings = array();
+    private $langages = array();
+    private $links = array();
+    
+    const JSON_URL = ROOT."\\src\\public\\data.json" ;
 
     /**
     * Singleton class
+    * @return an instance of User
     */
-    public static function getInstance(){
+    public static function get_instance():User{
         if(is_null(self::$instance)){
             self::$instance = new User();
         }
@@ -41,39 +47,78 @@ class User
 
 	
     private function __construct() {
-        $String = file_get_contents(ROOT."/src/public/data.json");
-        $this->hydrate( json_decode($String, true) );
+        if(file_exists(self::JSON_URL)){
+            $data = file_get_contents(self::JSON_URL);
+            $this->hydrate( json_decode($data, true) );
+        }else{
+            throw new \Exception( self::JSON_URL.' does not exist');
+        }
     }
-
+    
+    /* GETTERS AREA */
+    function get_firstname():string{ return $this->firstname; }
+    function get_lastname():string{ return $this->lastname; }
+    function get_address():string{ return $this->address; }
+    function get_email():string{ return $this->email; }
+    function get_phone():string{ return $this->phone; }
+    function get_birth_date(): \DateTime{ return $this->birth_date; }
+    function get_town_birth():string{ return $this->town_birth; }
+    function get_diplomas():array{ return $this->diplomas;}
+    function get_trainings():array{ return $this->trainings;}
+    function get_langages():array{ return $this->langages; }
+    function get_professional_experiences():array{ return $this->professional_exps;}
+    function get_personal_experiences():array{ return $this->personal_exps;}
+    function get_programming_langages():array{ return $this->programming_langages;}
+    function get_interest_points():array{return $this->interest_points;}
+    function get_frameworks():array{ return $this->frameworks; }
+    function get_oneline_description():string{ return $this->oneline_description ;}
+    function get_multiline_description():string{ return $this->multiline_description ;}
 
     /**
     * get the complete name formated like `Rousseau Alexandre`
     * @return String
     */
-    function complete_name(){
+    function complete_name():string{
         return $this->lastname." ".$this->firstname ;
     }
     
+    function birth_informations(){
+        return 'né le '.$this->birth_date->format('d/m/Y').' à '.$this->town_birth;
+    }
     
     /**
     * create a balise tag to call this user
     * @return string as <a> tag
     */
-    function phone(){
+    function phone_link():string{
         return '<a href="tel:'.$this->phone.'" >'.$this->phone.'</a>' ;
     }
 
-
+    /**
+     * print a link tag to send an email
+     * @return string
+     */
+    function email_link():string{
+        return '<a href="mailto:'.$this->email.'?subject=Votre%20CV">'.$this->email.'</a>';
+    }
+    
+    
     /**
     * create Html links in the contact area as <ul> tag
-    * @return String
+    * @yield String as string
     */
-    function print_links(){
-        $html = '' ;
-        foreach ($this->links as $name => $details) {
-            $html = $html.$this->print_link($name, $details);
+    function get_contacts_links(){
+        foreach ($this->links as $n => $details) {
+            yield self::contact_link_to_html($details);
         }
-        return $html;
+    }
+    
+    /**
+    * create link tag for User::print_links method
+    * @return String links as <a .. ><img ... /></a>
+    */
+    private static function contact_link_to_html(array $details):string{
+        return '<a href="'.$details['link'].'">'.$details['name'].'</a>';
     }
 
 
@@ -81,58 +126,18 @@ class User
     * create a Html picture of user from gravatar (snippet from https://fr.gravatar.com/site/implement/images/php)
     * @return String as html image tag from gravatar.com
     */
-    function image($size=200){
+    function image(int $size=200):string{
         $src = "https://www.gravatar.com/avatar/".md5( strtolower( trim( $this->email ) ) )."?s=".$size;
         return '<img class="user" src="'.$src.'" alt="picture of '.$this->complete_name().'"/> ' ;
     }
 
 
     /**
-    * Convert all comptencies in json format to use in javascript
-    * @return String
-    */
-    function compentencies_to_json(){
-        $json = array();
-
-        $json['labels'] = array_keys($this->competencies) ;
-        $json['datasets'][0] = array();
-        $json['datasets'][0]['data'] = array();
-        $json['datasets'][0]['backgroundColor'] = array();
-
-        foreach ($this->competencies as $langage => $data) {
-            array_push( $json['datasets'][0]['data'], $data['value'] );
-            array_push( $json['datasets'][0]['backgroundColor'], $data['color'] );
-        }
-
-        return json_encode( $json , JSON_PRETTY_PRINT);
-
-    }
-
-
-    /**
-    * get all activities (Personnal AND professionnal experiences) sorted by date
-    * @return array of Experience objects
-    */
-    public function activities(){
-        $array = array();
-        foreach ($this->professionalExperiences as $exp){
-            foreach ($exp->activities as $activity) {array_push($array, $activity); }
-        }
-        foreach ($this->personalExperiences as $exp){
-            foreach ($exp->activities as $activity) {array_push($array, $activity); }
-        }
-
-        usort($array, function($a, $b) {if ($a->begin == $b->begin) {return 0; }else{ return ($a->begin > $b->begin) ? -1 : 1; } } );
-
-        return $array ;
-    }
-
-    /**
      * find personnal or professionnal activity by name
      * @param string $name as activity name
      * @return Activity as activity searched
      */
-    public function get_activity_by_name($name){
+    public function get_activity_by_name(string $name):Activity{
         $activity_name =  Activity::urldecode($name);
         foreach($this->activities() as $activity){
             if($activity->name == $activity_name){ return $activity ; }
@@ -140,13 +145,7 @@ class User
         return null ;
     }
     
-    /**
-    * create link tag for User::print_links method
-    * @return String links as <a .. ><img ... /></a>
-    */
-    private function print_link($name, $details){
-        return '<a href="'.$details['link'].'"><img src="img/'.$details['img'].'" alt="'.$name.'"></a>';
-    }
+    
 
 
     /**
@@ -161,22 +160,29 @@ class User
             }
         }
         // setup other properties 
-        foreach ($data["professional experience"] as $key => $value) {
-            array_push($this->professionalExperiences, new Experience($key, $value, true));
+        foreach ($data["professional_experience"] as $key => $value) {
+            array_push($this->professional_exps, new Experience($value));
         }
-        foreach ($data["personal experience"] as $key => $value) {
-            array_push($this->personalExperiences, new Experience($key, $value, false));
+        foreach ($data["personal_experience"] as $key => $value) {
+            array_push($this->personal_exps, new Experience($value));
         }
         foreach ($data["diplomas"] as $key => $value) {
-            array_push($this->diplomas, new Qualification($key, $value));
+            array_push($this->diplomas, new Qualification($value));
         }
+        foreach ($data["skills"]["langages"] as $key => $value){
+            array_push($this->programming_langages, new Skill($value['name'], $value['score']));
+        }
+        foreach ($data["skills"]["frameworks"] as $key => $value){
+            array_push($this->frameworks, new Skill($value['name'], $value['score']));
+        }
+        /*
         foreach ($data["trainings"] as $key => $value) {
             array_push($this->trainings, new Qualification($key, $value));
         }
+        */
         foreach ($data["langages"] as $key => $value) {
             array_push($this->langages, new Langage($key, $value));
         }
-        $this->competencies = $data["competencies"] ;
         $this->links = $data['links'] ;
     }
 }
