@@ -10,7 +10,7 @@ class Skill{
     const MAX = 10 ;
     const PICTURE_EXTENSION = ['png', 'svg', 'jpeg', 'jpg', 'gif'];
     
-    function __construct(string $name, int $score) {
+    function __construct(string $name, int $score = null) {
         $this->name = $name;
         $this->score = $score;
     }
@@ -47,6 +47,28 @@ class Skill{
             }
         }
         return false;
+    }
+    
+    /**
+     * Upload given file
+     * @param \Psr\Http\Message\UploadedFileInterface $file
+     * @return bool true if success
+     */
+    function upload_picture(\Psr\Http\Message\UploadedFileInterface $file){
+        $this->delete_old_picture();
+        $extension = pathinfo($file->getClientFilename(), PATHINFO_EXTENSION);;
+        $targetPath = UPLOADS.$this->name.'.'.$extension;
+        $file->moveTo($targetPath);
+        return file_exists($targetPath);
+    }
+    
+    /**
+     * Delete old pictures who match with this Skill's name
+     */
+    private function delete_old_picture(){
+        foreach ( glob( UPLOADS.$this->name.'.*' ) as $picture ){
+            if(is_writable($picture)){unlink($picture);}
+        }
     }
     
     /**

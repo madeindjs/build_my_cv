@@ -6,6 +6,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 use \BuildMyCV\classes\User as User;
 use \BuildMyCV\classes\Session as Session;
+use \BuildMyCV\classes\Skill as Skill;
 use \BuildMyCV\middlewares\CheckSessionMiddleware as CheckSessionMiddleware ;
 use \BuildMyCV\middlewares\DataExistsMiddleware as DataExistsMiddleware ;
 
@@ -96,10 +97,9 @@ $app->group('/admin', function(){
    $this->post ('/items/{name}', function (Request $request, Response $response, $args) {
        foreach($request->getUploadedFiles() as $file){
            /* @var $file \Psr\Http\Message\UploadedFileInterface  */
-           if($file->getError()==0){
-               $extension = pathinfo($file->getClientFilename(), PATHINFO_EXTENSION);;
-               $targetPath = UPLOADS.$args['name'].'.'.$extension;
-               $file->moveTo($targetPath);
+           if($file->getError()==0){ 
+               $skill = new Skill( $args['name'] );
+               $skill->upload_picture($file);
            }
        }
        return $response->withStatus(302)->withHeader('Location', '/admin/items');
