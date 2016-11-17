@@ -87,6 +87,26 @@ $app->group('/admin', function(){
        $user = User::get_instance() ;
        return $this->view->render($response, "admin_items.phtml", ["user"=> $user] );
    })->add(new CheckSessionMiddleware )->add(new CheckSessionMiddleware );
+   
+   /**
+    * POST /admin/items/{name_of_item}
+    * 
+    * Get all items to edit them
+    */
+   $this->post ('/items/{name}', function (Request $request, Response $response, $args) {
+       foreach($request->getUploadedFiles() as $file){
+           /* @var $file \Psr\Http\Message\UploadedFileInterface  */
+           if($file->getError()==0){
+               $extension = pathinfo($file->getClientFilename(), PATHINFO_EXTENSION);;
+               $targetPath = UPLOADS.$args['name'].'.'.$extension;
+               $file->moveTo($targetPath);
+               // check if the transfer success
+               $flash = file_exists($targetPath) ? "Picture updated successfully" : "Error occur..";
+               
+               return $response->withStatus(302)->withHeader('Location', '/admin/items', ['flash' => $targetPath]);
+           }
+       }
+   })->add(new CheckSessionMiddleware )->add(new CheckSessionMiddleware );
 
     /**
      * GET /admin/signin

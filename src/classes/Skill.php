@@ -8,6 +8,7 @@ class Skill{
     private $score;
     
     const MAX = 10 ;
+    const PICTURE_EXTENSION = ['png', 'svg', 'jpeg', 'jpg', 'gif'];
     
     function __construct(string $name, int $score) {
         $this->name = $name;
@@ -20,6 +21,20 @@ class Skill{
     
     function get_name():string{return $this->name;}
 
+    /**
+     * Check if a picture was uploaded or not
+     * @return string/null as picture path or null if not founded
+     */
+    function picture(){
+        foreach (self::PICTURE_EXTENSION as $extension){
+            $file = UPLOADS.$this->name.'.'.$extension;
+            if(file_exists($file)){
+                return $file;
+            }
+        }
+        return false;
+    }
+    
     /**
      * Render this skill to Html (name + progress bar)
      * @return string as Html tag
