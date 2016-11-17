@@ -40,7 +40,21 @@ $app->get('/', function (Request $request, Response $response) {
 $app->group('/admin', function(){
     
     /**
-    * GET admin interface
+    * GET /admin
+    * 
+    * We check if admin is logged. If not, we redirect him to the signin route
+    */
+   $this->get ('', function (Request $request, Response $response) {
+       $session = \BuildMyCV\classes\Session::get_instance() ;
+       if($session->is_logged()){
+           return $this->view->render($response, "admin.phtml", ["title" => "admin"]);
+       }else{
+           return $response->withStatus(302)->withHeader('Location', '/admin/signin');
+       }
+   });
+    
+    /**
+    * GET /admin/informations
     * 
     * We check if admin is logged. If not, we redirect him to the signin route
     */
@@ -54,7 +68,7 @@ $app->group('/admin', function(){
    });
     
     /**
-     * POST admin
+     * POST /admin/informations
      * 
      * We get JSON fil sent by AJAX call and we update the data.json file
      */
@@ -79,7 +93,7 @@ $app->group('/admin', function(){
     });
 
     /**
-     * GET admin signin
+     * GET /admin/signin
      * 
      * Show a form and ask the password to create a new session
      */
@@ -88,7 +102,7 @@ $app->group('/admin', function(){
     });
 
     /**
-     * POST admin signin
+     * POST /admin/signin
      * 
      * Check password sent & redirect user to the admin interface if success
      */
@@ -105,7 +119,7 @@ $app->group('/admin', function(){
     });
 
     /**
-     * GET admin signout
+     * GET /admin/signout
      * 
      * Destroy the session and redirect to the signin route
      */

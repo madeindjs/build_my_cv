@@ -1,0 +1,22 @@
+<?php include '_header.phtml' ?>
+
+<div id="admin-interface" >
+    
+    <h1>Admin</h1>
+    
+    <!-- Flash message -->
+    <?php if(isset($flash)): ?>
+        <div class="flash"><?= $flash ?></div>
+    <?php endif ?>
+        
+        <p>Welcome in this administration interace.</p>
+        <ul>
+            <li><a href="/admin/informations">Update your informations</a></li>
+            <li>Add items picture</li>
+            <li>Change password</li>
+            <li><a href="/">Go back to your CV</a></li>
+        </ul>
+        
+</div>
+
+<?php include '_footer.phtml'?>

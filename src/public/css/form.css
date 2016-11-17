@@ -22,32 +22,32 @@ button.json-editor-btn-delete:before{font-size: 15px;color: white; content: "-";
 label{}
 
 /* FORM STYLE from https://www.sanwebe.com/2014/08/css-html-forms-designs */
-form{font-family: 'Open Sans Condensed', arial, sans;width: 500px;padding: 30px;background: #FFFFFF;margin: 50px auto;
+#admin-interface{font-family: 'Open Sans Condensed', arial, sans;width: 500px;padding: 30px;background: #FFFFFF;margin: 50px auto;
      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);}
-form h2{background: #4D4D4D;text-transform: uppercase;font-family: 'Open Sans Condensed', sans-serif;color: #797979;
+#admin-interface h2{background: #4D4D4D;text-transform: uppercase;font-family: 'Open Sans Condensed', sans-serif;color: #797979;
      font-size: 18px;font-weight: 100;padding: 20px;margin: -30px -30px 30px -30px;}
 
-form input[type="text"],
-form input[type="date"],
-form input[type="datetime"],
-form input[type="email"],
-form input[type="number"],
-form input[type="search"],
-form input[type="time"],
-form input[type="tel"],
-form input[type="url"],
-form input[type="password"],
-form textarea,
-form select 
+#admin-interface input[type="text"],
+#admin-interface input[type="date"],
+#admin-interface input[type="datetime"],
+#admin-interface input[type="email"],
+#admin-interface input[type="number"],
+#admin-interface input[type="search"],
+#admin-interface input[type="time"],
+#admin-interface input[type="tel"],
+#admin-interface input[type="url"],
+#admin-interface input[type="password"],
+#admin-interface textarea,
+#admin-interface select 
 {box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;
      outline: none;display: block;width: 100%;padding: 7px;border: none;border-bottom: 1px solid #ddd;
      background: transparent;margin-bottom: 10px;font: 16px Arial, Helvetica, sans-serif;height: 45px;}
-form textarea{resize:none;overflow: hidden;}
-form input[type="button"], 
-form input[type="submit"]{-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;box-shadow: inset 0px 1px 0px 0px #45D6D6;
+#admin-interface textarea{resize:none;overflow: hidden;}
+#admin-interface input[type="button"], 
+#admin-interface input[type="submit"]{-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;box-shadow: inset 0px 1px 0px 0px #45D6D6;
      background-color: #2CBBBB;border: 1px solid #27A0A0;display: inline-block;cursor: pointer;color: #FFFFFF;
      font-family: 'Open Sans Condensed', sans-serif;font-size: 14px;padding: 8px 18px;text-decoration: none;text-transform: uppercase;}
-form input[type="button"]:hover, 
-form input[type="submit"]:hover {background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);background-color:#34CACA;}
+#admin-interface input[type="button"]:hover, 
+#admin-interface input[type="submit"]:hover {background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);background-color:#34CACA;}
 
 #editor_holder > #submit {position: fixed; bottom: 10px ;left: 50%; width: 300px;margin-left: -150px;z-index: 99 !important;}
