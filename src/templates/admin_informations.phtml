@@ -90,7 +90,7 @@
                     alert(xmlhttp.responseText);
                 }
             }
-            xmlhttp.open("POST", "/admin");
+            xmlhttp.open("POST", "/admin/informations");
             xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
             xmlhttp.send(JSON.stringify( editor.getValue(), null, 2 ));
         });
