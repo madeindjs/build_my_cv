@@ -22,21 +22,25 @@ abstract class Entity {
         
     }
     
+    /**
+     * Returned a formated time intervall 
+     * @return string
+     */
     protected function work_interval():string{
         if( property_exists(get_class($this), 'date' )){
-            return $this->date->format('Y');
+            return $this->date ? $this->date->format('Y') : "?";
         }else{
             // if begin & end year is the same, we only print year
             if($this->end && $this->begin->format('Y') == $this->end->format('Y')){
                 return $this->begin->format('Y');
             
             // elseif different but we have an end year, print both in '2015-16' format
-            }elseif ($this->end) {
+            }elseif ($this->end && $this->begin ) {
                 return $this->begin->format('Y').'-'.$this->end->format('y');
                 
             // else print in '2015-16' format with current year
             }else{
-                return $this->begin->format('Y').'→';
+                return $this->begin ? $this->begin->format('Y').'→' : "?";
             }
         }
     }

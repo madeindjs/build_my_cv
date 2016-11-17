@@ -1,6 +1,6 @@
 {
     "user": {
-        "firstname": "Eric Théodore",
+        "firstname": "Eric Th\u00e9odore",
         "lastname": "Cartman",
         "email": "eric.cartman@southpark.com",
         "phone": "?",
@@ -18,7 +18,7 @@
         {
             "name": "Wikipedia",
             "picture": "",
-            "link": "https://en.wikipedia.org/wiki/Eric_Cartman"
+            "link": "https:\/\/en.wikipedia.org\/wiki\/Eric_Cartman"
         }
     ],
     "skills": {
@@ -61,12 +61,18 @@
                 "PHP"
             ],
             "tasks": [
-                "azerty",
-                "uiop"
+                "pray to a poster of The Passion's director Mel Gibson",
+                "Attempting to contact Mel Gibson",
+                "shouts hateful slogans in German"
             ]
         }
     ],
     "diplomas": [
+        {
+            "title": "CM2",
+            "date": "",
+            "place": "Elementary School of Colorado"
+        }
     ],
     "langages": [
         {
