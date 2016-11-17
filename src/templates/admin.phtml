@@ -4,9 +4,12 @@
 
 <h1>Admin</h1>
 
-<div id="editor_holder"></div>
+<form id="editor_holder">
+    
+    <input id="submit" type="submit" value="mette à jour vos informations">
+</form>
 
-<input id="submit" type="submit">
+
 
 <script src="/js/jsoneditor.min.js"></script>
 
@@ -77,12 +80,19 @@
         }
       
         // Listen the submit button to send data to writte the json file
-        document.getElementById('submit').addEventListener('click',function() {
-          // Get the value from the editor
-          var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-          xmlhttp.open("POST", "/admin");
-          xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-          xmlhttp.send(JSON.stringify( editor.getValue(), null, 2 ));
+        document.getElementById('submit').addEventListener('click', function(event) {
+            
+            event.preventDefault();
+            
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if(xmlhttp.readyState == XMLHttpRequest.DONE ) {
+                    alert(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("POST", "/admin");
+            xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xmlhttp.send(JSON.stringify( editor.getValue(), null, 2 ));
         });
     })
       

@@ -54,9 +54,23 @@ $app->get ('/admin', function (Request $request, Response $response) {
  * We get JSON fil sent by AJAX call and we update the data.json file
  */
 $app->post('/admin', function (Request $request, Response $response) {
+    $session = \BuildMyCV\classes\Session::get_instance() ;
+    if($session->is_logged()){
+        $post_data = $request->getParsedBody();
+        $json_data = json_encode($post_data, JSON_PRETTY_PRINT);
+        if(file_put_contents(WWW.'data.json', $json_data )){
+            echo 'Your informations was successfully updtaded';
+            return $response->withStatus(200);
+        }else{
+            echo 'Something goes wrong (data file could not be writted)';
+            return $response->withStatus(500);
+        }
+    }else{
+        echo 'You are not logged as admininstrator';
+        return $response->withStatus(403);
+    }
     // TODO: check if user is logged
-    $post_data = $request->getParsedBody();
-    echo file_put_contents(WWW.'data.json', json_encode($post_data, JSON_PRETTY_PRINT));
+    
 });
 
 /**
@@ -80,7 +94,8 @@ $app->post('/admin/signin', function (Request $request, Response $response) use 
     if($session->login($post_data['password'])){
         return $response->withStatus(302)->withHeader('Location', '/admin');
     }else{
-        return $this->view->render( $response,  "admin_signin.phtml",  ["flash" => "password might be wrong" ] );
+        return $this->view->render( $response,  "admin_signin.phtml",  
+                ["flash" => "password wrong (see readme file for the default password)" ] );
     }
 });
 
