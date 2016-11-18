@@ -73,7 +73,16 @@
 
                     "technologies": {
                         "type": "array",
-                        "items": { "type": "string" }
+                        "items": { 
+                            "type": "string",
+                            "watch": {
+                                "colors": "skills.langages"
+                            },
+                            "enumSource": [{
+                                "source": "colors",
+                                "value": "{{item.name}}"
+                            }]
+                        }
                     },
                     "tasks": {
                         "type": "array",
