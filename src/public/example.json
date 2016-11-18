@@ -1,77 +1,199 @@
 {
     "user": {
-        "firstname": "Eric Th\u00e9odore",
-        "lastname": "Cartman",
-        "email": "eric.cartman@southpark.com",
-        "phone": "?",
-        "address": "Univertsity of Colorado",
-        "birth_date": "1992-01-01",
-        "town_birth": "Colorado",
+        "firstname": "Alexandre",
+        "lastname": "Rousseau",
+        "email": "RousseauAlexandre.lyon@gmail.com",
+        "phone": "+33 663 549 581",
+        "address": "2c, rue de Margnolles, 69300, Caluire-et-Cuire",
+        "birth_date": "1992-12-28",
+        "town_birth": "Toulouse",
         "oneline_description": "South Park character",
         "multiline_description": "There's a big part of me that's Eric Cartman. He's both of our dark sides, the things we'd never say.",
         "interest_points": [
-            "Jews",
-            "Money"
+            "Course \u00e0 pied",
+            "natation",
+            "Cross-fit",
+            "Linux",
+            "Open-source",
+            "Nouvelles technologies"
         ]
     },
     "links": [
         {
-            "name": "Wikipedia",
-            "picture": "",
-            "link": "https:\/\/en.wikipedia.org\/wiki\/Eric_Cartman"
+            "name": "Stackoverflow",
+            "link": "http:\/\/stackoverflow.com\/users\/5935198\/rousseaualexandre",
+            "picture": ""
         }
     ],
-    "skills": {
-        "langages": [
-            {
-                "name": "Ruby",
-                "score": 8
-            },
-            {
-                "name": "Python",
-                "score": 7
-            }
-        ],
-        "frameworks": [
-            {
-                "name": "Ruby on Rails",
-                "score": 8
-            }
-        ]
-    },
-    "professional_experience": [
+    "skills": [
         {
-            "title": "Student",
-            "company": "elementary school",
-            "begin": "2001-09-01",
+            "name": "Ruby",
+            "kind": "Programming language",
+            "score": 7
+        },
+        {
+            "name": "Python",
+            "kind": "Programming language",
+            "score": 7
+        },
+        {
+            "name": "PHP",
+            "kind": "Programming language",
+            "score": 6
+        },
+        {
+            "name": "Java",
+            "kind": "Programming language",
+            "score": 4
+        },
+        {
+            "name": "C#",
+            "kind": "Programming language",
+            "score": 5
+        },
+        {
+            "name": "ASP.NET MVC",
+            "kind": "Framework",
+            "score": 6
+        },
+        {
+            "name": "CakePHP",
+            "kind": "Framework",
+            "score": 6
+        },
+        {
+            "name": "Ruby on Rails",
+            "kind": "Framework",
+            "score": 8
+        },
+        {
+            "name": "Sketchup",
+            "kind": "Software",
+            "score": 9
+        },
+        {
+            "name": "Javascript",
+            "kind": "Programming language",
+            "score": 6
+        },
+        {
+            "name": "AutoCad",
+            "kind": "Software",
+            "score": 8
+        },
+        {
+            "name": "Excel",
+            "kind": "Software",
+            "score": 9
+        }
+    ],
+    "experiences": [
+        {
+            "title": "Pilote qualit\u00e9 process - D\u00e9veloppeur",
+            "company": "Carrier",
+            "begin": "2015-11-01",
+            "end": "2017-01-06",
+            "kind": "Professionnal",
             "technologies": [
-                "Python"
+                "CakePHP",
+                "ASP.NET MVC"
             ],
             "tasks": [
-                "Gets an Anal Probe"
+                "Analyse des process techniques (SAV, intervention, etc..)",
+                "D\u00e9veloppement plateforme Web interne",
+                "Installation, configuration et mise en production",
+                "Pr\u00e9sentation \/ formation",
+                "Am\u00e9lioration continue"
             ]
-        }
-    ],
-    "personal_experience": [
+        },
         {
-            "title": "Try to exterminate jews",
-            "begin": "2015-10-01",
+            "title": "D\u00e9veloppeur Fullstack",
+            "company": "",
+            "begin": "2015-08-01",
             "end": "",
+            "kind": "Personnal",
+            "technologies": [
+                "Ruby",
+                "Ruby on Rails",
+                "Javascript"
+            ],
+            "tasks": [
+                "D\u00e9veloppement http:\/\/raspberry-cook.fr avec Ruby on Rails"
+            ]
+        },
+        {
+            "title": "Chef de projet - D\u00e9veloppeur",
+            "company": "Carrier",
+            "begin": "2015-08-01",
+            "end": "2017-01-06",
+            "kind": "Professionnal",
+            "technologies": [
+                "Sketchup",
+                "Ruby"
+            ],
+            "tasks": [
+                "Dessin 3D",
+                "Pr\u00e9sentation \/ Formation eurp\u00e9ene (DL, CZ, DK)",
+                "D\u00e9veloppement plugin Ruby"
+            ]
+        },
+        {
+            "title": "Developpeur PHP",
+            "company": "GAC Technology",
+            "begin": "2017-01-09",
+            "end": "",
+            "kind": "Professionnal",
             "technologies": [
                 "PHP"
             ],
+            "tasks": []
+        },
+        {
+            "title": "Assistant Technique Bureau d'\u00e9tude",
+            "company": "Carrier",
+            "begin": "2013-09-01",
+            "end": "2017-01-06",
+            "kind": "Professionnal",
+            "technologies": [
+                "AutoCad",
+                "Excel",
+                "Python"
+            ],
             "tasks": [
-                "pray to a poster of The Passion's director Mel Gibson",
-                "Attempting to contact Mel Gibson",
-                "shouts hateful slogans in German"
+                "Cr\u00e9ation des bilans frigorifiques",
+                "S\u00e9lection des composants frigorifiques",
+                "Dessin des plans d'\u00e9xecutions sur AutoCad",
+                "Installation \/ configuration des syst\u00e8me de r\u00e9gulation"
+            ]
+        },
+        {
+            "title": "Apprentis",
+            "company": "Carrier",
+            "begin": "2011-09-01",
+            "end": "2013-08-31",
+            "kind": "Professionnal",
+            "technologies": [
+                "Excel",
+                "AutoCad"
+            ],
+            "tasks": [
+                "Soutien du charg\u00e9 d'affaire pour nos clients d'Afrique du Nord",
+                "Dessin des plans d'executions"
             ]
         }
     ],
-    "diplomas": [
+    "qualifications": [
         {
-            "title": "CM2",
-            "date": "",
-            "place": "Elementary School of Colorado"
+            "title": "BTS Fluides, \u00e9nergies et environnement",
+            "date": "2013-08-31",
+            "place": "La Martini\u00e8re Monplaisir \u00e0 Lyon 8e",
+            "kind": "Diplomas"
+        },
+        {
+            "title": "Bac STI G\u00e9nie Energ\u00e9tique",
+            "date": "2011-08-31",
+            "place": "La Martini\u00e8re Monplaisir \u00e0 Lyon 8e",
+            "kind": "Diplomas"
         }
     ],
     "langages": [
@@ -80,8 +202,8 @@
             "notes": {
                 "speaken": 3,
                 "listen": 4,
-                "writen": 3,
-                "read": 3
+                "writen": 4,
+                "read": 5
             }
         }
     ]
