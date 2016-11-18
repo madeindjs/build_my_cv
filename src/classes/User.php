@@ -203,5 +203,6 @@ class User
         $this->links = $data['links'] ;
         // sort array
         usort($this->skills, array('BuildMyCV\classes\Skill',"cmp"));
+        usort($this->experiences, array('BuildMyCV\classes\Experience',"cmp"));
     }
 }
