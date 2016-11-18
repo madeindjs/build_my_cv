@@ -30,41 +30,33 @@
                 "headerTemplate": "{{ self.name }}",
                 "properties" :{
                     "name": {"type": "string"},
-                    "picture": {"type": "string"},
                     "link": {"type": "string"}
                 }
             }
         },
 
         "skills" : {
-            "type": "object",
+            "type": "array",
             "options": {"collapsed": true},
-            "properties" : {
-                "langages" : {
-                    "type": "array",
-                    "items": {
-                        "headerTemplate": "{{ self.name }}",
-                        "type": "object",
-                        "properties" :{
-                            "name": {"type": "string"},
-                            "score": { "type": "integer", "enum": [1,2,3,4,5,6,7,8,9,10]  }
-                        }
-                    }
-                },
-                "frameworks": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties" :{
-                            "name": {"type": "string"},
-                            "score": { "type": "integer", "enum": [1,2,3,4,5,6,7,8,9,10]  }
-                        }
-                    }
+            "items": {
+                "headerTemplate": "{{ self.name }}",
+                "type": "object",
+                "options": {"collapsed": true},
+                "properties" :{
+                    "name": {"type": "string"},
+                    "kind": {"type": "string", "enum": [
+                        "Programming language",
+                        "Framework",
+                        "Database management system",
+                        "Operating system",
+                        "Software",
+                        "Other"
+                    ]},
+                    "score": { "type": "integer", "enum": [1,2,3,4,5,6,7,8,9,10]  }
                 }
             }
         },
-
-        "professional_experience" : {
+        "experiences" : {
             "type": "array",
             "options": {"collapsed": true},
             "items": {
@@ -75,16 +67,19 @@
                     "company": {"type": "string"},
                     "begin": {"type": "string"},
                     "end": {"type": "string"},
-
+                    "kind": {"type": "string", "enum": [
+                        "Personnal",
+                        "Professionnal"
+                    ]},
                     "technologies": {
                         "type": "array",
                         "items": { 
                             "type": "string",
                             "watch": {
-                                "colors": "skills.langages"
+                                "frams": "skills"
                             },
                             "enumSource": [{
-                                "source": "colors",
+                                "source": "frams",
                                 "value": "{{item.name}}"
                             }]
                         }
@@ -96,29 +91,7 @@
                 }
             }
         },
-        "personal_experience" : {
-            "type": "array",
-            "options": {"collapsed": true},
-            "items": {
-                "headerTemplate": "{{ self.title }}",
-                "type": "object",
-                "properties" :{
-                    "title": {"type": "string"},
-                    "begin": {"type": "string"},
-                    "end": {"type": "string"},
-
-                    "technologies": {
-                        "type": "array",
-                        "items": { "type": "string" }
-                    },
-                    "tasks": {
-                        "type": "array",
-                        "items": { "type": "string"}
-                    }
-                }
-            }
-        },
-        "diplomas" : {
+        "qualifications" : {
             "type": "array",
             "options": {"collapsed": true},
             "items": {
@@ -127,19 +100,12 @@
                 "properties" :{
                     "title": {"type": "string"},
                     "date": {"type": "string"},
-                    "place": {"type": "string"}
-                }
-            }
-        },
-        "trainings" : {
-            "headerTemplate": "{{ self.title }}",
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties" :{
-                    "title": {"type": "string"},
-                    "date": {"type": "string"},
-                    "place": {"type": "string"}
+                    "place": {"type": "string"},
+                    "kind": {"type": "string", "enum": [
+                        "Diplomas",
+                        "Trainings",
+                        "Other"
+                    ]}
                 }
             }
         },
