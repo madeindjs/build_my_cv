@@ -1,7 +1,7 @@
 build_my_CV()
 =============
 
-A CV génerator without database requirement.
+A CV generator without database requirement.
 
 Purpose
 -------
@@ -85,12 +85,12 @@ Future
 ------
 
 * [x] create a json file generator
-* [ ] add link generator (link to ruby, Python, ror, etc..)
 * [ ] add PHPUnits tests
 * [ ] create projects pages
 * [ ] support multilangage
 * [x] create Markdown support 
-* [x] create a beautifull timeline 
+* [x] create a beautifull timeline
+* [ ] add cache system
 
 
 License
