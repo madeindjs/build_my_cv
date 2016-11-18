@@ -11,12 +11,28 @@ class Experience extends Entity
     protected $begin;
     protected $end;
     private $company;
-    private $technologies = array();
+    private $kind;
+    protected $technologies = array();
     private $tasks = array();
+    
+    const KIND_PERS = 'Personnal';
+    const KIND_PRO  = 'Professionnal';
 
     
     function __construct(array $details){
         $this->hydrate($details);
+    }
+    
+    /**
+     * Compare Experiences by $begin date
+     * @param \BuildMyCV\classes\Experience $a
+     * @param \BuildMyCV\classes\Experience $b
+     * @return type
+     */
+    static function cmp(Experience $a, Experience $b){
+        $date_a = $a->begin ? $a->begin->getTimestamp() : time() ;
+        $date_b = $b->begin ? $b->begin->getTimestamp() : time() ;
+        return $date_b - $date_a ;
     }
 
     /**
@@ -35,6 +51,8 @@ class Experience extends Entity
         }
         return $ret.'</ul>';
     }
+    
+    function get_kind(){return $this->kind;}
 
 
     /**
@@ -43,8 +61,9 @@ class Experience extends Entity
      */
     private function hydrate(array $details){
         $this->title = $details['title'] ?? null ;
-        $this->begin = \DateTime::createFromFormat('Y-m-d',$details['begin']);
-        $this->end = isset($details['end']) ? \DateTime::createFromFormat('Y-m-d',$details['end']) : null;
+        $this->begin = isset($details['begin'])?\DateTime::createFromFormat('Y-m-d',$details['begin']):null;
+        $this->end =    isset($details['end'] ) ? \DateTime::createFromFormat('Y-m-d',$details['end'] ):null;
+        $this->kind = $details['kind'] ?? null ;
         $this->company = $details['company'] ?? null ;
         $this->technologies = $details['technologies'] ?? null ;
         $this->tasks = $details['tasks'] ?? null ;
