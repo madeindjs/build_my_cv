@@ -5,6 +5,7 @@
     "properties": {
 
         "user" : {
+            "options": {"collapsed": true},
             "type": "object",
             "properties" : {
                 "firstname": { "type": "string" },
@@ -23,9 +24,10 @@
 
         "links" : {
             "type": "array",
-
+            "options": {"collapsed": true},
             "items": {
                 "type": "object",
+                "headerTemplate": "{{ self.name }}",
                 "properties" :{
                     "name": {"type": "string"},
                     "picture": {"type": "string"},
@@ -36,11 +38,12 @@
 
         "skills" : {
             "type": "object",
-
+            "options": {"collapsed": true},
             "properties" : {
                 "langages" : {
                     "type": "array",
                     "items": {
+                        "headerTemplate": "{{ self.name }}",
                         "type": "object",
                         "properties" :{
                             "name": {"type": "string"},
@@ -63,7 +66,9 @@
 
         "professional_experience" : {
             "type": "array",
+            "options": {"collapsed": true},
             "items": {
+                "headerTemplate": "{{ self.title }}",
                 "type": "object",
                 "properties" :{
                     "title": {"type": "string"},
@@ -73,7 +78,16 @@
 
                     "technologies": {
                         "type": "array",
-                        "items": { "type": "string" }
+                        "items": { 
+                            "type": "string",
+                            "watch": {
+                                "colors": "skills.langages"
+                            },
+                            "enumSource": [{
+                                "source": "colors",
+                                "value": "{{item.name}}"
+                            }]
+                        }
                     },
                     "tasks": {
                         "type": "array",
@@ -84,7 +98,9 @@
         },
         "personal_experience" : {
             "type": "array",
+            "options": {"collapsed": true},
             "items": {
+                "headerTemplate": "{{ self.title }}",
                 "type": "object",
                 "properties" :{
                     "title": {"type": "string"},
@@ -104,7 +120,9 @@
         },
         "diplomas" : {
             "type": "array",
+            "options": {"collapsed": true},
             "items": {
+                "headerTemplate": "{{ self.title }}",
                 "type": "object",
                 "properties" :{
                     "title": {"type": "string"},
@@ -114,6 +132,7 @@
             }
         },
         "trainings" : {
+            "headerTemplate": "{{ self.title }}",
             "type": "array",
             "items": {
                 "type": "object",
@@ -126,7 +145,9 @@
         },
         "langages" : {
             "type": "array",
+            "options": {"collapsed": true},
             "items": {
+                "headerTemplate": "{{ self.langage }}",
                 "type": "object",
                 "properties" :{
                     "langage": {"type": "string"},

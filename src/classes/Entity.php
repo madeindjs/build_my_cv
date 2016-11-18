@@ -12,14 +12,31 @@ abstract class Entity {
     
     protected $title;
     
-    
+    /**
+     * generate an Html represention of this Entity. It will generate something like this:
+     * <date>{date formated}</date>
+     * <strong>{title formated}</strong>
+     * <ul><li>{task}</li>(...)</ul>
+     * <div><img .. {picture of technologies} /></div>
+     * @return string
+     */
     function to_html():string{
         $ret =  '<date>'.$this->work_interval().'</date><strong>'.$this->complete_title().'</strong>' ;
+        // add technologies if Entity is an Experience
+        if(property_exists(get_class($this), 'technologies')){
+            $ret .= '<div class="technologies" >';
+            foreach ( $this->technologies as $skill_name ){
+                /* @var $skill BuildMyCV\classes\Skill */
+                $skill = new Skill($skill_name);
+                $ret .= $skill->picture_to_html();
+            }
+            $ret .= "</div>";
+        }
+        // add tasks list if Entity is an Experience
         if(method_exists(get_class($this), 'tasks_to_html' )){
             $ret .= $this->tasks_to_html();
         }
         return $ret ;
-        
     }
     
     /**

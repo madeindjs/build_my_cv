@@ -11,7 +11,7 @@ class Experience extends Entity
     protected $begin;
     protected $end;
     private $company;
-    private $technologies = array();
+    protected $technologies = array();
     private $tasks = array();
 
     
