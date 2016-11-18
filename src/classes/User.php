@@ -24,10 +24,9 @@ class User
     private $programming_langages = array();
     private $frameworks = array();
 
-    private $professional_exps = array();
-    private $personal_exps = array();
-    private $diplomas = array();
-    private $trainings = array();
+    private $experiences = array();
+    private $qualifications = array();
+    private $skills = array();
     private $langages = array();
     private $links = array();
     
@@ -63,17 +62,44 @@ class User
     function get_phone():string{ return $this->phone; }
     function get_birth_date(): \DateTime{ return $this->birth_date; }
     function get_town_birth():string{ return $this->town_birth; }
-    function get_diplomas():array{ return $this->diplomas;}
-    function get_trainings():array{ return $this->trainings;}
+    function get_diplomas(){
+        return $this->items_from_this_kind($this->qualifications, Qualification::KIND_DIPLOMAS);
+    }
+    function get_trainings(){
+    }
     function get_langages():array{ return $this->langages; }
-    function get_professional_experiences():array{ return $this->professional_exps;}
-    function get_personal_experiences():array{ return $this->personal_exps;}
-    function get_programming_langages():array{ return $this->programming_langages;}
-    function get_interest_points():array{return $this->interest_points;}
-    function get_frameworks():array{ return $this->frameworks; }
+    function get_professional_experiences(){
+        return $this->items_from_this_kind($this->experiences, Experience::KIND_PRO);
+    }
+    function get_personal_experiences(){
+        return $this->items_from_this_kind($this->experiences, Experience::KIND_PERS);
+    }
+    
+    function get_interest_points(){return $this->interest_points;}
+    function get_programming_langages(){
+        return $this->items_from_this_kind($this->skills, Skill::KIND_LANG);
+    }
+    function get_frameworks(){
+        return $this->items_from_this_kind($this->skills, Skill::KIND_FRAMEWORK);
+    }
     function get_oneline_description():string{ return $this->oneline_description ;}
     function get_multiline_description():string{ return $this->multiline_description ;}
 
+    /**
+     * Return all items corresponding to the given kind of experience
+     * @parma array $items as items to search in (experiences, qualifications, etc..)
+     * @param string $kind
+     * @yield Experience 
+     */
+    private function items_from_this_kind(array $items, string $kind){
+        foreach ($items as $exp){
+            if($exp->get_kind() == $kind){
+                yield $exp ;
+            }
+        }
+    }
+    
+    
     /**
     * get the complete name formated like `Rousseau Alexandre`
     * @return String
@@ -152,6 +178,8 @@ class User
     * set up object properties in loop
     */
     private function hydrate(array $data){
+        
+        
         // setup user informations
         foreach ($data["user"] as $key => $value) {
             if( property_exists(get_class($this), $key )){
@@ -160,26 +188,15 @@ class User
             }
         }
         // setup other properties 
-        foreach ($data["professional_experience"] as $key => $value) {
-            array_push($this->professional_exps, new Experience($value));
+        foreach ($data["experiences"] as $key => $value) {
+            array_push($this->experiences, new Experience($value));
         }
-        foreach ($data["personal_experience"] as $key => $value) {
-            array_push($this->personal_exps, new Experience($value));
+        foreach ($data["qualifications"] as $key => $value) {
+            array_push($this->qualifications, new Qualification($value));
         }
-        foreach ($data["diplomas"] as $key => $value) {
-            array_push($this->diplomas, new Qualification($value));
+        foreach ($data["skills"] as $key => $value){
+            array_push($this->skills, new Skill($value));
         }
-        foreach ($data["skills"]["langages"] as $key => $value){
-            array_push($this->programming_langages, new Skill($value['name'], $value['score']));
-        }
-        foreach ($data["skills"]["frameworks"] as $key => $value){
-            array_push($this->frameworks, new Skill($value['name'], $value['score']));
-        }
-        /*
-        foreach ($data["trainings"] as $key => $value) {
-            array_push($this->trainings, new Qualification($key, $value));
-        }
-        */
         foreach ($data["langages"] as $key => $value) {
             array_push($this->langages, new Langage($key, $value));
         }

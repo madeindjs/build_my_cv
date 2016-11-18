@@ -27,7 +27,7 @@ abstract class Entity {
             $ret .= '<div class="technologies" >';
             foreach ( $this->technologies as $skill_name ){
                 /* @var $skill BuildMyCV\classes\Skill */
-                $skill = new Skill($skill_name);
+            $skill = new Skill( ['name' => $skill_name] );
                 $ret .= $skill->picture_to_html();
             }
             $ret .= "</div>";
