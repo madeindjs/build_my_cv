@@ -24,20 +24,15 @@ class Experience extends Entity
     }
     
     /**
-     * Compare Experiences by $end date
+     * Compare Experiences by $begin date
      * @param \BuildMyCV\classes\Experience $a
      * @param \BuildMyCV\classes\Experience $b
      * @return type
      */
     static function cmp(Experience $a, Experience $b){
-        if($a->end && $b->end){
-            return $a->end->getTimestamp() - $b->end->getTimestamp();
-        }elseif($a->end){
-            return $a->end->getTimestamp() - time() ;
-        }elseif($b->end){
-            return $b->end->getTimestamp() - time();
-        }
-        
+        $date_a = $a->begin ? $a->begin->getTimestamp() : time() ;
+        $date_b = $b->begin ? $b->begin->getTimestamp() : time() ;
+        return $date_b - $date_a ;
     }
 
     /**
