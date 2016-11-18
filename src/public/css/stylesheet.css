@@ -36,6 +36,13 @@ ul.timeline{margin-left:120px ; margin-top: 0px;padding-left: 25px;list-style: n
         /* add a small shape on the gray box */
         ul.timeline > li > date:before{display:block;content:" ";position: relative;top:12.5px;left:100px;
             width:0; height:0; border-top: 5px solid transparent; border-left: 10px solid;border-bottom: 5px solid transparent; }
+        /* move technologies picture to the left of the vertical ligne */
+        ul.timeline > li > div.technologies{display:block;position: relative;right: 145px ; top:30px;width: 100px;height:35px;
+            font-size: 18px; font-weight: lighter ; text-align: center;}
+        /* add grayscale on pictures */
+        ul.timeline > li > div.technologies>img{heigh: 20px;margin-left: 5px; margin-right: 5px;
+            filter: grayscale(50%);-webkit-filter: grayscale(50%);-moz-filter: grayscale(50%);-ms-filter: grayscale(50%);-o-filter: grayscale(50%);}
+
     
 .print{display: none;}
 
@@ -140,5 +147,6 @@ div.flash{display: block; padding:10px; margin-bottom: 10px;background-color: li
         ul.timeline > li > date{background-color: #ecf0f1;}
         /* add a small shape on the gray box */
         ul.timeline > li > date:before{border-left-color: #ecf0f1}
+        
         
 }
