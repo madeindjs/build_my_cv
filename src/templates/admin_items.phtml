@@ -24,7 +24,7 @@
                 <?php endif ?>
             </td>
             <td>
-                <form method="POST" action="/admin/items/<?= $lang->get_name() ?>" enctype="multipart/form-data">
+                <form method="POST" action="/admin/items/<?= urlencode($lang->get_name()) ?>" enctype="multipart/form-data">
                     <input type="file" name="picture">
                     <input type="submit" value="send">
                 </form>
