@@ -19,6 +19,14 @@ class Skill{
     const KIND_SOFTWARE = "Software";
     const KIND_OTHER = "Other";
     
+    /**
+     * Sort Skills by score DESC
+     * @param \BuildMyCV\classes\Skill $a
+     * @param \BuildMyCV\classes\Skill $b
+     * @return type
+     */
+    static function cmp(Skill $a, Skill $b){return strcmp($b->score, $a->score);}
+    
     function __construct(array $data) {
         $this->name = $data['name'] ?? null;
         $this->score = $data['score'] ?? null;

@@ -66,6 +66,7 @@ class User
         return $this->items_from_this_kind($this->qualifications, Qualification::KIND_DIPLOMAS);
     }
     function get_trainings(){
+        return $this->items_from_this_kind($this->qualifications, Qualification::KIND_TRAINING);
     }
     function get_langages():array{ return $this->langages; }
     function get_professional_experiences(){
@@ -74,10 +75,9 @@ class User
     function get_personal_experiences(){
         return $this->items_from_this_kind($this->experiences, Experience::KIND_PERS);
     }
-    
     function get_interest_points(){return $this->interest_points;}
     function get_programming_langages(){
-        return $this->items_from_this_kind($this->skills, Skill::KIND_LANG);
+        return $this->items_from_this_kind($this->skills , Skill::KIND_LANG);
     }
     function get_frameworks(){
         return $this->items_from_this_kind($this->skills, Skill::KIND_FRAMEWORK);
@@ -201,5 +201,7 @@ class User
             array_push($this->langages, new Langage($key, $value));
         }
         $this->links = $data['links'] ;
+        // sort array
+        usort($this->skills, array('BuildMyCV\classes\Skill',"cmp"));
     }
 }
