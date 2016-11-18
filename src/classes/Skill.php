@@ -6,14 +6,23 @@ namespace BuildMyCV\classes ;
 class Skill{
     private $name;
     private $score;
+    private $kind;
     
     const MAX = 10 ;
     const PICTURE_EXTENSIONS = ['png', 'svg', 'jpeg', 'jpg', 'gif'];
     const SANITIZED_WORDS = ['#'=>'sharp','+'=>'plus'  ];
     
-    function __construct(string $name, int $score = null) {
-        $this->name = $name;
-        $this->score = $score;
+    const KIND_LANG = "Programming language";
+    const KIND_FRAMEWORK = "Framework";
+    const KIND_DATABASE = "Database management system";
+    const KIND_OS = "Operating system";
+    const KIND_SOFTWARE = "Software";
+    const KIND_OTHER = "Other";
+    
+    function __construct(array $data) {
+        $this->name = $data['name'] ?? null;
+        $this->score = $data['score'] ?? null;
+        $this->kind = $data['kind'] ?? null;
     }
     
     function __toString(){
@@ -21,6 +30,7 @@ class Skill{
     }
     
     function get_name():string{return $this->name;}
+    function get_kind(){return $this->kind;}
     
     /**
      * Return Skill name sanitized for basename file (like for C# -> Csharp)
