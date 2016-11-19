@@ -40,6 +40,7 @@ Instalation
 
 * clone this repository: `git clone https://github.com/madeindjs/build_my_cv.git`
 * move into this folder: `cd build_my_cv`
+* make *public* folder readable: `sudo chomd 777 src/public`
 * Install dependencies with composer: `php composer.phar install`
 * Create a symbolic link in you Apache server: `sudo ln -s /path/to/git/clone/build_my_cv /var/www/build_my_cv`
 * Edit your apache configuration file: `sudo vim /etc/apache2/sites-enabled/000-default.conf` as bellow
@@ -47,6 +48,14 @@ Instalation
 ```
 <VirtualHost *:80>
     DocumentRoot    /var/www/build_my_cv/src/public/
+
+    <Directory /var/www/>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+     </Directory>
+
 </VirtualHost>
 ```
 
