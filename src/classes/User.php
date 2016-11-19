@@ -30,7 +30,7 @@ class User
     private $langages = array();
     private $links = array();
     
-    const JSON_URL = ROOT."\\src\\public\\data.json" ;
+    const JSON_URL = ROOT.DS.'src'.DS.'public'.DS.'data.json' ;
 
     /**
     * Singleton class
