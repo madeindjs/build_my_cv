@@ -43,6 +43,8 @@ ul.timeline{margin-left:120px ; margin-top: 0px;padding-left: 25px;list-style: n
         /* add grayscale on pictures */
         ul.timeline > li > div.technologies>img{heigh: 20px;margin-left: 5px; margin-right: 5px;}
 
+progress{-webkit-appearance: none; border:none;height: 16px;margin-bottom: 5px;background-color: white}
+
     
 .print{display: none;}
 
